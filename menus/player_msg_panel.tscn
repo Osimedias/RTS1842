@@ -1,0 +1,207 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://menus/portrait_base.tscn" type="PackedScene" id=1]
+
+[node name="player_msg_panel" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -350.0
+offset_bottom = -360.0
+
+[node name="portrait" parent="." instance=ExtResource( 1 )]
+offset_right = -250.0
+offset_bottom = 0.0
+
+[node name="msg" type="PanelContainer" parent="."]
+anchor_left = 0.435556
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="text" type="RichTextLabel" parent="msg"]
+offset_left = 7.0
+offset_top = 7.0
+offset_right = 247.0
+offset_bottom = 233.0
+text = "
+
+    Hoy decimos:
+    ¡Aquí estamos!
+    ¡Somos la dignidad rebelde, el corazón olvidado de la patria!
+    1o. de enero de 1996.
+
+    \"Todos aquellos pueblos, todos esos que trabajan la tierra, a los que nosotros invitamos que se reúnan a nuestro lado y nosotros daremos la vida a una sola lucha, para que nosotros andemos con ayuda de vosotros.
+
+    Que sigamos luchando y no descansemos y propiedad nuestra será la tierra, propiedad de gentes, la que fue de nuestros abuelitos, y que dedos de patas de piedra que machacan nos ha arrebatado, a la sombra de aquellos que han pasado, que mucho mandan: que nosotros juntos pongamos en alto, con la mano en sitio elevado y con la fuerza de nuestro corazón, ese hermoso que se toma para ser visto, se dice estandarte de nuestra dignidad y nuestra libertad de nosotros trabajadores de la tierra; que sigamos luchando y venzamos a aquellos que de nuevo se han encumbrado, de los que ayudan a los que han quitado tierra a otros, de los que para sí gran dinero hacen con el trabajo de los que son como nosotros, y de aquellos burladores en las haciendas, ése es nuestro deber de honra, si nosotros queremos que nos llamen hombres de buena vida, y bien en verdad buenos habitantes del pueblo.
+
+    Ahora pues, de algún modo, más que nunca, se necesita que todos andemos unidos, con todo nuestro corazón, y con todo nuestro empeño, en ese gran trabajo de la unificación maravillosa, bien verdadera, de aquellos que empezaron la lucha, que guardan en su corazón puros esos principios y no pierden la fe de la vida buena.
+
+    Nosotros rogamos a aquel a cuya mano se acerque este manifiesto que lo haga pasar a todos los hombres de esos pueblos.
+
+    \"Reforma, Libertad, Justicia y Ley.
+
+    El General en Jefe del Ejército Libertador del Sur
+
+    Emiliano Zapata.
+
+    (Manifiesto zapatista en náhuatl).
+
+    Al pueblo de México:
+    A los pueblos y gobiernos del mundo:
+
+    Hermanos:
+    No morirá la flor de la palabra. Podrá morir el rostro oculto de quien la nombra hoy, pero la palabra que vino desde el fondo de la historia y de la tierra ya no podrá ser arrancada por la soberbia del poder.
+
+    Nosotros nacimos de la noche. En ella vivimos. Moriremos en ella. Pero la luz será mañana para los más, para todos aquellos que hoy lloran la noche, para quienes se niega el día, para quienes es regalo la muerte, para quienes está prohibida la vida. Para todos la luz. Para todos todo. Para nosotros el dolor y la angustia, para nosotros la alegre rebeldía, para nosotros el futuro negado, para nosotros la dignidad insurrecta. Para nosotros nada.
+
+    Nuestra lucha es por hacernos escuchar, y el mal gobierno grita soberbia y tapa con cañones sus oídos.
+
+    Nuestra lucha es por el hambre, y el mal gobierno regala plomo y papel a los estómagos de nuestros hijos.
+
+    Nuestra lucha es por un techo digno, y el mal gobierno destruye nuestra casa y nuestra historia.
+
+    Nuestra lucha es por el saber, y el mal gobierno reparte ignorancia y desprecio.
+
+    Nuestra lucha es por la tierra, y el mal gobierno ofrece cementerios.
+
+    Nuestra lucha es por un trabajo justo y digno, y el mal gobierno compra y vende cuerpos y vergenzas.
+
+    Nuestra lucha es por la vida, y el mal gobierno oferta muerte como futuro.
+
+    Nuestra lucha es por el respeto a nuestro derecho a gobernar y gobernarnos, y el mal gobierno impone a los más la ley de los menos.
+
+    Nuestra lucha es por la libertad para el pensamiento y el caminar, y el mal gobierno pone cárceles y tumbas.
+
+    Nuestra lucha es por la justicia, y el mal gobierno se llena de criminales y asesinos.
+
+    Nuestra lucha es por la historia, y el mal gobierno propone olvido.
+
+    Nuestra lucha es por la Patria, y el mal gobierno sueña con la bandera y la lengua extranjeras.
+
+    Nuestra lucha es por la paz, y el mal gobierno anuncia guerra y destrucción.
+
+    Techo, tierra, trabajo, pan, salud, educación, independencia, democracia, libertad, justicia y paz. Estas fueron nuestras banderas en la madrugada de 1994. Estas fueron nuestras demandas en la larga noche de los 500 años. Estas son, hoy, nuestras exigencias.
+
+    Nuestra sangre y la palabra nuestra encendieron un fuego pequeñito en la montaña y lo caminamos rumbo a la casa del poder y del dinero. Hermanos y hermanas de otras razas y otras lenguas, de otro color y mismo corazón, protegieron nuestra luz y en ella bebieron sus respectivos fuegos.
+
+    Vino el poderoso a apagarnos con su fuerte soplido, pero nuestra luz se creció en otras luces. Sueña el rico con apagar la luz primera. Es inútil, hay ya muchas luces y todas son primeras.
+
+    Quiere el soberbio apagar una rebeldía que su ignorancia ubica en el amanecer de 1994. Pero la rebeldía que hoy tiene rostro moreno y lengua verdadera, no se nació ahora. Antes habló con otras lenguas y en otras tierras. En muchas montañas y muchas historias ha caminado la rebeldía contra la injusticia. Ha hablado ya en lengua náhuatl, paipai, kiliwa, cúcapa, cochimi, kumiai, yuma, seri, chontal, chinanteco, pame, chichimeca, otomí, mazahua, matlazinca, ocuilteco, zapoteco, solteco, chatino, papabuco, mixteco, cuicateco, triqui, amuzgo, mazateco, chocho, izcateco, huave, tlapaneco, totonaca, tepehua, popoluca, mixe, zoque, huasteco, lacandón, maya, chol, tzeltal, tzotzil, tojolabal, mame, teco, ixil, aguacateco, motocintleco, chicomucelteco, kanjobal, jacalteco, quiché, cakchiquel, ketchi, pima, tepehuán, tarahumara, mayo, yaqui, cahíta, ópata, cora, huichol, purépecha y kikapú. Habló y habla la castilla. La rebeldía no es cosa de lengua, es cosa de dignidad y de ser humanos.
+
+    Por trabajar nos matan, por vivir nos matan. No hay lugar para nosotros en el mundo del poder. Por luchar nos matarán, pero así nos haremos un mundo donde nos quepamos todos y todos nos vivamos sin muerte en la palabra. Nos quieren quitar la tierra para que ya no tenga suelo nuestro paso. Nos quieren quitar la historia para que en el olvido se muera nuestra palabra. No nos quieren indios. Muertos nos quieren.
+
+    Para el poderoso nuestro silencio fue su deseo. Callando nos moríamos, sin palabra no existíamos. Luchamos para hablar contra el olvido, contra la muerte, por la memoria y por la vida. Luchamos por el miedo a morir la muerte del olvido.
+
+    Hablando en su corazón indio, la Patria sigue digna y con memoria.
+
+    I
+
+    Hermanos:
+
+    El día 1o. de enero de 1995, después de romper el cerco militar con el que el mal gobierno pretendía sumirnos en el olvido y rendirnos, llamamos a las distintas fuerzas y ciudadanos a construir un amplio frente opositor que uniera las voluntades democráticas en contra del sistema de partido de Estado: el Movimiento para la Liberación Nacional. Aunque al inicio este esfuerzo de unidad opositora encontró no pocos problemas, siguió adelante en los pensamientos de los hombres y mujeres que no se conforman con ver su Patria entregada a las decisiones del poder y el dinero extranjeros. El amplio frente opositor, después de seguir una ruta llena de dificultades, incomprensiones y retrocesos, está por concretar sus primeros planteamientos y acuerdos de acción conjunta. El largo proceso de maduración de este esfuerzo organizativo habrá de hacerse pleno en el año que inicia. Nosotros los zapatistas saludamos el nacimiento del Movimiento para la Liberación Nacional y deseamos que entre quienes formen parte de él exista siempre el afán de unidad y el respeto a las diferencias.
+
+    Iniciado el diálogo con el supremo gobierno, el compromiso del EZLN en la búsqueda de una solución política a la guerra iniciada en 1994 se vio traicionado. Fingiendo voluntad de diálogo, el mal gobierno optó cobardemente por la solución militar y, con argumentos torpes y estúpidos, desató una gran persecución policíaca y militar que tenía como objetivo supremo el asesinato de la dirigencia del EZLN. Las fuerzas armadas rebeldes del EZLN resistieron con serenidad el golpe de decenas de miles de soldados que, con asesoría extranjera y toda la moderna maquinaria de muerte que poseen, pretendió ahogar el grito de dignidad que salía desde las montañas del Sureste Mexicano. Un repliegue ordenado permitió a las fuerzas zapatistas conservar su poder militar, su autoridad moral, su fuerza política y la razón histórica que es su principal arma en contra del crimen hecho gobierno. Las grandes movilizaciones de la sociedad civil nacional e internacional pararon la ofensiva traidora y obligaron al gobierno a insistir en la vía del diálogo y la negociación. Decenas de civiles inocentes fueron tomados presos por el mal gobierno y todavía permanecen en las cárceles en calidad de rehenes de los terroristas que nos gobiernan. Las fuerzas federales no tuvieron más victoria militar que la destrucción de una biblioteca, un salón de actos culturales, una pista de baile y el saqueo de las pocas pertenencias de los indígenas de la selva Lacandona. El intento de asesinato fue cubierto por la mentira gubernamental con la mascarada de la \"recuperación de la soberanía nacional''.
+
+    Olvidando el articulo 39 de la Constitución que juró cumplir el 1o. de diciembre de 1994, el supremo gobierno redujo al Ejército Federal Mexicano a la categoría de ejército de ocupación, le asignó la tarea de salvaguarda del crimen organizado hecho gobierno, y quiso enfrentarlo a sus hermanos mexicanos.
+
+    Mientras tanto, la verdadera pérdida de la soberanía nacional se concretaba en los pactos secretos y públicos del gabinete económico con los dueños de los dineros y los gobiernos extranjeros. Hoy, mientras decenas de miles de soldados federales agreden y hostigan a un pueblo armado de fusiles de palo y palabra digna, los altos gobernantes terminan de vender las riquezas de la gran nación mexicana y acaban de destruir lo poco que aún queda en pie.
+
+    Apenas iniciado el diálogo al que lo obligó la sociedad civil nacional e internacional, la delegación gubernamental tuvo oportunidad de mostrar claramente sus verdaderas intenciones en la negociación de la paz. Los neo-conquistadores de los indígenas que encabezan el equipo negociador del gobierno se distinguen por una actitud prepotente, soberbia, racista y humillante que llevó de fracaso en fracaso las distintas reuniones del Diálogo de San Andrés. Apostando al cansancio y al desgaste de los zapatistas, la delegación gubernamental puso todo su empeño en conseguir la ruptura del diálogo, confiada en que tendría así argumentos para recurrir a la fuerza y así conseguir lo que por razón le era imposible.
+
+    Viendo que el gobierno rehuía un enfoque serio del conflicto nacional que representaba la guerra, el EZLN tomó una iniciativa de paz que destrabara el diálogo y la negociación. Llamando a la sociedad civil a un diálogo nacional e internacional en la búsqueda de una paz nueva, el EZLN convocó a la Consulta por la Paz y la Democracia para escuchar el pensamiento nacional e internacional sobre sus demandas y su futuro.
+
+    Con la entusiasta participación de los miembros de la Convención Nacional Democrática, la entrega desinteresada de miles de ciudadanos sin organización pero con deseos democráticos, la movilización de los comités de solidaridad internacionales y los grupos de jóvenes, y la irreprochable ayuda de los hermanos y hermanas de Alianza Cívica Nacional, durante los meses de agosto y septiembre de 1995 se llevó a cabo un ejercicio ciudadano que no tiene precedente en la historia mundial: una sociedad civil y pacífica dialogando con un grupo armado y clandestino. Más de un millón 300 mil diálogos se realizaron para hacer verdad este encuentro de voluntades democráticas. Como resultado de esta consulta, la legitimidad de las demandas zapatistas fue ratificada, se dio un nuevo impulso al amplio frente opositor que se encontraba estancado y se expresó claramente el deseo de ver a los zapatistas participando en la vida política civil del país. La gran participación de la sociedad civil internacional llamó la atención sobre la necesidad de construir los espacios de encuentro entre las voluntades de cambio democrático que existen en los distintos países. El EZLN tomó con seriedad los resultados de este diálogo nacional e internacional e inició los trabajos políticos y organizativos para caminar de acuerdo con esas señales.
+
+    Tres nuevas iniciativas fueron lanzadas por los zapatistas como respuesta al éxito de la Consulta por la Paz y la Democracia. Una iniciativa para el ámbito internacional llamó a realizar un encuentro intercontinental en contra del neoliberalismo. Dos iniciativas son de carácter nacional: la formación de comités civiles de diálogo como base de discusión de los principales problemas nacionales y germen de una nueva fuerza política no partidaria; y la construcción de nuevos Aguascalientes como lugares de encuentro entre la sociedad civil y el zapatismo.
+
+    Tres meses después de estas tres iniciativas está por concretarse la convocatoria para el encuentro intercontinental por la humanidad y contra el neoliberalismo, más de 200 comités civiles de diálogo se han formado en toda la República Mexicana y, el día de hoy, se inauguran cinco nuevos Aguascalientes: uno en la comunidad de La Garrucha, otro en Oventic, uno más en Morelia, otro en La Realidad, y el último y primero en el corazón de todos los hombres y mujeres honestos que hay en el mundo.
+
+    En medio de amenazas y penurias, las comunidades indígenas zapatistas y la sociedad civil lograron levantar estos centros de resistencia civil y pacífica que serán lugar de resguardo de la cultura mexicana y mundial.
+
+    El Nuevo Diálogo Nacional tuvo una primera prueba con motivo de la mesa 1 del Diálogo de San Andrés. Mientras el gobierno descubría su ignorancia respecto de los habitantes originales de estas tierras, los asesores e invitados del EZLN echaron a andar un diálogo tan rico y nuevo que rebasó inmediatamente la estrechez de la mesa de San Andrés y se ubicó en su verdadero lugar: la nación. Los indígenas mexicanos, los siempre obligados a escuchar, a obedecer, a aceptar, a resignarse, tomaron la palabra y hablaron la sabiduría que anda en sus pasos. La imagen del indio ignorante, pusilánime y ridículo, la imagen que el poder había decretado para consumo nacional, se hizo pedazos y el orgullo y la dignidad indígenas volvieron a la historia para tomar el lugar que les corresponde: el de ciudadanos completos y cabales.
+
+    Independientemente de lo que resulte de la primera negociación de acuerdos en San Andrés, el diálogo iniciado por las distintas etnias y sus representantes seguirá adelante ahora en el Foro Nacional Indígena, y tendrá su ritmo y los alcances que los propios indígenas acuerden y decidan. En el escenario político nacional el redescubrimiento de la criminalidad salinista volvió a sacudir el sistema de partido de Estado. Los apologistas de las contrarreformas salinistas sufrieron amnesia y ahora son los más entusiastas perseguidores de aquel bajo cuya sombra se enriquecieron. El Partido Acción Nacional, el más fiel aliado de Carlos Salinas de Gortari, empezó a mostrar sus posibilidades reales de relevar al Partido Revolucionario Institucional en la cumbre del poder político y a enseñar su vocación represiva, intolerante y reaccionaria. Quienes ven con esperanza el ascenso del neopanismo olvidan que el relevo de una dictadura no significa democracia, y aplauden la nueva inquisición que, con careta democrática, habrá de sancionar con golpes y moralina los últimos estertores de un país que fue asombro mundial y hoy es referencia de crónicas policíacas y escándalos. Las constantes en el ejercicio de gobierno fueron la represión y la impunidad; las masacres de indígenas en Guerrero, Oaxaca y la Huasteca ratifican la política gubernamental frente a los indígenas; el autoritarismo en la UNAM frente al movimiento de los CCH demuestra la ruta de corrupción que va de la academia a la política; la detención de dirigentes de El Barzón es una muestra más de la traición como método de diálogo; las bestialidades del regente Espinosa ensayan el fascismo callejero en la ciudad de México; las reformas a la Ley del Seguro Social reiteran la democratización de la miseria y el apoyo a la banca privatizada asegura la vocación de unidad entre poder y dinero; los crímenes políticos son irresolubles porque provienen de quien dice perseguirlos; la crisis económica hace más insultante la corrupción en las esferas gubernamentales. Gobierno y crimen, hoy, son sinónimos y equivalentes.
+
+    Mientras la verdadera oposición se afana en encontrar el centro en una nación moribunda, amplias capas de la población refuerzan su escepticismo frente a los partidos políticos y buscan, sin encontrarla todavía, una opción de quehacer político nuevo, una organización política de nuevo tipo.
+
+    Como una estrella, la heroica y digna resistencia de las comunidades indígenas zapatistas iluminó el año de 1995 y escribió una hermosa lección en la historia mexicana. En Tepoztlán, en los trabajadores de Sutaur-100, en El Barzón, por mencionar algunos lugares y movimientos, la resistencia popular encontró dignos representantes.
+
+    En resumen, el año de 1995 se caracterizó por la definición de dos proyectos de nación completamente distintos y contradictorios.
+
+    Por un lado el proyecto de país que tiene el poder, un proyecto que implica la destrucción total de la nación mexicana; la negación de su historia; la entrega de su soberanía; la traición y el crimen como valores supremos; la hipocresía y el engaño como método de gobierno; la desestabilización y la inseguridad como programa nacional, y la represión y la intolerancia como plan de desarrollo. Este proyecto encuentra en el PRI su cara criminal y en el PAN su mascarada democrática. Por el otro lado, el proyecto de la transición a la democracia, no una transición pactada con el poder que simule un cambio para que todo siga igual, sino la transición a la democracia como el proyecto de reconstrucción del país; la defensa de la soberanía nacional; la justicia y la esperanza como anhelos; la verdad y el mandar obedeciendo como guía de jefatura; la estabilidad y la seguridad que dan la democracia y la libertad; el diálogo, la tolerancia y la inclusión como nueva forma de hacer política.
+
+    Este proyecto está por hacerse y corresponderá, no a una fuerza política hegemónica o a la genialidad de un individuo, sino a un amplio movimiento opositor que recoja los sentimientos de la nación. Estamos en medio de una gran guerra que ha sacudido al México de finales del siglo XX. La guerra entre quienes pretenden la perpetuación de un régimen social, cultural y político que equivale al delito de traición a la patria, y los que luchan por un cambio democrático, libre y justo. La guerra zapatista es sólo una parte de esa gran guerra que es la lucha entre la memoria que aspira a futuro y el olvido con vocación extranjera.
+
+    Una nueva sociedad plural, tolerante, incluyente, democrática, justa y libre sólo es posible, hoy, en una patria nueva. No será el poder el constructor. El poder hoy es sólo el agente de ventas de los escombros de un país destruido por los verdaderos subversivos y desestabilizadores: los gobernantes.
+
+    Los proyectos de oposición independiente tenemos una carencia que, hoy, se hace más decisiva: nos oponemos a un proyecto de país que implica su destrucción, pero carecemos de una propuesta de nueva nación, una propuesta de reconstrucción. Parte, y no el todo ni su vanguardia, ha sido y es el EZLN en el esfuerzo por la transición a la democracia. A pesar de las persecuciones y amenazas, por encima de los engaños y las mentiras, legítimo y consecuente, el EZLN sigue adelante en su lucha por la democracia, la libertad y la justicia para todos los mexicanos.
+
+    Hoy, la lucha por la democracia, la libertad y la justicia en México es un lucha por la liberación nacional.
+
+    II
+
+    Hoy, con el corazón de Emiliano Zapata y habiendo escuchado la voz de nuestros hermanos todos, llamamos al pueblo de México a participar en una nueva etapa de la lucha por la liberación nacional y la construcción de una patria nueva, a través de esta…
+
+    Cuarta Declaración de la Selva Lacandona
+    en la que llamamos a todos los hombres y
+    mujeres honestos a participar en la nueva
+    fuerza política nacional que hoy nace: el
+    Frente Zapatista de
+    Liberación Nacional
+
+    organización civil y pacífica, independiente y democrática, mexicana y nacional, que lucha por la democracia, la libertad y la justicia en México. El Frente Zapatista de Liberación Nacional nace hoy e invitamos para que participen en él a los obreros de la República, a los trabajadores del campo y de la ciudad, a los indígenas, a los colonos, a los maestros y estudiantes, a las mujeres mexicanas, a los jóvenes de todo el país, a los artistas e intelectuales honestos, a los religiosos consecuentes, a todos los ciudadanos mexicanos que queremos no el poder sino la democracia, la libertad y la justicia para nosotros y nuestros hijos.
+
+    Invitamos a la sociedad civil nacional, a los sin partido, al movimiento social y ciudadano, a todos los mexicanos a construir una nueva fuerza política. Una nueva fuerza política que sea nacional. Una nueva fuerza política con base en el EZLN.
+
+    Una nueva fuerza política que forme parte de un amplio movimiento opositor, el Movimiento para la Liberación Nacional, como lugar de acción política ciudadana donde confluyen otras fuerzas políticas de oposición independiente, espacio de encuentro de voluntades y coordinador de acciones unitarias.
+
+    Una fuerza política cuyos integrantes no desempeñen ni aspiren a desempeñar cargos de elección popular o puestos gubernamentales en cualquiera de sus niveles. Una fuerza política que no aspire a la toma del poder. Una fuerza que no sea un partido político.
+
+    Una fuerza política que pueda organizar las demandas y propuestas de los ciudadanos para que el que mande, mande obedeciendo. Una fuerza política que pueda organizar la solución de los problemas colectivos aún sin la intervención de los partidos políticos y del gobierno. No necesitamos pedir permiso para ser libres. La función de gobierno es prerrogativa de la sociedad y es su derecho ejercer esa función. Una fuerza política que luche en contra de la concentración de la riqueza en pocas manos y en contra de la centralización del poder. Una fuerza política cuyos integrantes no tengan más privilegio que la satisfacción del deber cumplido.
+
+    Una fuerza política con organización local, estatal y regional que crezca desde la base, desde su sustento social. Una fuerza política nacida de los comités civiles de diálogo.
+
+    Una fuerza política que se llama Frente porque trata de incorporar esfuerzos organizativos no partidistas, tiene muchos niveles de participación y muchas formas de lucha.
+
+    Una fuerza política que se llama Zapatista porque nace con la esperanza y el corazón indígena que, junto al EZLN, volvieron a bajar de las montañas mexicanas.
+
+    Una fuerza política que se llama De Liberación Nacional porque su lucha es por la libertad de todos los mexicanos y en todo el país.
+
+    Una fuerza política con un programa de lucha de 13 puntos, los de la Primera Declaración de la Selva Lacandona enriquecidos a lo largo de dos años de insurgencia. Una fuerza política que luche contra el sistema de partido de Estado. Una fuerza política que luche por la democracia en todo y no sólo en lo electoral. Una fuerza política que luche por un nuevo constituyente y una nueva Constitución. Una fuerza política que luche porque en todas partes haya justicia, libertad y democracia. Una fuerza política que no luche por la toma del poder político sino por la democracia de que el que mande, mande obedeciendo.
+
+    Llamamos a todos los hombres y mujeres de México, a los indígenas y a los no indígenas, a todas las razas que forman la nación; a quienes estén de acuerdo en luchar por techo, tierra, trabajo, pan, salud, educación, información, cultura, independencia, democracia, justicia, libertad y paz; a quienes entienden que el sistema de partido de Estado es el principal obstáculo para el tránsito a la democracia en México; a quienes saben que democracia no quiere decir alternancia del poder sino gobierno del pueblo, para el pueblo y por el pueblo; a quienes estén de acuerdo con que se haga una nueva Carta Magna que incorpore las principales demandas del pueblo mexicano y las garantías de que se cumpla el artículo 39 mediante las figuras de plebiscito y referéndum; a quienes no aspiran o pretenden ejercer cargos públicos o puestos de elección popular; a quienes tienen el corazón, la voluntad y el pensamiento en el lado izquierdo del pecho; a quienes quieren dejar de ser espectadores y están dispuestos a no tener ni pago ni privilegio alguno como no sea el participar en la reconstrucción nacional; a quienes quieren construir algo nuevo y bueno, para que formen el Frente Zapatista de Liberación Nacional.
+
+    Aquellos ciudadanos sin partido, aquellas organizaciones sociales y políticas, aquellos comités civiles de diálogo, movimientos y grupos, todos los que no aspiren a la toma del poder y que suscriban esta Cuarta Declaración de la Selva Lacandona se comprometen a participar en el diálogo para acordar la estructura orgánica, el plan de acción y la declaración de principios del Frente Zapatista de Liberación Nacional.
+
+    Con la unidad organizada de los zapatistas civiles y los combatientes zapatistas en el Frente Zapatista de Liberación Nacional, la lucha iniciada el 1o. de enero de 1994 entrará en una nueva etapa. El EZLN no desaparece, pero su esfuerzo más importante irá por la lucha política. En su tiempo y condiciones, el EZLN participará directamente en la formación del Frente Zapatista de Liberación Nacional.
+
+    Hoy, 1o. de enero de 1996, el Ejército Zapatista de Liberación Nacional firma esta Cuarta Declaración de la Selva Lacandona. Invitamos al pueblo de México a que lo suscriba.
+
+    III
+
+    Hermanos:
+    Muchas palabras se caminan en el mundo. Muchos mundos se hacen. Muchos mundos nos hacen. Hay palabras y mundos que son mentiras e injusticias. Hay palabras y mundos que son verdades y verdaderos. Nosotros hacemos mundos verdaderos. Nosotros somos hechos por palabras verdaderas.
+
+    En el mundo del poderoso no caben más que los grandes y sus servidores. En el mundo que queremos nosotros caben todos.
+
+    El mundo que queremos es uno donde quepan muchos mundos. La Patria que construimos es una donde quepan todos los pueblos y sus lenguas, que todos los pasos la caminen, que todos la rían, que la amanezcan todos.
+
+    Hablamos la unidad incluso cuando callamos. Bajito y lloviendo nos hablamos las palabras que encuentran la unidad que nos abraza en la historia y para desechar el olvido que nos enfrenta y destruye.
+
+    Nuestra palabra, nuestro canto y nuestro grito, es para que ya no mueran más los muertos. Para que vivan luchamos, para que vivan cantamos.
+
+    Vive la palabra. Vive el Ya basta! Vive la noche que se hace mañana. Vive nuestro digno caminar junto a los todos que lloran. Para destruir el reloj de muerte del poderoso luchamos. Para un nuevo tiempo de vida luchamos.
+
+    La flor de la palabra no muere, aunque en silencio caminen nuestros pasos. En silencio se siembra la palabra. Para que florezca a gritos se calla. La palabra se hace soldado para no morirse en el olvido. Para vivir se muere la palabra, sembrada para siempre en el vientre del mundo. Naciendo y viviendo nos morimos. Siempre viviremos. Al olvido sólo regresarán quienes rinden su historia.
+
+    Aquí estamos. No nos rendimos. Zapata vive y, a pesar de todo, la lucha sigue.
+
+    Desde las montañas del Sureste Mexicano.
+
+    Comité Clandestino Revolucionario Indígena-Comandancia General del
+    Ejército Zapatista de Liberación Nacional.
+
+    México, enero de 1996
+"

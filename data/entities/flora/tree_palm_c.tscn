@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=3 uid="uid://dnj5vroryiqqu"]
+
+[ext_resource type="ArrayMesh" uid="uid://bcohskip8k1wm" path="res://art/PACK V3/palm_trio.obj" id="1_rbuao"]
+[ext_resource type="Texture2D" uid="uid://cbpr8wepxkvpv" path="res://art/PACK V3/diffuse.tga" id="2_7ntas"]
+[ext_resource type="Texture2D" uid="uid://ceg5h6ppsvjh6" path="res://art/PACK V3/normal.tga" id="3_q3f18"]
+[ext_resource type="Texture2D" uid="uid://7ty0t5ol473g" path="res://art/PACK V3/translucency.tga" id="4_iiu1j"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_avm4s"]
+transparency = 1
+depth_draw_mode = 1
+albedo_texture = ExtResource("2_7ntas")
+normal_enabled = true
+normal_texture = ExtResource("3_q3f18")
+subsurf_scatter_enabled = true
+subsurf_scatter_skin_mode = true
+subsurf_scatter_texture = ExtResource("4_iiu1j")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yblk0"]
+size = Vector3(2.76272, 5.56392, 3.33502)
+
+[node name="TreePalmC" type="AnimatableBody3D"]
+
+[node name="mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0883762, 0, 0, 0, 0.0883762, 0, 0, 0, 0.0883762, 0, 0, 0)
+mesh = ExtResource("1_rbuao")
+surface_material_override/0 = SubResource("StandardMaterial3D_avm4s")
+
+[node name="shape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.79923, 0)
+shape = SubResource("BoxShape3D_yblk0")

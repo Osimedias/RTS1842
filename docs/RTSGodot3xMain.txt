@@ -1,0 +1,53 @@
+
+game/ is where you put all class scripts
+
+Right now this game dose have a gui use Keycode
+Main Scene:
+	Menu(Is not a menu currently):
+		Singleplayer: Enter to Singleplayer Scene <Press S>
+		Multiplayer: Enter to Loby Scene <Press M>
+		Tools: Enter to Tools Scene <Press T>
+		Options: Enter to Options Scene <Press O>
+		Quit Game: <Press Q>
+	HomecityNode:Show the last user Homecity
+
+Singleplayer Scene:
+	The default is 2 players, random map is set to maps/random/random_map.gd, not game modes
+	to add a new player <Press Num +>
+	to remove a player <Press Num ->
+	Minium Players is 2
+	Player Color is Random
+	To Start a game <Press S>
+	To Back to Main Scene <Press B>
+Multiplayer Scene:
+	The default is 2 players, random map is set to maps/random/random_map.gd, not game modes
+	to add a new player <Press Num +>
+	to remove a player <Press Num ->
+	Minium Players is 2
+	Player Color is Random
+Tools Scene:
+	Map Editor: <Press M>
+	Civilization Editor: <Press C>
+	Actor Editor: <Press A>
+	Entity Editor: <Press E>
+Options Scene:
+	pass
+
+WorldMap Scene:
+	world_map.gd is a class call by Singleplayer Scene
+
+if you set in command line the name of random map script world_map.gd is call:
+	--rms=<script>
+
+Game data:
+	Civilization: Defines the civilizations see game/civilization.gd
+	Technology: Defines the tecnologys of the civilizations see game/technology.gd
+
+to open the MapEditor from command line:
+	--editor
+
+
+
+
+
+

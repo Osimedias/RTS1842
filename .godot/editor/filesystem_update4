@@ -1,0 +1,5 @@
+res://MapEditor.tscn
+res://MapEditor.gd
+res://map_editor/toolbar.gd
+res://map_editor/save_panel.gd
+res://map_editor/load_panel.gd

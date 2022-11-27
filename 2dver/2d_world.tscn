@@ -1,0 +1,59 @@
+[gd_scene load_steps=13 format=3 uid="uid://d2aixhkqj0a6p"]
+
+[ext_resource type="Script" path="res://2dver/pathfinder.gd" id="1_dsah7"]
+[ext_resource type="Script" path="res://2dver/camera.gd" id="1_jkvqb"]
+[ext_resource type="PackedScene" uid="uid://g38seco0k4oq" path="res://2dver/obtacle.tscn" id="2_ohv7e"]
+[ext_resource type="Texture2D" uid="uid://ch1hguh0hb7lr" path="res://icon.svg" id="2_s8hsl"]
+[ext_resource type="Texture2D" uid="uid://b62ukt88m5omc" path="res://sub_marcos.png" id="3_jdaxj"]
+[ext_resource type="PackedScene" uid="uid://dii0ms241fefr" path="res://2dver/start.tscn" id="3_ju780"]
+[ext_resource type="PackedScene" uid="uid://cxg66f0tjqto0" path="res://2dver/end.tscn" id="4_gedu4"]
+[ext_resource type="Script" path="res://2dver/unit.gd" id="4_uuhme"]
+[ext_resource type="Texture2D" uid="uid://djxyqndpkmo4b" path="res://2dver/character.png" id="6_jb7v7"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_uh8h0"]
+resource_name = "obstacle"
+scenes/1/scene = ExtResource("2_ohv7e")
+scenes/1/display_placeholder = ExtResource("2_ohv7e")
+scenes/2/scene = ExtResource("3_ju780")
+scenes/2/display_placeholder = ExtResource("3_ju780")
+scenes/3/scene = ExtResource("4_gedu4")
+
+[sub_resource type="TileSet" id="TileSet_hm35w"]
+sources/1 = SubResource("TileSetScenesCollectionSource_uh8h0")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vfqxp"]
+
+[node name="2DWorld" type="Node2D"]
+
+[node name="Pathfinder" type="Node2D" parent="."]
+script = ExtResource("1_dsah7")
+
+[node name="world_map" type="TileMap" parent="."]
+position = Vector2(0, 1)
+tile_set = SubResource("TileSet_hm35w")
+cell_quadrant_size = 64
+format = 2
+
+[node name="camera" type="CharacterBody2D" parent="."]
+script = ExtResource("1_jkvqb")
+
+[node name="cam" type="Camera2D" parent="camera"]
+current = true
+
+[node name="Sprite2D" type="Sprite2D" parent="camera"]
+visible = false
+texture = ExtResource("2_s8hsl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="camera"]
+shape = SubResource("RectangleShape2D_vfqxp")
+disabled = true
+
+[node name="SubMarcos" type="Sprite2D" parent="."]
+position = Vector2(1186, 600)
+texture = ExtResource("3_jdaxj")
+
+[node name="unit" type="Marker2D" parent="."]
+script = ExtResource("4_uuhme")
+
+[node name="Sprite2D" type="Sprite2D" parent="unit"]
+texture = ExtResource("6_jb7v7")

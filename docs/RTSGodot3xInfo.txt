@@ -1,0 +1,9 @@
+
+
+game formats:
+	<*.map,*.world> Scenario File Format extension see packed_scene_map.gd is a class
+	<*.gd> RandomMapScript,TriggerScript,AIScript, use script_templates
+	<*.homecity> User Homecity, reference of Homecity Class see game/homecity.gd
+	<*.json> Technology, Techtree dataset.
+	<*.conf> Configuration File
+	<*.data> Game data file

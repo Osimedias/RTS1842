@@ -1,0 +1,243 @@
+[gd_scene load_steps=3 format=3 uid="uid://bx3hsyf02631n"]
+
+[ext_resource type="Script" path="res://menus/techtree.gd" id="1_02rbk"]
+[ext_resource type="Script" path="res://menus/select_player_panel.gd" id="1_xlomi"]
+
+[node name="Sigleplayer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="background"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0104167
+anchor_top = 0.0185185
+anchor_right = 0.629167
+anchor_bottom = 0.977778
+script = ExtResource("1_xlomi")
+metadata/_edit_use_anchors_ = true
+
+[node name="players" type="VBoxContainer" parent="background/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 96.0
+offset_right = -22.0006
+offset_bottom = -26.0002
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="player_slot_1" type="HBoxContainer" parent="background/Panel/players"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_right = 1142.0
+offset_bottom = 98.0
+size_flags_vertical = 3
+
+[node name="player_slot_2" type="HBoxContainer" parent="background/Panel/players"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_top = 102.0
+offset_right = 1142.0
+offset_bottom = 200.0
+size_flags_vertical = 3
+
+[node name="player_slot_3" type="HBoxContainer" parent="background/Panel/players"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_top = 204.0
+offset_right = 1142.0
+offset_bottom = 302.0
+size_flags_vertical = 3
+
+[node name="player_slot_4" type="HBoxContainer" parent="background/Panel/players"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_top = 306.0
+offset_right = 1142.0
+offset_bottom = 404.0
+size_flags_vertical = 3
+
+[node name="player_slot_5" type="HBoxContainer" parent="background/Panel/players"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_top = 408.0
+offset_right = 1142.0
+offset_bottom = 506.0
+size_flags_vertical = 3
+
+[node name="player_slot_6" type="HBoxContainer" parent="background/Panel/players"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_top = 510.0
+offset_right = 1142.0
+offset_bottom = 608.0
+size_flags_vertical = 3
+
+[node name="player_slot_7" type="HBoxContainer" parent="background/Panel/players"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_top = 612.0
+offset_right = 1142.0
+offset_bottom = 710.0
+size_flags_vertical = 3
+
+[node name="player_slot_8" type="HBoxContainer" parent="background/Panel/players"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_top = 714.0
+offset_right = 1142.0
+offset_bottom = 812.0
+size_flags_vertical = 3
+
+[node name="player_slot_9" type="HBoxContainer" parent="background/Panel/players"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_top = 816.0
+offset_right = 1142.0
+offset_bottom = 914.0
+size_flags_vertical = 3
+
+[node name="counter" type="SpinBox" parent="background/Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.911616
+anchor_top = 0.0173745
+anchor_right = 0.981533
+anchor_bottom = 0.0472973
+min_value = 2.0
+max_value = 8.0
+value = 2.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="background/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.831649
+anchor_top = 0.0183398
+anchor_right = 0.906565
+anchor_bottom = 0.046332
+text = "Players"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel_2" type="Panel" parent="background"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.630729
+anchor_top = 0.0185185
+anchor_right = 0.990104
+anchor_bottom = 0.833333
+metadata/_edit_use_anchors_ = true
+
+[node name="map_preview" type="TextureRect" parent="background/Panel_2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.234783
+anchor_top = 0.0204545
+anchor_right = 0.765217
+anchor_bottom = 0.397727
+ignore_texture_size = true
+metadata/_edit_use_anchors_ = true
+
+[node name="map_options" type="VBoxContainer" parent="background/Panel_2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0231884
+anchor_top = 0.420455
+anchor_right = 0.971014
+anchor_bottom = 0.947728
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="background"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.736458
+anchor_top = 0.875
+anchor_right = 0.841146
+anchor_bottom = 0.950926
+text = "Start
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="Button_3" type="Button" parent="background"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.655729
+anchor_top = 0.875
+anchor_right = 0.710938
+anchor_bottom = 0.950926
+text = "Techtree
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="Button_2" type="Button" parent="background"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.854167
+anchor_top = 0.875
+anchor_right = 0.958854
+anchor_bottom = 0.950926
+text = "Back"
+metadata/_edit_use_anchors_ = true
+
+[node name="techtree" type="Panel" parent="background"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00625
+anchor_top = 0.0101852
+anchor_right = 0.99375
+anchor_bottom = 0.990741
+script = ExtResource("1_02rbk")
+metadata/_edit_use_anchors_ = true
+
+[node name="tree" type="Tree" parent="background/techtree"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00949367
+anchor_top = 0.03305
+anchor_right = 0.994198
+anchor_bottom = 0.891407
+columns = 4
+select_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="background/techtree"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.880274
+anchor_top = 0.903683
+anchor_right = 0.985232
+anchor_bottom = 0.975449
+text = "Back"
+metadata/_edit_use_anchors_ = true
+
+[node name="civilizations" type="OptionButton" parent="background/techtree"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00896624
+anchor_top = 0.896128
+anchor_right = 0.12289
+anchor_bottom = 0.981114
+metadata/_edit_use_anchors_ = true
+
+[connection signal="value_changed" from="background/Panel/counter" to="background/Panel" method="_on_counter_value_changed"]

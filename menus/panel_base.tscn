@@ -1,0 +1,398 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://art/gui/modern/background.png" type="Texture2D" id=1]
+[ext_resource path="res://icon.png" type="Texture2D" id=2]
+
+[node name="panel_base" type="Control"]
+anchor_right = 0.375
+anchor_bottom = 0.333333
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": true,
+"_editor_description_": "Base Control for all grid like panels.
+8x4 panel.
+32 elements"
+}
+
+[node name="texture" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+expand = true
+
+[node name="GridContainer" type="GridContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+columns = 8
+
+[node name="slot" type="TextureRect" parent="GridContainer"]
+offset_right = 34.0
+offset_bottom = 47.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+expand = true
+
+[node name="slot2" type="TextureRect" parent="GridContainer"]
+offset_left = 38.0
+offset_right = 72.0
+offset_bottom = 47.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+expand = true
+
+[node name="slot3" type="TextureRect" parent="GridContainer"]
+offset_left = 76.0
+offset_right = 110.0
+offset_bottom = 47.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+expand = true
+
+[node name="slot4" type="TextureRect" parent="GridContainer"]
+offset_left = 114.0
+offset_right = 148.0
+offset_bottom = 47.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+expand = true
+
+[node name="slot5" type="TextureRect" parent="GridContainer"]
+offset_left = 152.0
+offset_right = 186.0
+offset_bottom = 47.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+expand = true
+
+[node name="slot6" type="TextureRect" parent="GridContainer"]
+offset_left = 190.0
+offset_right = 224.0
+offset_bottom = 47.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+expand = true
+
+[node name="slot7" type="TextureRect" parent="GridContainer"]
+offset_left = 228.0
+offset_right = 262.0
+offset_bottom = 47.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+expand = true
+
+[node name="slot8" type="TextureRect" parent="GridContainer"]
+offset_left = 266.0
+offset_right = 300.0
+offset_bottom = 47.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+expand = true
+
+[node name="slot9" type="TextureRect" parent="GridContainer"]
+offset_top = 51.0
+offset_right = 34.0
+offset_bottom = 98.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+expand = true
+
+[node name="slot10" type="TextureRect" parent="GridContainer"]
+offset_left = 38.0
+offset_top = 51.0
+offset_right = 72.0
+offset_bottom = 98.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+expand = true
+
+[node name="slot11" type="TextureRect" parent="GridContainer"]
+offset_left = 76.0
+offset_top = 51.0
+offset_right = 110.0
+offset_bottom = 98.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+expand = true
+
+[node name="slot12" type="TextureRect" parent="GridContainer"]
+offset_left = 114.0
+offset_top = 51.0
+offset_right = 148.0
+offset_bottom = 98.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+expand = true
+
+[node name="slot13" type="TextureRect" parent="GridContainer"]
+offset_left = 152.0
+offset_top = 51.0
+offset_right = 186.0
+offset_bottom = 98.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+expand = true
+
+[node name="slot14" type="TextureRect" parent="GridContainer"]
+offset_left = 190.0
+offset_top = 51.0
+offset_right = 224.0
+offset_bottom = 98.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+expand = true
+
+[node name="slot15" type="TextureRect" parent="GridContainer"]
+offset_left = 228.0
+offset_top = 51.0
+offset_right = 262.0
+offset_bottom = 98.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+expand = true
+
+[node name="slot16" type="TextureRect" parent="GridContainer"]
+offset_left = 266.0
+offset_top = 51.0
+offset_right = 300.0
+offset_bottom = 98.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+expand = true
+
+[node name="slot17" type="TextureRect" parent="GridContainer"]
+offset_top = 102.0
+offset_right = 34.0
+offset_bottom = 149.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+expand = true
+
+[node name="slot18" type="TextureRect" parent="GridContainer"]
+offset_left = 38.0
+offset_top = 102.0
+offset_right = 72.0
+offset_bottom = 149.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+expand = true
+
+[node name="slot19" type="TextureRect" parent="GridContainer"]
+offset_left = 76.0
+offset_top = 102.0
+offset_right = 110.0
+offset_bottom = 149.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+expand = true
+
+[node name="slot20" type="TextureRect" parent="GridContainer"]
+offset_left = 114.0
+offset_top = 102.0
+offset_right = 148.0
+offset_bottom = 149.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+expand = true
+
+[node name="slot21" type="TextureRect" parent="GridContainer"]
+offset_left = 152.0
+offset_top = 102.0
+offset_right = 186.0
+offset_bottom = 149.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+expand = true
+
+[node name="slot22" type="TextureRect" parent="GridContainer"]
+offset_left = 190.0
+offset_top = 102.0
+offset_right = 224.0
+offset_bottom = 149.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+expand = true
+
+[node name="slot23" type="TextureRect" parent="GridContainer"]
+offset_left = 228.0
+offset_top = 102.0
+offset_right = 262.0
+offset_bottom = 149.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+expand = true
+
+[node name="slot24" type="TextureRect" parent="GridContainer"]
+offset_left = 266.0
+offset_top = 102.0
+offset_right = 300.0
+offset_bottom = 149.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+expand = true
+
+[node name="slot25" type="TextureRect" parent="GridContainer"]
+offset_top = 153.0
+offset_right = 34.0
+offset_bottom = 200.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+expand = true
+
+[node name="slot26" type="TextureRect" parent="GridContainer"]
+offset_left = 38.0
+offset_top = 153.0
+offset_right = 72.0
+offset_bottom = 200.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+expand = true
+
+[node name="slot27" type="TextureRect" parent="GridContainer"]
+offset_left = 76.0
+offset_top = 153.0
+offset_right = 110.0
+offset_bottom = 200.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+expand = true
+
+[node name="slot28" type="TextureRect" parent="GridContainer"]
+offset_left = 114.0
+offset_top = 153.0
+offset_right = 148.0
+offset_bottom = 200.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+expand = true
+
+[node name="slot29" type="TextureRect" parent="GridContainer"]
+offset_left = 152.0
+offset_top = 153.0
+offset_right = 186.0
+offset_bottom = 200.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+expand = true
+
+[node name="slot30" type="TextureRect" parent="GridContainer"]
+offset_left = 190.0
+offset_top = 153.0
+offset_right = 224.0
+offset_bottom = 200.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+expand = true
+
+[node name="slot31" type="TextureRect" parent="GridContainer"]
+offset_left = 228.0
+offset_top = 153.0
+offset_right = 262.0
+offset_bottom = 200.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+expand = true
+
+[node name="slot32" type="TextureRect" parent="GridContainer"]
+offset_left = 266.0
+offset_top = 153.0
+offset_right = 300.0
+offset_bottom = 200.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+expand = true

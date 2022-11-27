@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://game/civilization.gd" type="Script" id=1]
+[ext_resource path="res://art/flags/spanish.svg" type="Texture2D" id=2]
+
+[resource]
+script = ExtResource( 1 )
+sufix = "spain"
+name = "Spanish"
+personality = "Isabela"
+music = [  ]
+revolutions = PackedStringArray( "Great Colombia", "Argentina", "Chile", "Mexico", "Peru", "Bolivia", "Paraguay", "Cuba", "Filipinas" )
+bonuses = "Test"
+flag = ExtResource( 2 )
+homecity_name = "Madrid"

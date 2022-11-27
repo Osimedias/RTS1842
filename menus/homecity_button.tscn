@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://art/ezln_flag.svg" type="Texture2D" id=1]
+
+[node name="homecity_button" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -560.0
+offset_bottom = -450.0
+
+[node name="background" type="PanelContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="button" type="Button" parent="background"]
+offset_left = 7.0
+offset_top = 7.0
+offset_right = 233.0
+offset_bottom = 143.0
+
+[node name="flag" type="TextureRect" parent="background/button"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+expand = true

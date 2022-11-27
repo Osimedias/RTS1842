@@ -1,0 +1,336 @@
+[gd_scene load_steps=24 format=3 uid="uid://c4k6pieqepcg2"]
+
+[ext_resource type="Texture2D" uid="uid://d234o0hw2gq6k" path="res://data/art/textures/gui/map_editor/alterelevation.png" id="1_4pd4g"]
+[ext_resource type="Texture2D" uid="uid://tcnxxbpdy2cy" path="res://data/art/textures/gui/map_editor/flattenelevation.png" id="2_6epat"]
+[ext_resource type="Texture2D" uid="uid://ck4opmxbh5igh" path="res://data/art/textures/gui/map_editor/map.png" id="3_k6m8g"]
+[ext_resource type="Texture2D" uid="uid://bce55p2xw1v6g" path="res://data/art/textures/gui/map_editor/cinematic.png" id="4_wk32w"]
+[ext_resource type="Shader" path="res://shaders/terrain.gdshader" id="5_yyd3m"]
+[ext_resource type="Script" path="res://map_editor/terrain.gd" id="6_lhpdn"]
+[ext_resource type="Shader" path="res://shaders/mountain_shader.gdshader" id="6_wqqx4"]
+[ext_resource type="Texture2D" uid="uid://qwgi83e6kbs" path="res://art/terrain/grass_path_2_diff_4k.jpg" id="7_0aanq"]
+[ext_resource type="Texture2D" uid="uid://drusffp5nkqb2" path="res://art/terrain/sand_01_diff_4k.jpg" id="8_2kns0"]
+[ext_resource type="Script" path="res://map_editor/camera.gd" id="9_piodu"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_bbttj"]
+viewport_path = NodePath("MiniMap/texture/splat_map")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_hnea2"]
+viewport_path = NodePath("MiniMap/texture/splat_map")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_6qcul"]
+viewport_path = NodePath("height_map")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u8ykp"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("5_yyd3m")
+shader_parameter/blend_map = SubResource("ViewportTexture_hnea2")
+shader_parameter/height_map = SubResource("ViewportTexture_6qcul")
+shader_parameter/height_scale = null
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_evwki"]
+size = Vector2(200, 200)
+subdivide_width = 300
+subdivide_depth = 300
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_46ii7"]
+noise_type = 0
+seed = 2
+frequency = 0.02
+domain_warp_enabled = true
+domain_warp_type = 1
+domain_warp_fractal_type = 2
+domain_warp_fractal_lacunarity = 6.124
+domain_warp_fractal_gain = 0.549
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_t0yl1"]
+width = 1024
+height = 1024
+seamless = true
+noise = SubResource("FastNoiseLite_46ii7")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_djd5x"]
+render_priority = 0
+shader = ExtResource("6_wqqx4")
+shader_parameter/aerial_perspective_color = Color(0.141176, 0.415686, 0.670588, 1)
+shader_parameter/height = 30.0
+shader_parameter/height_map = SubResource("NoiseTexture2D_t0yl1")
+shader_parameter/mountain_distance = 2000.0
+shader_parameter/mountain_texture = ExtResource("7_0aanq")
+shader_parameter/mountain_uv_scale = Vector2(25, 25)
+shader_parameter/sand_texture = ExtResource("8_2kns0")
+shader_parameter/sand_uv_scale = Vector2(100, 100)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_fr843"]
+size = Vector2(400, 400)
+subdivide_width = 400
+subdivide_depth = 400
+
+[sub_resource type="InputEventKey" id="InputEventKey_q6o0w"]
+keycode = 4194320
+
+[sub_resource type="InputEventKey" id="InputEventKey_6lxey"]
+keycode = 4194322
+
+[sub_resource type="InputEventKey" id="InputEventKey_k2lyg"]
+keycode = 4194319
+
+[sub_resource type="InputEventKey" id="InputEventKey_5f4jw"]
+keycode = 4194321
+
+[node name="MapEditor" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="tool_panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.037037
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="tool_panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="file" type="MenuButton" parent="tool_panel/HBoxContainer"]
+layout_mode = 2
+offset_right = 35.0
+offset_bottom = 40.0
+text = "File"
+item_count = 6
+popup/item_0/text = "New Map"
+popup/item_0/id = 0
+popup/item_1/text = "Save Map"
+popup/item_1/id = 1
+popup/item_2/text = "Load Map"
+popup/item_2/id = 2
+popup/item_3/text = "Test Map"
+popup/item_3/id = 3
+popup/item_4/text = "Back to Menu"
+popup/item_4/id = 4
+popup/item_5/text = "Back to Desktop"
+popup/item_5/id = 5
+
+[node name="edit" type="MenuButton" parent="tool_panel/HBoxContainer"]
+layout_mode = 2
+offset_left = 39.0
+offset_right = 77.0
+offset_bottom = 40.0
+text = "Edit"
+item_count = 5
+popup/item_0/text = "Undo"
+popup/item_0/id = 0
+popup/item_1/text = "Copy"
+popup/item_1/id = 1
+popup/item_2/text = "Cut"
+popup/item_2/id = 2
+popup/item_3/text = "Pase"
+popup/item_3/id = 3
+popup/item_4/text = "Select"
+popup/item_4/id = 4
+
+[node name="entity" type="MenuButton" parent="tool_panel/HBoxContainer"]
+layout_mode = 2
+offset_left = 81.0
+offset_right = 179.0
+offset_bottom = 40.0
+text = "Place Entity"
+item_count = 4
+popup/item_0/text = "Entities"
+popup/item_0/id = 0
+popup/item_1/text = "Move"
+popup/item_1/id = 1
+popup/item_2/text = "Select"
+popup/item_2/id = 2
+popup/item_3/text = "Place Path"
+popup/item_3/id = 3
+
+[node name="player" type="MenuButton" parent="tool_panel/HBoxContainer"]
+layout_mode = 2
+offset_left = 183.0
+offset_right = 240.0
+offset_bottom = 40.0
+text = "Player"
+item_count = 5
+popup/item_0/text = "Players"
+popup/item_0/id = 0
+popup/item_1/text = "Fake Players"
+popup/item_1/id = 1
+popup/item_2/text = "Team"
+popup/item_2/id = 2
+popup/item_3/text = "Techtree"
+popup/item_3/id = 3
+popup/item_4/text = "Homecity"
+popup/item_4/id = 4
+
+[node name="terrain" type="MenuButton" parent="tool_panel/HBoxContainer"]
+layout_mode = 2
+offset_left = 244.0
+offset_right = 308.0
+offset_bottom = 40.0
+text = "Terrain"
+item_count = 3
+popup/item_0/text = "Brush Settings"
+popup/item_0/id = 0
+popup/item_1/text = "Terrain Brush"
+popup/item_1/id = 1
+popup/item_2/text = "Paint Brush"
+popup/item_2/id = 2
+
+[node name="trigers" type="MenuButton" parent="tool_panel/HBoxContainer"]
+layout_mode = 2
+offset_left = 312.0
+offset_right = 374.0
+offset_bottom = 40.0
+text = "Trigers"
+item_count = 4
+popup/item_0/text = "New Trigger"
+popup/item_0/id = 0
+popup/item_1/text = "Edit Trigger"
+popup/item_1/id = 1
+popup/item_2/text = "Make Trigger Group"
+popup/item_2/id = 2
+popup/item_3/text = "Edit Trigger Group"
+popup/item_3/id = 3
+
+[node name="map" type="MenuButton" parent="tool_panel/HBoxContainer"]
+layout_mode = 2
+offset_left = 378.0
+offset_right = 421.0
+offset_bottom = 40.0
+text = "Map"
+item_count = 2
+popup/item_0/text = "Load RMS"
+popup/item_0/id = 0
+popup/item_1/text = "Scenario Data"
+popup/item_1/id = 1
+
+[node name="height_brush" type="Button" parent="tool_panel/HBoxContainer"]
+layout_mode = 2
+offset_left = 425.0
+offset_right = 465.0
+offset_bottom = 40.0
+icon = ExtResource("1_4pd4g")
+
+[node name="low_brush" type="Button" parent="tool_panel/HBoxContainer"]
+layout_mode = 2
+offset_left = 469.0
+offset_right = 509.0
+offset_bottom = 40.0
+icon = ExtResource("2_6epat")
+
+[node name="tree_brush" type="Button" parent="tool_panel/HBoxContainer"]
+layout_mode = 2
+offset_left = 513.0
+offset_right = 564.0
+offset_bottom = 40.0
+text = "Trees"
+
+[node name="scenario_dataset" type="Button" parent="tool_panel/HBoxContainer"]
+layout_mode = 2
+offset_left = 568.0
+offset_right = 600.0
+offset_bottom = 40.0
+tooltip_text = "Game Dataset for this Scenario."
+icon = ExtResource("3_k6m8g")
+
+[node name="cinematic" type="Button" parent="tool_panel/HBoxContainer"]
+layout_mode = 2
+offset_left = 604.0
+offset_right = 636.0
+offset_bottom = 40.0
+icon = ExtResource("4_wk32w")
+
+[node name="MiniMap" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 666.0
+offset_right = 414.0
+offset_bottom = 1066.0
+
+[node name="texture" type="TextureRect" parent="MiniMap"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = 27.0
+offset_right = -25.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(150, 150)
+texture = SubResource("ViewportTexture_bbttj")
+ignore_texture_size = true
+
+[node name="splat_map" type="SubViewport" parent="MiniMap/texture"]
+disable_3d = true
+canvas_item_default_texture_filter = 2
+canvas_cull_mask = 4293918721
+render_target_clear_mode = 1
+render_target_update_mode = 4
+
+[node name="ColorRect" type="ColorRect" parent="MiniMap/texture/splat_map"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="painter" type="Node2D" parent="MiniMap/texture/splat_map"]
+
+[node name="height_map" type="SubViewport" parent="."]
+disable_3d = true
+canvas_item_default_texture_filter = 2
+canvas_cull_mask = 4293918721
+render_target_clear_mode = 1
+render_target_update_mode = 4
+
+[node name="ColorRect" type="ColorRect" parent="height_map"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.47451, 0.47451, 0.47451, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="painter" type="Node2D" parent="height_map"]
+
+[node name="3D" type="Node3D" parent="."]
+
+[node name="terrain" type="MeshInstance3D" parent="3D"]
+material_override = SubResource("ShaderMaterial_u8ykp")
+mesh = SubResource("PlaneMesh_evwki")
+script = ExtResource("6_lhpdn")
+
+[node name="background" type="MeshInstance3D" parent="3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.57659, 0)
+material_override = SubResource("ShaderMaterial_djd5x")
+mesh = SubResource("PlaneMesh_fr843")
+
+[node name="Camera" type="Marker3D" parent="3D"]
+script = ExtResource("9_piodu")
+up = SubResource("InputEventKey_q6o0w")
+down = SubResource("InputEventKey_6lxey")
+left = SubResource("InputEventKey_k2lyg")
+right = SubResource("InputEventKey_5f4jw")
+
+[node name="pivot" type="Marker3D" parent="3D/Camera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.29811, 0)
+
+[node name="cam" type="Camera3D" parent="3D/Camera/pivot"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0)
+
+[node name="sun" type="DirectionalLight3D" parent="3D"]
+transform = Transform3D(1, 0, 0, 0, 0.919513, 0.393059, 0, -0.393059, 0.919513, 0, 9.80116, 0)
+shadow_enabled = true

@@ -1,0 +1,324 @@
+[gd_scene load_steps=2 format=3 uid="uid://dh2qv0rfvjo8q"]
+
+[ext_resource type="Script" path="res://game/mini_map_draw.gd" id="1_bwf0v"]
+
+[node name="EditorGUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.0527778
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="MenuButton" type="MenuButton" parent="Panel/HBoxContainer"]
+offset_right = 182.0
+offset_bottom = 57.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+text = "File"
+
+[node name="MenuButton_2" type="MenuButton" parent="Panel/HBoxContainer"]
+offset_left = 186.0
+offset_right = 368.0
+offset_bottom = 57.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+text = "Edit"
+
+[node name="MenuButton_3" type="MenuButton" parent="Panel/HBoxContainer"]
+offset_left = 372.0
+offset_right = 554.0
+offset_bottom = 57.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+text = "Objects"
+
+[node name="MenuButton_4" type="MenuButton" parent="Panel/HBoxContainer"]
+offset_left = 558.0
+offset_right = 740.0
+offset_bottom = 57.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+text = "Terrain"
+
+[node name="MenuButton_5" type="MenuButton" parent="Panel/HBoxContainer"]
+offset_left = 744.0
+offset_right = 926.0
+offset_bottom = 57.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+text = "Data"
+
+[node name="Control" type="Control" parent="Panel/HBoxContainer"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 930.0
+offset_right = 1708.0
+offset_bottom = 57.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 6.4
+
+[node name="MenuButton_6" type="MenuButton" parent="Panel/HBoxContainer"]
+offset_left = 1712.0
+offset_right = 1920.0
+offset_bottom = 57.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.71
+text = "Menu
+"
+
+[node name="MiniMapPanel" type="PanelContainer" parent="."]
+anchors_preset = -1
+anchor_left = 0.0135417
+anchor_top = 0.65
+anchor_right = 0.195833
+anchor_bottom = 0.974074
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Terrain" type="TextureRect" parent="MiniMapPanel"]
+offset_right = 349.999
+offset_bottom = 350.0
+ignore_texture_size = true
+
+[node name="MiniMapDraw" type="Control" parent="MiniMapPanel/Terrain"]
+layout_mode = 3
+anchor_left = 0.102857
+anchor_top = 1.98572
+anchor_right = 0.285149
+anchor_bottom = 2.30979
+script = ExtResource("1_bwf0v")
+metadata/_edit_use_anchors_ = true
+
+[node name="ToolPanel" type="PanelContainer" parent="."]
+anchors_preset = -1
+anchor_left = 0.483854
+anchor_top = 0.677778
+anchor_right = 0.994271
+anchor_bottom = 0.992593
+metadata/_edit_use_anchors_ = true
+
+[node name="grid" type="GridContainer" parent="ToolPanel"]
+offset_right = 980.001
+offset_bottom = 340.0
+columns = 9
+
+[node name="slot1" type="PanelContainer" parent="ToolPanel/grid"]
+offset_right = 106.0
+offset_bottom = 111.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="slot1_2" type="PanelContainer" parent="ToolPanel/grid"]
+offset_left = 110.0
+offset_right = 216.0
+offset_bottom = 111.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="slot1_3" type="PanelContainer" parent="ToolPanel/grid"]
+offset_left = 220.0
+offset_right = 326.0
+offset_bottom = 111.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="slot1_4" type="PanelContainer" parent="ToolPanel/grid"]
+offset_left = 330.0
+offset_right = 435.0
+offset_bottom = 111.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="slot1_5" type="PanelContainer" parent="ToolPanel/grid"]
+offset_left = 439.0
+offset_right = 544.0
+offset_bottom = 111.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="slot1_6" type="PanelContainer" parent="ToolPanel/grid"]
+offset_left = 548.0
+offset_right = 653.0
+offset_bottom = 111.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="slot1_7" type="PanelContainer" parent="ToolPanel/grid"]
+offset_left = 657.0
+offset_right = 762.0
+offset_bottom = 111.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="slot1_8" type="PanelContainer" parent="ToolPanel/grid"]
+offset_left = 766.0
+offset_right = 871.0
+offset_bottom = 111.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="slot1_9" type="PanelContainer" parent="ToolPanel/grid"]
+offset_left = 875.0
+offset_right = 980.0
+offset_bottom = 111.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="slot1_10" type="PanelContainer" parent="ToolPanel/grid"]
+offset_top = 115.0
+offset_right = 106.0
+offset_bottom = 226.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="slot1_11" type="PanelContainer" parent="ToolPanel/grid"]
+offset_left = 110.0
+offset_top = 115.0
+offset_right = 216.0
+offset_bottom = 226.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="slot1_12" type="PanelContainer" parent="ToolPanel/grid"]
+offset_left = 220.0
+offset_top = 115.0
+offset_right = 326.0
+offset_bottom = 226.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="slot1_13" type="PanelContainer" parent="ToolPanel/grid"]
+offset_left = 330.0
+offset_top = 115.0
+offset_right = 435.0
+offset_bottom = 226.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="slot1_14" type="PanelContainer" parent="ToolPanel/grid"]
+offset_left = 439.0
+offset_top = 115.0
+offset_right = 544.0
+offset_bottom = 226.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="slot1_15" type="PanelContainer" parent="ToolPanel/grid"]
+offset_left = 548.0
+offset_top = 115.0
+offset_right = 653.0
+offset_bottom = 226.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="slot1_16" type="PanelContainer" parent="ToolPanel/grid"]
+offset_left = 657.0
+offset_top = 115.0
+offset_right = 762.0
+offset_bottom = 226.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="slot1_17" type="PanelContainer" parent="ToolPanel/grid"]
+offset_left = 766.0
+offset_top = 115.0
+offset_right = 871.0
+offset_bottom = 226.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="slot1_18" type="PanelContainer" parent="ToolPanel/grid"]
+offset_left = 875.0
+offset_top = 115.0
+offset_right = 980.0
+offset_bottom = 226.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="slot1_19" type="PanelContainer" parent="ToolPanel/grid"]
+offset_top = 230.0
+offset_right = 106.0
+offset_bottom = 340.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="slot1_20" type="PanelContainer" parent="ToolPanel/grid"]
+offset_left = 110.0
+offset_top = 230.0
+offset_right = 216.0
+offset_bottom = 340.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="slot1_21" type="PanelContainer" parent="ToolPanel/grid"]
+offset_left = 220.0
+offset_top = 230.0
+offset_right = 326.0
+offset_bottom = 340.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="slot1_22" type="PanelContainer" parent="ToolPanel/grid"]
+offset_left = 330.0
+offset_top = 230.0
+offset_right = 435.0
+offset_bottom = 340.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="slot1_23" type="PanelContainer" parent="ToolPanel/grid"]
+offset_left = 439.0
+offset_top = 230.0
+offset_right = 544.0
+offset_bottom = 340.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="slot1_24" type="PanelContainer" parent="ToolPanel/grid"]
+offset_left = 548.0
+offset_top = 230.0
+offset_right = 653.0
+offset_bottom = 340.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="slot1_25" type="PanelContainer" parent="ToolPanel/grid"]
+offset_left = 657.0
+offset_top = 230.0
+offset_right = 762.0
+offset_bottom = 340.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="slot1_26" type="PanelContainer" parent="ToolPanel/grid"]
+offset_left = 766.0
+offset_top = 230.0
+offset_right = 871.0
+offset_bottom = 340.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="slot1_27" type="PanelContainer" parent="ToolPanel/grid"]
+offset_left = 875.0
+offset_top = 230.0
+offset_right = 980.0
+offset_bottom = 340.0
+size_flags_horizontal = 3
+size_flags_vertical = 3

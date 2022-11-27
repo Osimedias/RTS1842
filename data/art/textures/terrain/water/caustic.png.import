@@ -1,0 +1,26 @@
+[remap]
+
+importer="2d_array_texture"
+type="CompressedTexture2DArray"
+uid="uid://dcljkesm1x3s8"
+path="res://.godot/imported/caustic.png-92fc1c9ca3dc8c9e1086031af7d09b2b.ctexarray"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://data/art/textures/terrain/water/caustic.png"
+dest_files=["res://.godot/imported/caustic.png-92fc1c9ca3dc8c9e1086031af7d09b2b.ctexarray"]
+
+[params]
+
+compress/mode=3
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/bptc_ldr=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+slices/horizontal=8
+slices/vertical=8

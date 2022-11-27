@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://game/civilization.gd" type="Script" id=1]
+[ext_resource path="res://art/flags/french.svg" type="Texture2D" id=2]
+
+[resource]
+script = ExtResource( 1 )
+sufix = "fra"
+name = "French"
+personality = "Napoleon"
+music = [  ]
+revolutions = PackedStringArray( "Haiti", "Quebec", "Empire of Mexico", "Indonesia" )
+bonuses = ""
+flag = ExtResource( 2 )
+homecity_name = "Paris"

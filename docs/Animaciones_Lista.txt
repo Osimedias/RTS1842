@@ -1,0 +1,11 @@
+	Idle – a very subtitle movement simply to let the user know the unit is not a stone.
+	Attack – if capable of attacking, 2-3 variations would be nice.
+	Feeding - For animals, if capable a grazing animation would be nice.
+	Seeding - if capable, seeding from a basket.
+	Walk – a simple walk cycle.
+	Run – if capable, a run cycle.
+	Death – when the unit’s hit points reach zero, the unit must die. 2-3 variations.
+	Foraging – if capable, two types: picking berry bushes, and picking fruit from trees.
+	Mining – if capable, swinging a pick axe.
+	Logging – if capable, swinging an axe.
+	Farming – if capable, swinging a hoe. 

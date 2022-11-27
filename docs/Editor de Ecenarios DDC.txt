@@ -1,0 +1,63 @@
+Editor de Ecenarios
+
+
+1): Estructura de la escena:
+	
+	[Node3D]:
+		[Units]
+		[Buildings]
+		[Resource]
+		[MapProps]
+		[TerrainTextureManager]:
+			[PainterTextureViewport]
+			[SplatmapTextureViewport]
+			[HeightmapTextureViewport]
+			[BrushManager]
+		[terrain]
+		[UI]
+		[Enviroment]:
+			[Sun]
+
+2): Gatillos:
+	1 Estructura de un gatillo:
+		[Nombre][Desencadenador][Efecto]
+	
+	2 Interfas de Gatillos
+	[Gatillos][Desencadenador][Efecto]
+	|Gatillo1|MoverXUnidadAPos|InstanciarEntidad|
+	|Gatillo2|                |                 |
+	|Gatillo3|                |                 |
+	|Gatillo4|                |                 |
+	|Gatillo5|                |                 |
+	|________|________________|_________________|
+
+3): Pinceles:
+	Ver game/terrain_painter.gd
+	Puede ser mejorado con el tiempo.
+	1): Modos de Pincel:
+		Textura
+		Altura
+		Region
+		Rios
+		Oceano
+	2): Pincel:
+		Tamaño del pincel
+		Dureza(Alfa)
+		Forma, talves un archivo de bitmap.
+
+4): Guardar Mapas:
+	1 Posible Formato:
+		archivo.glft -> guarda la maya del terreno y las texturas del terreno
+		archivo.json -> guarda la posicion de todas la entidades y el ambiente del mapa(Luces,Cielo)
+		preview.png -> la imagen que se muestra en el selector de mapas.
+		todo esto puede estar guardado en un zip o algo parecido.
+
+5): Material del terreno y el Sombreador:
+	las texturas seran en TextureArrays de un tamaño de 4k cada "sector" de la textura
+	tiene que ser de un tamaño de 512.
+	El shader se encargara de poner las texturas usando [SplatmapTextureViewport] que se pinta dinamicamente
+	El Mapa de Altura modificara los vertices en el shader usando [HeightmapTextureViewport]
+	La colision del terreno sera usando un HeightMapShape, tengo que modificar terrain.gd
+
+
+

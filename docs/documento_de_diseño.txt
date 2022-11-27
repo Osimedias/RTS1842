@@ -1,0 +1,210 @@
+version 1.0
+
+----------------RTS game-------------------------------
+
+1 ): interfaces de pre-juego:
+	Lanzador de juego.
+	Menu principal.
+	Menu de un Jugador.
+	Menu de Opciones.
+	Menu de Editor de Escenarios
+	Menu de Herramientas.
+	Menu de editor de Civilizaciones.
+
+Resolucion del Juego 1920 x 1080 
+
+2 ): Interface de Partida:
+	
+	Menu:
+		Opciones de este menu son:
+			Salir.
+			Guardar.
+			Cargar.
+			Reiniciar.
+			Opciones.
+			Ayuda.
+	Diplomacia:
+		Permite aliarte o cambiar recursos entre jugadores.
+	Chat:
+		Permite a los jugadores mandarse mensajes durante la partida.
+	
+	MiniMapa/Menu de Puntuacion total de la Partida:
+		Puntuacion de los Jugadores:
+			Muestra/Oculta la puntuacion de todos los jugadores.
+		Filtros del Mini mapa:
+			Ninguno:
+				Muestra el mini mapa normal.
+			Combate:
+				Muestra solo las unidades y edificios Militares.
+			Recursos:
+				Muestra solo los recursos del mapa
+		Bengala:
+			Muestra una Posicion del Mapa a los jugadores.
+	
+	Panel de Aldeanos/Colonos:
+		Construir Edificios Economicos.
+		Construir Edificios Militares.
+		Reparar
+		Detener Unidad
+	
+	Panel Militar:
+		Formaciones.
+		Patrullar
+		Mantener Posicion
+		Modo Defensa
+		
+	Iconos:
+		Ayuda.
+		Mostrar Arbol Tecnologico.
+		Puntuacion.
+		Mini-mapa filtro-combate.
+		Mini-mapa filtro-recursos.
+		Mini-mapa filtro-normal.
+		Chat.
+		Opciones de Diplomacia.
+		Lanzar bengala(Aliados).
+		Avanzar a edad 2.
+		Avanzar a edad 3.
+		Avanzar a edad 4.
+		Avanzar a edad 5.
+		Avanzar a edad 6.
+		Atacar.
+		Curar.
+		Parar.
+		Reparar.
+		Mover.
+		Ir a punto de encuentro.
+		Eliminar.
+		Guardia.
+		Patrullar.
+		Explorar.
+		Agrecion Nivel 1-agresivo
+		Agrecion Nivel 2-reactivo.
+		Agrecion Nivel 3-defensivo.
+		Agrecion Nivel 1-pasivo.
+		Descargar/cargar unidad.
+		Des/Enpaquetar unidad.
+		Construir Edificios Militares.
+		Construir Edificios Economicos.
+		Formacion de Columna.
+		Formacion de linea.
+		Formacion de grupo.
+		Sonar la campana de alerta.
+		Destruir edificio.
+		Garita Abierta/Cerrada.
+		Unidad Guarecida - Aldeano.
+		Unidad Guarecida - Militar.
+		Guarecer.
+		Recurso-Comida.
+		Recurso-Madera.
+		Recurso-Monedas.
+		Recurso-Experiencia.
+		Recurso-Influencia.
+		Recurso-Exportacion.
+		Comprar/vender-recurso
+
+3 ): Recursos:
+	Los recursos principales son:
+		Comida.
+		Madera.
+		Monedas.
+		Experiencia.
+	Se agregaran recursos dependiendo de la cultura principal de la civilizacion.
+
+4 ) : Civilizaciones y Culturas:
+	Civilizaciones y Ciudades Natales:
+		Britanicos(Londres).
+		Españoles(Sevilla).
+		Holandeces(Amsterdam).
+		Franceses(Paris).
+		Prusianos().
+		Autro-Hungaros().
+		Rusos(San Petersburgo).
+		Suecos(Estocolmo).
+		Italianos().
+		Portugeses(Lisboa).
+		Otomanos(Estambul).
+		Etiopes.
+		Hausas.
+		Chinos.
+		Japoneses.
+		Indios(Compañia de las Indias Orientales).
+		Polinesios.
+		Persas.
+		Estadounidences(Nueva York).
+		Mexicanos(Veracruz o Acapuco).
+		Brasileños(Rio de Janeiro).
+		Argentinos(Buenos Aires).
+	Culturas por set de Arquitectura:
+		
+		Mediterraneo:
+			Españoles.
+			Portugeses.
+			Mexicanos.
+			Argentinos.
+			Brasileños.
+			Italianos.
+		Europa del Este:
+			Rusos.
+			Suecos.
+		Europa Central:
+			Prussianos.
+			Austro-Hungaros.
+			Holandeces.
+			Franceses.
+		Unico:
+			Britanicos.
+			Estadounidences.
+			Etiopes.
+			Hausas.
+			Chinos.
+			Japoneses.
+			Indios.
+			Polinesios.
+			
+
+5 ) : Unidades y edificios(Generico):
+	Edificios:
+		Arsenal.
+		Iglecia/Mesquita/Catedral.
+		Puerto.
+		Molino.
+		Plantacion.
+		Centro Urbano.
+		Mercado.
+		Capitolio.
+		Destacamento.
+		Muralla.
+		Cuartel.
+		Blocao.
+		Fuerte.
+		Fundicion de Artilleria.
+		Establo.
+	Unidades Genericas:
+		Aldeano/Colono.
+		Sacerdote.
+		Sirujano.
+		Explorador.
+		Mosquetero
+		Guerrillero
+		Piquero.
+		Hussar.
+		Dragon.
+		Falconete.
+		Culebrina.
+		Mortero.
+		Artilleria a caballo.
+		Granadero.
+		Barco de Pesca.
+		Carabela.
+		Galleon.
+		Monitor.
+
+6 ): Mapas:
+	Por hacer.
+
+7 ): Arbol de Tecnologias:
+	ver tabla de Tecnologias.
+8 ): Sonidos:
+	Por hacer.
+	Uso los de 0 A.D. como placeholders.

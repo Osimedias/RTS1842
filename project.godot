@@ -1,0 +1,134 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+_global_script_classes=[{
+"base": "Resource",
+"class": &"Ability",
+"language": &"GDScript",
+"path": "res://game/abilities.gd"
+}, {
+"base": "Resource",
+"class": &"Civilization",
+"language": &"GDScript",
+"path": "res://game/civilization.gd"
+}, {
+"base": "MapRandom",
+"class": &"TestMap",
+"language": &"GDScript",
+"path": "res://data/maps/random/test_map.gd"
+}]
+_global_script_class_icons={
+"Ability": "",
+"Civilization": "",
+"TestMap": ""
+}
+
+[Application]
+
+Config/game_version="1.0.0"
+
+[application]
+
+config/name="1842 RTS"
+config/features=PackedStringArray("4.0")
+config/icon="res://icon.svg"
+config/windows_native_icon="res://icon.ico"
+
+[audio]
+
+driver/enable_input=true
+
+[autoload]
+
+PlayerMapData="*res://menus/player_map_data.tscn"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+
+[dotnet]
+
+project/assembly_name="1842 RTS"
+
+[editor]
+
+movie_writer/speaker_mode=3
+movie_writer/movie_file="E:/GodotProjects/dev_videos/rts/dev.avi"
+node_naming/name_num_separator=2
+
+[filesystem]
+
+import/fbx/enabled=false
+
+[importer_defaults]
+
+oggvorbisstr={
+"bar_beats": 4,
+"beat_count": 0,
+"bpm": 0,
+"loop": false,
+"loop_offset": 0
+}
+
+[input]
+
+move_left={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":65,"physical_keycode":0,"unicode":0,"echo":false,"script":null)
+]
+}
+move_right={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":68,"physical_keycode":0,"unicode":0,"echo":false,"script":null)
+]
+}
+move_up={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":87,"physical_keycode":0,"unicode":0,"echo":false,"script":null)
+]
+}
+move_down={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":83,"physical_keycode":0,"unicode":0,"echo":false,"script":null)
+]
+}
+left_click={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"pressed":false,"double_click":false,"script":null)
+]
+}
+right_click={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":2,"pressed":false,"double_click":false,"script":null)
+]
+}
+
+[input_devices]
+
+pen_tablet/driver.windows="winink"
+buffering/agile_event_flushing=true
+
+[layer_names]
+
+2d_render/layer_1="Minimap"
+3d_physics/layer_1="terrain"
+3d_physics/layer_2="entities"
+
+[mono]
+
+export/include_scripts_content=true
+
+[rendering]
+
+lights_and_shadows/directional_shadow/soft_shadow_filter_quality=5
+lights_and_shadows/directional_shadow/soft_shadow_filter_quality.mobile=5

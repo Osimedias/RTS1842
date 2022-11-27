@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://b5r2pey4ntsym"]
+
+[ext_resource type="Script" path="res://game/building.gd" id="1_hhtsc"]
+[ext_resource type="PackedScene" uid="uid://d10tcdo0ron1a" path="res://art/placeholder_town_center.gltf" id="1_qdtc0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5rr7m"]
+size = Vector3(28.7697, 26.9619, 24.8058)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j75mn"]
+size = Vector3(30.9776, 28.9941, 28.6363)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_437o0"]
+top_radius = 20.0
+
+[node name="TownCenter" type="StaticBody3D"]
+disable_mode = 1
+collision_layer = 2
+collision_mask = 2
+input_ray_pickable = false
+script = ExtResource("1_hhtsc")
+
+[node name="TownCenter" parent="." instance=ExtResource("1_qdtc0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.38499, -0.965992, -5.56499)
+
+[node name="shape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.7454, 0)
+shape = SubResource("BoxShape3D_5rr7m")
+
+[node name="Area3d" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 2
+monitoring = false
+
+[node name="shape" type="CollisionShape3D" parent="Area3d"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.7454, 0)
+shape = SubResource("BoxShape3D_j75mn")
+
+[node name="building_radius" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("CylinderMesh_437o0")
+
+[connection signal="input_event" from="Area3d" to="." method="_on_area_3d_input_event"]

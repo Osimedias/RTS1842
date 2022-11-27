@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwn5um4yh1xwo"]
+
+[ext_resource type="PackedScene" uid="uid://g38seco0k4oq" path="res://2dver/obtacle.tscn" id="1_bxa8e"]
+[ext_resource type="PackedScene" uid="uid://dii0ms241fefr" path="res://2dver/start.tscn" id="2_c87qk"]
+[ext_resource type="PackedScene" uid="uid://cxg66f0tjqto0" path="res://2dver/end.tscn" id="3_xik88"]
+
+[node name="tiles" type="Node2D"]
+
+[node name="obtacle" parent="." instance=ExtResource("1_bxa8e")]
+
+[node name="start" parent="." instance=ExtResource("2_c87qk")]
+
+[node name="end" parent="." instance=ExtResource("3_xik88")]

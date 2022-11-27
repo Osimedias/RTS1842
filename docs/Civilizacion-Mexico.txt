@@ -1,0 +1,77 @@
+
+Civilizacion Mexicana
+
+
+0): Unidades de Centro Urbano:
+	Hornalero/Campesino.
+	Colono/Ciudadano.
+
+1): Unidades de Cuartel:
+	
+	Permanent Solider -> Federal Solider.
+	Provincial -> Active Militia.
+	Civic Militia -> National Guard.
+
+2): Unidades de Establo:
+	Horse Grenadier
+	Line Cavalry
+	Light Cavalry
+	Tulancinco Cuirassier
+	Hussar -> Hussar of the Guard
+	Toluca Lancer -> Lancer
+	
+3): Unidades de Fundicion de Artilleria:
+	Falconet -> Field Gun
+	Culevrien
+	Mortal
+	
+4): Unidades de Puerto:
+	Fishing Ship
+	Corvet
+	Stream
+	Battleship
+5): Unidades de Fuerte:
+	Unidades de Cuartel y establo
+6): Unidades de Fabrica:
+	Hevy Cannon
+
+7): Unidades de Officina de Correos:
+	Inmigrantes de X parte
+
+8): Unidades de Hacienda:
+	Charro
+	Hornalero/Campesino
+	Colono
+
+9): Pulqueria:
+	Pistolero
+	Cuatrero
+	Salteador
+ 10): Catedral:
+	Padre
+
+Edificios disponibles:
+	Centro Urbano
+	Casa
+	Puesto Fronterizo
+	Catedral
+	Puerto
+	Cuartel
+	Fuerte
+	Hacienda
+	Mercado/Tienda de Raya
+	Congreso
+	Establo
+	Fundicion de Artilleria
+	Officina de Correos
+
+
+Edades:
+	Edad de los Descubrimientos
+	Edad Colonial
+	Edad Pos-Colonial
+	Edad de las Fortalezas
+	Edad Republicana
+
+
+
