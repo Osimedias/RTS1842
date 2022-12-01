@@ -1,7 +1,9 @@
 class_name Ability
 extends Resource
 
-@export var ability_name : String = "Ability"
-@export var description : String = "New Ability"
+
+
+@export var name : String
+@export_multiline var description : String
 
 

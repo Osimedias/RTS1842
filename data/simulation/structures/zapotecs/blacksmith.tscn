@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cf3dol2la4ikq"]
+
+[ext_resource type="PackedScene" uid="uid://bv7f44q3eu547" path="res://art/meshes/structural/zapotecs/blacksmith.glb" id="1_fli3n"]
+[ext_resource type="Material" uid="uid://bc8gmmpaudwmd" path="res://art/meshes/structural/zapotecs/zapotec.material" id="2_px13x"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nu6a3"]
+size = Vector3(22.439, 12.7218, 22.174)
+
+[node name="Blacksmith" instance=ExtResource("1_fli3n")]
+collision_layer = 2
+
+[node name="Blacksmith" parent="." index="0"]
+material_override = ExtResource("2_px13x")
+
+[node name="coll" type="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.575356, 5.88145, -2.23286)
+shape = SubResource("BoxShape3D_nu6a3")

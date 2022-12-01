@@ -1,0 +1,36 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://dv1f6dhdplyne"
+path="res://.godot/imported/barracks.glb-90876dacdff006cfeffbdfd8b371d425.scn"
+
+[deps]
+
+source_file="res://art/meshes/structural/zapotecs/barracks.glb"
+dest_files=["res://.godot/imported/barracks.glb-90876dacdff006cfeffbdfd8b371d425.scn"]
+
+[params]
+
+nodes/root_type="StaticBody3D"
+nodes/root_name="Barracks"
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+import_script/path=""
+_subresources={
+"materials": {
+"@MATERIAL:0": {
+"use_external/enabled": true,
+"use_external/path": "res://art/meshes/structural/zapotecs/zapotec.material"
+}
+}
+}

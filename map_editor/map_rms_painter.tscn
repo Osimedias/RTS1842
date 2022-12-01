@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpccsf03xelng"]
+
+[ext_resource type="Script" path="res://map_editor/rms_painter.gd" id="1_3uwgg"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_3uwgg")
+
+[node name="rms" type="Node2D" parent="."]
+
+[node name="base" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="OptionButton" type="OptionButton" parent="."]
+anchors_preset = -1
+anchor_left = 0.75625
+anchor_top = 0.8825
+anchor_right = 0.95625
+anchor_bottom = 0.955
+alignment = 1
+icon_alignment = 1
+metadata/_edit_use_anchors_ = true

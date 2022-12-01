@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bu2hvcbutpuwr"]
+
+[ext_resource type="PackedScene" uid="uid://cou33i1pg8v1x" path="res://art/meshes/structural/zapotecs/house_a.glb" id="1_bymox"]
+[ext_resource type="Material" uid="uid://bc8gmmpaudwmd" path="res://art/meshes/structural/zapotecs/zapotec.material" id="2_28jsf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yq2l4"]
+size = Vector3(14.1822, 11.5519, 16)
+
+[node name="HouseA" instance=ExtResource("1_bymox")]
+collision_layer = 2
+
+[node name="HouseA" parent="." index="0"]
+material_override = ExtResource("2_28jsf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.402861, 5.35805, 0)
+shape = SubResource("BoxShape3D_yq2l4")

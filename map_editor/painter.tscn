@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://s45dhjqwkg7n"]
+
+[ext_resource type="Script" path="res://map_editor/paint_particle.gd" id="1_188rp"]
+[ext_resource type="Shader" path="res://game/shaders/blueprint.gdshader" id="1_depil"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_khubl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vfvuq"]
+render_priority = 0
+shader = ExtResource("1_depil")
+shader_parameter/color = Color(0.592157, 0.141176, 0.0235294, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_lcurh"]
+
+[node name="painter" type="CharacterBody3D"]
+script = ExtResource("1_188rp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_khubl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("ShaderMaterial_vfvuq")
+mesh = SubResource("SphereMesh_lcurh")

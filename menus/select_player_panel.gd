@@ -56,7 +56,7 @@ func free_player_panel(panel : Node):
 	for i in range(0,panel.get_child_count()):
 		panel.get_child(i).queue_free()
 	var index = str(panel.name)
-	PlayerMapData.players.erase()
+	#PlayerMapData.players.erase()
 
 
 

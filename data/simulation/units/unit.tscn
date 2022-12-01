@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://caw34qthftead"]
+
+[ext_resource type="PackedScene" uid="uid://cpdq1424f4bqq" path="res://art/meshes/units/base_human/scene.gltf" id="1_186ux"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_s0t2i"]
+
+[node name="Unit" instance=ExtResource("1_186ux")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="0"]
+shape = SubResource("CapsuleShape3D_s0t2i")

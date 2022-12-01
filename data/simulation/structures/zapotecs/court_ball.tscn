@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://w0c8jb84t60n"]
+
+[ext_resource type="PackedScene" uid="uid://dp3v3kd5uv1en" path="res://art/meshes/structural/zapotecs/court_ball.glb" id="1_tf17v"]
+[ext_resource type="Material" uid="uid://bc8gmmpaudwmd" path="res://art/meshes/structural/zapotecs/zapotec.material" id="2_3u3yj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vn8wv"]
+size = Vector3(52, 8.78504, 40)
+
+[node name="CourtBall" instance=ExtResource("1_tf17v")]
+collision_layer = 2
+
+[node name="CourtBall" parent="." index="0"]
+material_override = ExtResource("2_3u3yj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.28121, 0)
+shape = SubResource("BoxShape3D_vn8wv")

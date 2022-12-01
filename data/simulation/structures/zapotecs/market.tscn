@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cthg2mb8wc834"]
+
+[ext_resource type="PackedScene" uid="uid://frjk6p85vb5u" path="res://art/meshes/structural/zapotecs/market.glb" id="1_5xgos"]
+[ext_resource type="Material" uid="uid://bc8gmmpaudwmd" path="res://art/meshes/structural/zapotecs/zapotec.material" id="2_347ps"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fwxsw"]
+size = Vector3(28.6183, 12.0557, 28.5227)
+
+[node name="Market" instance=ExtResource("1_5xgos")]
+collision_layer = 2
+
+[node name="Market" parent="." index="0"]
+material_override = ExtResource("2_347ps")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.0279, 0)
+shape = SubResource("BoxShape3D_fwxsw")

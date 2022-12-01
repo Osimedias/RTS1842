@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://db3movydv06gk"]
+[gd_scene load_steps=23 format=3 uid="uid://db3movydv06gk"]
 
 [ext_resource type="Script" path="res://MapEditor.gd" id="1"]
 [ext_resource type="Script" path="res://map_editor/MapEditorInputs.gd" id="2_3gjje"]
@@ -8,43 +8,12 @@
 [ext_resource type="Script" path="res://map_editor/3d_map.gd" id="3_pwiq1"]
 [ext_resource type="Script" path="res://game/mini_map.gd" id="5_5ws6s"]
 [ext_resource type="Script" path="res://map_editor/save_panel.gd" id="6_66y3d"]
+[ext_resource type="Texture2D" uid="uid://dnh1kmsw0sjt" path="res://art/gui/screen_panels/panel_modern.png" id="6_or6ju"]
 [ext_resource type="Script" path="res://map_editor/load_panel.gd" id="7_upuqm"]
-
-[sub_resource type="Animation" id="Animation_s52u8"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:size")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(80, 475)]
-}
-
-[sub_resource type="Animation" id="Animation_6kavn"]
-resource_name = "show"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:size")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 475), Vector2(80, 475)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_uci0t"]
-_data = {
-"RESET": SubResource("Animation_s52u8"),
-"show": SubResource("Animation_6kavn")
-}
+[ext_resource type="Script" path="res://map_editor/setup_mesh.gd" id="10_cydb6"]
+[ext_resource type="Script" path="res://map_editor/draw_viewport.gd" id="11_oe8hf"]
+[ext_resource type="Script" path="res://map_editor/brush.gd" id="12_aiphw"]
+[ext_resource type="Texture2D" uid="uid://dactp4hpeji08" path="res://map_editor/brush/textures/9.png" id="14_tfa5l"]
 
 [sub_resource type="SystemFont" id="SystemFont_k5avh"]
 generate_mipmaps = true
@@ -61,7 +30,14 @@ size = Vector2(200, 200)
 subdivide_width = 400
 subdivide_depth = 400
 
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_jsxvm"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bed23"]
+
+[sub_resource type="Sky" id="Sky_4dkvf"]
+sky_material = SubResource("ProceduralSkyMaterial_bed23")
+
+[sub_resource type="Environment" id="Environment_6yu7r"]
+background_mode = 2
+sky = SubResource("Sky_4dkvf")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_n8v05"]
 
@@ -111,8 +87,8 @@ grow_vertical = 2
 [node name="MenuButton" type="MenuButton" parent="GUI/tool_bar/HBoxContainer"]
 custom_minimum_size = Vector2(15, 15)
 layout_mode = 2
-offset_right = 75.0
-offset_bottom = 54.0
+offset_right = 41.0
+offset_bottom = 32.0
 size_flags_horizontal = 3
 text = "File"
 item_count = 4
@@ -129,9 +105,9 @@ popup/item_3/id = 3
 [node name="MenuButton_2" type="MenuButton" parent="GUI/tool_bar/HBoxContainer"]
 custom_minimum_size = Vector2(15, 15)
 layout_mode = 2
-offset_left = 79.0
-offset_right = 155.0
-offset_bottom = 54.0
+offset_left = 45.0
+offset_right = 86.0
+offset_bottom = 32.0
 size_flags_horizontal = 3
 text = "Edit"
 item_count = 6
@@ -152,9 +128,9 @@ popup/item_5/id = 5
 [node name="MenuButton_3" type="MenuButton" parent="GUI/tool_bar/HBoxContainer"]
 custom_minimum_size = Vector2(15, 15)
 layout_mode = 2
-offset_left = 159.0
-offset_right = 235.0
-offset_bottom = 54.0
+offset_left = 90.0
+offset_right = 161.0
+offset_bottom = 32.0
 size_flags_horizontal = 3
 text = "Triggers"
 item_count = 4
@@ -170,9 +146,9 @@ popup/item_3/id = 3
 [node name="MenuButton_4" type="MenuButton" parent="GUI/tool_bar/HBoxContainer"]
 custom_minimum_size = Vector2(15, 15)
 layout_mode = 2
-offset_left = 239.0
-offset_right = 314.0
-offset_bottom = 54.0
+offset_left = 165.0
+offset_right = 232.0
+offset_bottom = 32.0
 size_flags_horizontal = 3
 text = "Objects"
 item_count = 3
@@ -186,9 +162,9 @@ popup/item_2/id = 2
 [node name="MenuButton_5" type="MenuButton" parent="GUI/tool_bar/HBoxContainer"]
 custom_minimum_size = Vector2(15, 15)
 layout_mode = 2
-offset_left = 318.0
-offset_right = 401.0
-offset_bottom = 54.0
+offset_left = 236.0
+offset_right = 319.0
+offset_bottom = 32.0
 size_flags_horizontal = 3
 text = "Map Data"
 item_count = 2
@@ -200,41 +176,45 @@ popup/item_1/id = 1
 [node name="Control" type="Control" parent="GUI/tool_bar/HBoxContainer"]
 layout_mode = 2
 anchors_preset = 0
-offset_left = 405.0
-offset_right = 1920.0
-offset_bottom = 54.0
+offset_left = 323.0
+offset_right = 1152.0
+offset_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 20.0
 
-[node name="mini_map" type="Panel" parent="GUI"]
+[node name="mini_map" type="PanelContainer" parent="GUI"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.00885417
-anchor_top = 0.667593
-anchor_right = 0.194792
-anchor_bottom = 0.984259
-offset_right = -7.0
-offset_bottom = 8.0
+anchor_left = 0.00260417
+anchor_top = 0.600309
+anchor_right = 0.223958
+anchor_bottom = 0.993827
 script = ExtResource("5_5ws6s")
 metadata/_edit_use_anchors_ = true
+metadata/_edit_group_ = true
 
 [node name="terrain" type="TextureRect" parent="GUI/mini_map"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+layout_mode = 2
+offset_right = 255.0
+offset_bottom = 255.0
 grow_horizontal = 2
 grow_vertical = 2
 ignore_texture_size = true
 
 [node name="map_entities" type="TextureRect" parent="GUI/mini_map"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+layout_mode = 2
+offset_right = 255.0
+offset_bottom = 255.0
 grow_horizontal = 2
 grow_vertical = 2
 ignore_texture_size = true
+
+[node name="panel" type="TextureRect" parent="GUI/mini_map"]
+layout_mode = 2
+offset_right = 255.0
+offset_bottom = 255.0
+texture = ExtResource("6_or6ju")
+metadata/_edit_use_anchors_ = true
 
 [node name="grid_panel" type="Panel" parent="GUI"]
 layout_mode = 1
@@ -248,23 +228,22 @@ metadata/_edit_use_anchors_ = true
 [node name="brush_panel" type="PanelContainer" parent="GUI"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.00104167
-anchor_top = 0.161111
-anchor_right = 0.040625
-anchor_bottom = 0.600926
-offset_bottom = -0.000183105
-metadata/_edit_use_anchors_ = true
+anchor_left = 0.00520833
+anchor_top = 0.143519
+anchor_right = 0.068
+anchor_bottom = 0.593
+offset_right = -0.336006
+offset_bottom = -0.264038
+grow_horizontal = 2
+grow_vertical = 2
 metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
 
 [node name="list" type="VBoxContainer" parent="GUI/brush_panel"]
+visible = false
 layout_mode = 2
-offset_right = 80.0
-offset_bottom = 475.0
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="GUI/brush_panel"]
-libraries = {
-"": SubResource("AnimationLibrary_uci0t")
-}
+offset_right = 72.0
+offset_bottom = 291.0
 
 [node name="tooltip" type="Label" parent="GUI"]
 layout_mode = 1
@@ -431,10 +410,13 @@ text = "Cancel"
 script = ExtResource("3_pwiq1")
 
 [node name="terrain" type="MeshInstance3D" parent="3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 mesh = SubResource("PlaneMesh_p82vf")
+script = ExtResource("10_cydb6")
 
 [node name="editor_camera" type="Marker3D" parent="3D"]
 script = ExtResource("2_x8oxq")
+color = Color(0.862745, 0.00784314, 0, 1)
 
 [node name="pivot" type="Marker3D" parent="3D/editor_camera"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
@@ -443,20 +425,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="3D"]
-transform = Transform3D(0.821657, 0.272269, -0.500749, 0, 0.878534, 0.47768, 0.569982, -0.392489, 0.721853, 0, 26.2879, 0)
+transform = Transform3D(0.609667, 0.790201, -0.0623544, -0.25094, 0.26703, 0.930443, 0.751888, -0.551613, 0.361092, 0, 26.2879, 0)
 shadow_enabled = true
 
-[node name="test_projection" type="StaticBody3D" parent="3D"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="3D/test_projection"]
-shape = SubResource("WorldBoundaryShape3D_jsxvm")
+[node name="WorldEnvironment" type="WorldEnvironment" parent="3D"]
+environment = SubResource("Environment_6yu7r")
 
 [node name="MapTextures" type="Node" parent="."]
 
 [node name="splatmap" type="SubViewport" parent="MapTextures"]
+disable_3d = true
+msaa_2d = 3
+gui_snap_controls_to_pixels = false
 size_2d_override_stretch = true
 render_target_clear_mode = 1
 render_target_update_mode = 4
+script = ExtResource("11_oe8hf")
 
 [node name="ColorRect" type="ColorRect" parent="MapTextures/splatmap"]
 anchors_preset = 15
@@ -464,10 +448,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="brush" type="Node2D" parent="MapTextures/splatmap"]
+script = ExtResource("12_aiphw")
+texture = ExtResource("14_tfa5l")
+
+[node name="Camera2D" type="Camera2D" parent="MapTextures/splatmap"]
+offset = Vector2(256, 256)
+current = true
 
 [node name="heightmap" type="SubViewport" parent="MapTextures"]
 render_target_clear_mode = 1

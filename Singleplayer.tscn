@@ -45,72 +45,72 @@ grow_vertical = 2
 [node name="player_slot_1" type="HBoxContainer" parent="background/Panel/players"]
 unique_name_in_owner = true
 layout_mode = 2
-offset_right = 1142.0
-offset_bottom = 98.0
+offset_right = 448.0
+offset_bottom = 68.0
 size_flags_vertical = 3
 
 [node name="player_slot_2" type="HBoxContainer" parent="background/Panel/players"]
 unique_name_in_owner = true
 layout_mode = 2
-offset_top = 102.0
-offset_right = 1142.0
-offset_bottom = 200.0
+offset_top = 72.0
+offset_right = 448.0
+offset_bottom = 140.0
 size_flags_vertical = 3
 
 [node name="player_slot_3" type="HBoxContainer" parent="background/Panel/players"]
 unique_name_in_owner = true
 layout_mode = 2
-offset_top = 204.0
-offset_right = 1142.0
-offset_bottom = 302.0
+offset_top = 144.0
+offset_right = 448.0
+offset_bottom = 212.0
 size_flags_vertical = 3
 
 [node name="player_slot_4" type="HBoxContainer" parent="background/Panel/players"]
 unique_name_in_owner = true
 layout_mode = 2
-offset_top = 306.0
-offset_right = 1142.0
-offset_bottom = 404.0
+offset_top = 216.0
+offset_right = 448.0
+offset_bottom = 284.0
 size_flags_vertical = 3
 
 [node name="player_slot_5" type="HBoxContainer" parent="background/Panel/players"]
 unique_name_in_owner = true
 layout_mode = 2
-offset_top = 408.0
-offset_right = 1142.0
-offset_bottom = 506.0
+offset_top = 288.0
+offset_right = 448.0
+offset_bottom = 356.0
 size_flags_vertical = 3
 
 [node name="player_slot_6" type="HBoxContainer" parent="background/Panel/players"]
 unique_name_in_owner = true
 layout_mode = 2
-offset_top = 510.0
-offset_right = 1142.0
-offset_bottom = 608.0
+offset_top = 360.0
+offset_right = 448.0
+offset_bottom = 428.0
 size_flags_vertical = 3
 
 [node name="player_slot_7" type="HBoxContainer" parent="background/Panel/players"]
 unique_name_in_owner = true
 layout_mode = 2
-offset_top = 612.0
-offset_right = 1142.0
-offset_bottom = 710.0
+offset_top = 432.0
+offset_right = 448.0
+offset_bottom = 500.0
 size_flags_vertical = 3
 
 [node name="player_slot_8" type="HBoxContainer" parent="background/Panel/players"]
 unique_name_in_owner = true
 layout_mode = 2
-offset_top = 714.0
-offset_right = 1142.0
-offset_bottom = 812.0
+offset_top = 504.0
+offset_right = 448.0
+offset_bottom = 572.0
 size_flags_vertical = 3
 
 [node name="player_slot_9" type="HBoxContainer" parent="background/Panel/players"]
 unique_name_in_owner = true
 layout_mode = 2
-offset_top = 816.0
-offset_right = 1142.0
-offset_bottom = 914.0
+offset_top = 576.0
+offset_right = 448.0
+offset_bottom = 645.0
 size_flags_vertical = 3
 
 [node name="counter" type="SpinBox" parent="background/Panel"]

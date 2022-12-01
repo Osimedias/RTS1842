@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://36106y7h5n8u"]
+
+[ext_resource type="PackedScene" uid="uid://dv1f6dhdplyne" path="res://art/meshes/structural/zapotecs/barracks.glb" id="1_8tlav"]
+[ext_resource type="Material" uid="uid://bc8gmmpaudwmd" path="res://art/meshes/structural/zapotecs/zapotec.material" id="2_lwuci"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bmqwj"]
+size = Vector3(23.9326, 15.689, 21.4344)
+
+[node name="Barracks" instance=ExtResource("1_8tlav")]
+collision_layer = 2
+
+[node name="Barracks" parent="." index="0"]
+material_override = ExtResource("2_lwuci")
+
+[node name="coll" type="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.40728, -2.22555)
+shape = SubResource("BoxShape3D_bmqwj")

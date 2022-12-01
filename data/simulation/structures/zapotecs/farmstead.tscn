@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://ccoi0gsw23gnv"]
+
+[ext_resource type="PackedScene" uid="uid://d3xduoguh12vm" path="res://art/meshes/structural/zapotecs/farmstead.glb" id="1_rrf7u"]
+[ext_resource type="Material" uid="uid://bc8gmmpaudwmd" path="res://art/meshes/structural/zapotecs/zapotec.material" id="2_h0irg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gpmi2"]
+size = Vector3(11.9922, 12.179, 12.952)
+
+[node name="Farmstead" instance=ExtResource("1_rrf7u")]
+collision_layer = 2
+
+[node name="Farmstead" parent="." index="0"]
+material_override = ExtResource("2_h0irg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.345388, 6.07883, -0.379928)
+shape = SubResource("BoxShape3D_gpmi2")

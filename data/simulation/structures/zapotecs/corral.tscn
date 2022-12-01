@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dx3ieq7w4rtka"]
+
+[ext_resource type="PackedScene" uid="uid://dup1yd56fo7b2" path="res://art/meshes/structural/zapotecs/corral.glb" id="1_3wqpy"]
+[ext_resource type="Material" uid="uid://bc8gmmpaudwmd" path="res://art/meshes/structural/zapotecs/zapotec.material" id="2_pllhf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mr3ml"]
+size = Vector3(11.1225, 9.0487, 17.4555)
+
+[node name="Corral" instance=ExtResource("1_3wqpy")]
+collision_layer = 2
+
+[node name="Corral" parent="." index="0"]
+material_override = ExtResource("2_pllhf")
+
+[node name="coll" type="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.51986, 0)
+shape = SubResource("BoxShape3D_mr3ml")

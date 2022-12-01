@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://bph3422bp5mm"]
+
+[ext_resource type="Shader" path="res://game/shaders/blueprint.gdshader" id="1_4yfui"]
+[ext_resource type="Script" path="res://game/buildprint.gd" id="1_vrqso"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_rs0ip"]
+size = Vector2(20, 20)
+subdivide_width = 4
+subdivide_depth = 4
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_rg78x"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f20t3"]
+render_priority = 0
+shader = ExtResource("1_4yfui")
+shader_parameter/color = Color(0, 0.847059, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_su887"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wnbls"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="plane" type="StaticBody3D" parent="."]
+
+[node name="mesh" type="MeshInstance3D" parent="plane"]
+mesh = SubResource("PlaneMesh_rs0ip")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="plane"]
+shape = SubResource("WorldBoundaryShape3D_rg78x")
+
+[node name="blueprint" type="CharacterBody3D" parent="."]
+script = ExtResource("1_vrqso")
+
+[node name="blueprint_mesh" type="MeshInstance3D" parent="blueprint"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.502947, 0)
+layers = 2
+material_override = SubResource("ShaderMaterial_f20t3")
+transparency = 0.06
+mesh = SubResource("BoxMesh_su887")
+
+[node name="coll" type="CollisionShape3D" parent="blueprint"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.506544, 0)
+shape = SubResource("BoxShape3D_wnbls")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.687455, 0.726227, 0, -0.726227, 0.687455, 0, 6.26699, 3.45994)
+current = true

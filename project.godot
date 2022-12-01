@@ -19,15 +19,33 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://game/civilization.gd"
 }, {
+"base": "Resource",
+"class": &"EntityData",
+"language": &"GDScript",
+"path": "res://game/entity_data.gd"
+}, {
 "base": "MapRandom",
 "class": &"TestMap",
 "language": &"GDScript",
 "path": "res://data/maps/random/test_map.gd"
+}, {
+"base": "RefCounted",
+"class": &"Utils",
+"language": &"GDScript",
+"path": "res://map/random/rmslib/utils.gd"
+}, {
+"base": "Node",
+"class": &"Yucatan",
+"language": &"GDScript",
+"path": "res://map/random/yucatan.gd"
 }]
 _global_script_class_icons={
 "Ability": "",
 "Civilization": "",
-"TestMap": ""
+"EntityData": "",
+"TestMap": "",
+"Utils": "",
+"Yucatan": ""
 }
 
 [Application]
@@ -48,11 +66,10 @@ driver/enable_input=true
 [autoload]
 
 PlayerMapData="*res://menus/player_map_data.tscn"
+UvPosition="*res://map_editor/uv_position.gd"
 
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 
@@ -126,7 +143,7 @@ buffering/agile_event_flushing=true
 
 [mono]
 
-export/include_scripts_content=true
+export/aot/use_interpreter=false
 
 [rendering]
 

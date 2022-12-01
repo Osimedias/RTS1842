@@ -3,25 +3,26 @@ extends Node3D
 
 var material : ShaderMaterial = ShaderMaterial.new()
 
+var terrain : MeshInstance3D
+
+var map_size : Vector2 = Vector2(200,200)
+
 func _ready():
-	var splatmap = $"../MapTextures/splatmap"
-	var heightmap = $"../MapTextures/heightmap"
-	material.shader = load("res://game/shaders/terrain.gdshader")
-	material.set_shader_parameter("splat_map",splatmap.get_texture())
-	material.set_shader_parameter("height_map",heightmap.get_texture())
-	$terrain.mesh.material = material
+#	terrain = $terrain
+#	var heightmap = $"../MapTextures/heightmap"
+#	var splatmap =  $"../MapTextures/splatmap"
+#	material.shader = load("res://game/shaders/terrain.gdshader")
+#	material.set_shader_parameter("height_map",heightmap.get_viewport().get_texture())
+#	material.set_shader_parameter("splat_map", splatmap.get_viewport().get_texture())
+#	terrain.material_override = material
 	create_heightmap_shape()
-	
-	var file = FileAccess.open("user://map_data.txt",FileAccess.WRITE)
-	file.store_string(str(heightmap.get_texture().get_image().get_data()))
-	
 
 
 
 func create_heightmap_shape():
 	var tex = $"../MapTextures/heightmap".get_texture().get_image()
 	tex.convert(Image.FORMAT_RF)
-	tex.resize($terrain.mesh.size.x + 1,$terrain.mesh.size.y + 1)
+	tex.resize(map_size.x + 1,map_size.y + 1)
 	var collision_shape : StaticBody3D = StaticBody3D.new()
 	var height_map_shape : HeightMapShape3D = HeightMapShape3D.new()
 	var coll : CollisionShape3D = CollisionShape3D.new()
