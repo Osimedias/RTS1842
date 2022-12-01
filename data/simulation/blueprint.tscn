@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://oibfjbk0xmjd"]
+
+[ext_resource type="Script" path="res://game/buildprint.gd" id="1_yye7o"]
+[ext_resource type="PackedScene" uid="uid://biemj6mscuv4u" path="res://data/simulation/structures/fundation_town_center.tscn" id="2_3f74u"]
+[ext_resource type="Shader" path="res://game/shaders/blueprint.gdshader" id="3_wq13t"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f20t3"]
+render_priority = 0
+shader = ExtResource("3_wq13t")
+shader_parameter/color = Color(0, 0.847059, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_su887"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wnbls"]
+
+[node name="blueprint" type="CharacterBody3D"]
+script = ExtResource("1_yye7o")
+building_fundation = ExtResource("2_3f74u")
+
+[node name="blueprint_mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.502947, 0)
+layers = 2
+material_override = SubResource("ShaderMaterial_f20t3")
+transparency = 0.06
+mesh = SubResource("BoxMesh_su887")
+
+[node name="coll" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.506544, 0)
+shape = SubResource("BoxShape3D_wnbls")
+
+[node name="height_detector" type="RayCast3D" parent="."]
+target_position = Vector3(0, -0.1, 0)
+hit_from_inside = true
+collide_with_areas = true
+debug_shape_custom_color = Color(0, 0.407843, 0.105882, 1)
+debug_shape_thickness = 5

@@ -1,8 +1,7 @@
 extends Node
 
-var meshtool
-var mesh
-var mesh_instance
+var meshtool : MeshDataTool
+var mesh_instance : MeshInstance3D
 
 var transform_vertex_to_global = true
 
@@ -13,10 +12,11 @@ var _local_face_vertices := []
 
 func set_mesh(_mesh_instance):
 	mesh_instance = _mesh_instance
-	mesh = _mesh_instance.mesh
-  
+	
+	var array_mesh = ArrayMesh.new()
+	array_mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES,mesh_instance.mesh.get_mesh_arrays())
 	meshtool = MeshDataTool.new()
-	meshtool.create_from_surface(mesh, 0)  
+	meshtool.create_from_surface(array_mesh,0)
 	
 	_face_count = meshtool.get_face_count()
 	_world_normals.resize(_face_count)
@@ -55,7 +55,7 @@ func get_face(point, normal, epsilon = 0.2):
 		if bc:
 			return [idx, vertices, bc]
 			
-	return null
+	return Vector2.ZERO
 
 func get_uv_coords(point, normal, transform = true):
 	# Gets the uv coordinates on the mesh given a point on the mesh and normal

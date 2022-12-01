@@ -1,7 +1,6 @@
-[gd_scene load_steps=23 format=3 uid="uid://db3movydv06gk"]
+[gd_scene load_steps=22 format=3 uid="uid://db3movydv06gk"]
 
 [ext_resource type="Script" path="res://MapEditor.gd" id="1"]
-[ext_resource type="Script" path="res://map_editor/MapEditorInputs.gd" id="2_3gjje"]
 [ext_resource type="Script" path="res://map_editor/editor_camera.gd" id="2_x8oxq"]
 [ext_resource type="Script" path="res://map_editor/toolbar.gd" id="3_cvv14"]
 [ext_resource type="Script" path="res://map_editor/map_data.gd" id="3_h17jr"]
@@ -46,9 +45,6 @@ noise = SubResource("FastNoiseLite_n8v05")
 
 [node name="MapEditor" type="Node"]
 script = ExtResource("1")
-
-[node name="MapEditorInputs" type="Node" parent="."]
-script = ExtResource("2_3gjje")
 
 [node name="MapData" type="Node" parent="."]
 script = ExtResource("3_h17jr")
@@ -450,13 +446,10 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="brush" type="Node2D" parent="MapTextures/splatmap"]
-script = ExtResource("12_aiphw")
+[node name="brush" type="Sprite2D" parent="MapTextures/splatmap"]
 texture = ExtResource("14_tfa5l")
-
-[node name="Camera2D" type="Camera2D" parent="MapTextures/splatmap"]
-offset = Vector2(256, 256)
-current = true
+script = ExtResource("12_aiphw")
+brush_size = 1
 
 [node name="heightmap" type="SubViewport" parent="MapTextures"]
 render_target_clear_mode = 1

@@ -1,2 +1,12 @@
 res://game/buildprint.gd
 res://blueprint_dev.tscn
+res://map_editor/editor_camera.gd
+res://art/meshes/structural/zapotecs/zapotec.material
+res://data/simulation/structures/fundation_town_center.tscn
+res://game/fundation.gd
+res://map_editor/uv_position.gd
+res://MapEditor.tscn
+res://map_editor/setup_mesh.gd
+res://map_editor/brush.gd
+res://map_editor/3d_map.gd
+res://map_editor/draw_viewport.gd

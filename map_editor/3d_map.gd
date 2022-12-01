@@ -8,13 +8,13 @@ var terrain : MeshInstance3D
 var map_size : Vector2 = Vector2(200,200)
 
 func _ready():
-#	terrain = $terrain
-#	var heightmap = $"../MapTextures/heightmap"
-#	var splatmap =  $"../MapTextures/splatmap"
-#	material.shader = load("res://game/shaders/terrain.gdshader")
-#	material.set_shader_parameter("height_map",heightmap.get_viewport().get_texture())
-#	material.set_shader_parameter("splat_map", splatmap.get_viewport().get_texture())
-#	terrain.material_override = material
+	terrain = $terrain
+	var heightmap = $"../MapTextures/heightmap"
+	var splatmap =  $"../MapTextures/splatmap"
+	material.shader = load("res://game/shaders/terrain.gdshader")
+	material.set_shader_parameter("height_map",heightmap.get_viewport().get_texture())
+	material.set_shader_parameter("splat_map", splatmap.get_viewport().get_texture())
+	terrain.material_override = material
 	create_heightmap_shape()
 
 

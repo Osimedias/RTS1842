@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://biemj6mscuv4u"]
+
+[ext_resource type="Script" path="res://game/fundation.gd" id="1_sxde5"]
+[ext_resource type="PackedScene" uid="uid://gkm2qscic45j" path="res://data/simulation/structures/zapotecs/town_center.tscn" id="2_ydbl6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_55wh0"]
+size = Vector3(30.0575, 2.48044, 27.8975)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_te814"]
+
+[node name="FundationTownCenter" type="Area3D"]
+script = ExtResource("1_sxde5")
+structure = ExtResource("2_ydbl6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26744, -0.0134325)
+shape = SubResource("BoxShape3D_55wh0")
+
+[node name="MeshInstance3D_2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0091, 0.998903, -14.0085)
+mesh = SubResource("CylinderMesh_te814")
+
+[node name="MeshInstance3D_3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0474, 0.998903, -14.0085)
+mesh = SubResource("CylinderMesh_te814")
+
+[node name="MeshInstance3D_4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0091, 0.998903, 13.4003)
+mesh = SubResource("CylinderMesh_te814")
+
+[node name="MeshInstance3D_5" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0474, 0.998903, 13.4003)
+mesh = SubResource("CylinderMesh_te814")
