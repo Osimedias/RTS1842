@@ -1,18 +1,16 @@
-res://data/simulation
+/run/media/trinketos/Saul/builds/rts
 res://game
+res://map_editor
+res://
+res://art/gui/singleplayer
+res://data/simulation
 res://data/simulation/structures
 res://data/simulation/structures/zapotecs
-res://
 res://game/shaders
-res://map_editor
 res://data/simulation/units
 res://art/meshes/structural/zapotecs
 res://art/textures/structures
-E:/GodotProjects/RTS1842/docs
-E:/SteamLibrary/steamapps/common/Blender
 res://data
 res://art/gui/screen_panels
 res://menus
 res://2dver
-C:/Users/unive/AppData/Local/Programs/Microsoft VS Code
-E:/GodotProjects/dev_videos/rts_dev

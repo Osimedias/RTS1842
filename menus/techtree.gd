@@ -32,3 +32,6 @@ func dir_contents(path : String):
 
 
 
+func _on_back_pressed():
+	visible = false
+	pass # Replace with function body.

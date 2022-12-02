@@ -55,6 +55,7 @@ Config/game_version="1.0.0"
 [application]
 
 config/name="1842 RTS"
+run/main_scene="res://main_menu.tscn"
 config/features=PackedStringArray("4.0")
 config/icon="res://icon.svg"
 config/windows_native_icon="res://icon.ico"
@@ -67,11 +68,12 @@ driver/enable_input=true
 
 PlayerMapData="*res://menus/player_map_data.tscn"
 UvPosition="*res://map_editor/uv_position.gd"
+Fps="*res://fps.tscn"
 
 [display]
 
 window/stretch/mode="viewport"
-window/stretch/aspect="expand"
+window/stretch/aspect="keep_width"
 
 [dotnet]
 

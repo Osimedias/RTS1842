@@ -1,7 +1,85 @@
-[gd_scene load_steps=3 format=3 uid="uid://bx3hsyf02631n"]
+[gd_scene load_steps=23 format=3 uid="uid://bx3hsyf02631n"]
 
 [ext_resource type="Script" path="res://menus/techtree.gd" id="1_02rbk"]
+[ext_resource type="Script" path="res://Singleplayer.gd" id="1_sm8di"]
 [ext_resource type="Script" path="res://menus/select_player_panel.gd" id="1_xlomi"]
+[ext_resource type="Texture2D" uid="uid://jxi8nigrqdsv" path="res://art/gui/singleplayer/background.png" id="2_x2an6"]
+[ext_resource type="Texture2D" uid="uid://d231l81ly7fyp" path="res://art/gui/singleplayer/button_normal.png" id="4_3w4g0"]
+[ext_resource type="Texture2D" uid="uid://djio550k25xh" path="res://art/gui/singleplayer/button_hovel.png" id="5_51ngn"]
+[ext_resource type="Texture2D" uid="uid://d0l66b0fg3mt6" path="res://art/gui/singleplayer/button_pressed.png" id="6_qc7js"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7qenl"]
+texture = ExtResource("2_x2an6")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(0, 0, 512, 512)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xkhia"]
+draw_center = false
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.901961, 0.807843, 0.0392157, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spnjg"]
+draw_center = false
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.827451, 0.839216, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p0lyn"]
+texture = ExtResource("4_3w4g0")
+region_rect = Rect2(0, 0, 120, 49)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yuvyx"]
+texture = ExtResource("5_51ngn")
+region_rect = Rect2(0, 0, 120, 49)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i2mlx"]
+texture = ExtResource("6_qc7js")
+region_rect = Rect2(0, 0, 120, 49)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4yn25"]
+texture = ExtResource("6_qc7js")
+region_rect = Rect2(0, 0, 120, 49)
+modulate_color = Color(0.627451, 0.384314, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_288v7"]
+texture = ExtResource("4_3w4g0")
+region_rect = Rect2(0, 0, 120, 49)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xhpqb"]
+texture = ExtResource("5_51ngn")
+region_rect = Rect2(0, 0, 120, 49)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t6byx"]
+texture = ExtResource("6_qc7js")
+region_rect = Rect2(0, 0, 120, 49)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ixbdq"]
+texture = ExtResource("6_qc7js")
+region_rect = Rect2(0, 0, 120, 49)
+modulate_color = Color(0.627451, 0.384314, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_unls8"]
+texture = ExtResource("4_3w4g0")
+region_rect = Rect2(0, 0, 120, 49)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uj8ge"]
+texture = ExtResource("5_51ngn")
+region_rect = Rect2(0, 0, 120, 49)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xcg78"]
+texture = ExtResource("6_qc7js")
+region_rect = Rect2(0, 0, 120, 49)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lwpw8"]
+texture = ExtResource("6_qc7js")
+region_rect = Rect2(0, 0, 120, 49)
+modulate_color = Color(0.627451, 0.384314, 0, 1)
 
 [node name="Sigleplayer" type="Control"]
 layout_mode = 3
@@ -10,6 +88,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_sm8di")
 
 [node name="background" type="Panel" parent="."]
 layout_mode = 1
@@ -18,6 +97,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_7qenl")
 metadata/_edit_use_anchors_ = true
 
 [node name="Panel" type="Panel" parent="background"]
@@ -27,6 +107,7 @@ anchor_left = 0.0104167
 anchor_top = 0.0185185
 anchor_right = 0.629167
 anchor_bottom = 0.977778
+theme_override_styles/panel = SubResource("StyleBoxFlat_xkhia")
 script = ExtResource("1_xlomi")
 metadata/_edit_use_anchors_ = true
 
@@ -45,82 +126,56 @@ grow_vertical = 2
 [node name="player_slot_1" type="HBoxContainer" parent="background/Panel/players"]
 unique_name_in_owner = true
 layout_mode = 2
-offset_right = 448.0
-offset_bottom = 68.0
 size_flags_vertical = 3
 
 [node name="player_slot_2" type="HBoxContainer" parent="background/Panel/players"]
 unique_name_in_owner = true
 layout_mode = 2
-offset_top = 72.0
-offset_right = 448.0
-offset_bottom = 140.0
 size_flags_vertical = 3
 
 [node name="player_slot_3" type="HBoxContainer" parent="background/Panel/players"]
 unique_name_in_owner = true
 layout_mode = 2
-offset_top = 144.0
-offset_right = 448.0
-offset_bottom = 212.0
 size_flags_vertical = 3
 
 [node name="player_slot_4" type="HBoxContainer" parent="background/Panel/players"]
 unique_name_in_owner = true
 layout_mode = 2
-offset_top = 216.0
-offset_right = 448.0
-offset_bottom = 284.0
 size_flags_vertical = 3
 
 [node name="player_slot_5" type="HBoxContainer" parent="background/Panel/players"]
 unique_name_in_owner = true
 layout_mode = 2
-offset_top = 288.0
-offset_right = 448.0
-offset_bottom = 356.0
 size_flags_vertical = 3
 
 [node name="player_slot_6" type="HBoxContainer" parent="background/Panel/players"]
 unique_name_in_owner = true
 layout_mode = 2
-offset_top = 360.0
-offset_right = 448.0
-offset_bottom = 428.0
 size_flags_vertical = 3
 
 [node name="player_slot_7" type="HBoxContainer" parent="background/Panel/players"]
 unique_name_in_owner = true
 layout_mode = 2
-offset_top = 432.0
-offset_right = 448.0
-offset_bottom = 500.0
 size_flags_vertical = 3
 
 [node name="player_slot_8" type="HBoxContainer" parent="background/Panel/players"]
 unique_name_in_owner = true
 layout_mode = 2
-offset_top = 504.0
-offset_right = 448.0
-offset_bottom = 572.0
 size_flags_vertical = 3
 
 [node name="player_slot_9" type="HBoxContainer" parent="background/Panel/players"]
 unique_name_in_owner = true
 layout_mode = 2
-offset_top = 576.0
-offset_right = 448.0
-offset_bottom = 645.0
 size_flags_vertical = 3
 
 [node name="counter" type="SpinBox" parent="background/Panel"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.911616
+anchor_left = 0.870931
 anchor_top = 0.0173745
-anchor_right = 0.981533
-anchor_bottom = 0.0472973
+anchor_right = 0.987461
+anchor_bottom = 0.0672458
 min_value = 2.0
 max_value = 8.0
 value = 2.0
@@ -129,10 +184,10 @@ metadata/_edit_use_anchors_ = true
 [node name="Label" type="Label" parent="background/Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.831649
+anchor_left = 0.790964
 anchor_top = 0.0183398
-anchor_right = 0.906565
-anchor_bottom = 0.046332
+anchor_right = 0.870931
+anchor_bottom = 0.0601673
 text = "Players"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
@@ -144,6 +199,7 @@ anchor_left = 0.630729
 anchor_top = 0.0185185
 anchor_right = 0.990104
 anchor_bottom = 0.833333
+theme_override_styles/panel = SubResource("StyleBoxFlat_spnjg")
 metadata/_edit_use_anchors_ = true
 
 [node name="map_preview" type="TextureRect" parent="background/Panel_2"]
@@ -170,10 +226,16 @@ metadata/_edit_use_anchors_ = true
 [node name="Button" type="Button" parent="background"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.736458
+anchor_left = 0.758159
 anchor_top = 0.875
-anchor_right = 0.841146
+anchor_right = 0.862847
 anchor_bottom = 0.950926
+offset_right = -0.600586
+offset_bottom = -0.200073
+theme_override_styles/normal = SubResource("StyleBoxTexture_p0lyn")
+theme_override_styles/hover = SubResource("StyleBoxTexture_yuvyx")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_i2mlx")
+theme_override_styles/focus = SubResource("StyleBoxTexture_4yn25")
 text = "Start
 "
 metadata/_edit_use_anchors_ = true
@@ -181,10 +243,16 @@ metadata/_edit_use_anchors_ = true
 [node name="Button_3" type="Button" parent="background"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.655729
+anchor_left = 0.640104
 anchor_top = 0.875
-anchor_right = 0.710938
+anchor_right = 0.744271
 anchor_bottom = 0.950926
+offset_right = 0.00012207
+offset_bottom = -0.200012
+theme_override_styles/normal = SubResource("StyleBoxTexture_288v7")
+theme_override_styles/hover = SubResource("StyleBoxTexture_xhpqb")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_t6byx")
+theme_override_styles/focus = SubResource("StyleBoxTexture_ixbdq")
 text = "Techtree
 "
 metadata/_edit_use_anchors_ = true
@@ -192,10 +260,16 @@ metadata/_edit_use_anchors_ = true
 [node name="Button_2" type="Button" parent="background"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.854167
+anchor_left = 0.875868
 anchor_top = 0.875
-anchor_right = 0.958854
+anchor_right = 0.980555
 anchor_bottom = 0.950926
+offset_right = -0.599487
+offset_bottom = -0.200073
+theme_override_styles/normal = SubResource("StyleBoxTexture_unls8")
+theme_override_styles/hover = SubResource("StyleBoxTexture_uj8ge")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_xcg78")
+theme_override_styles/focus = SubResource("StyleBoxTexture_lwpw8")
 text = "Back"
 metadata/_edit_use_anchors_ = true
 
@@ -241,3 +315,7 @@ anchor_bottom = 0.981114
 metadata/_edit_use_anchors_ = true
 
 [connection signal="value_changed" from="background/Panel/counter" to="background/Panel" method="_on_counter_value_changed"]
+[connection signal="pressed" from="background/Button" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="background/Button_3" to="." method="_on_techtree_pressed"]
+[connection signal="pressed" from="background/Button_2" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="background/techtree/Button" to="background/techtree" method="_on_back_pressed"]
