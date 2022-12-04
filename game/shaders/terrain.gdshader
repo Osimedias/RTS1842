@@ -13,8 +13,15 @@ uniform sampler2DArray normalmap;
 void vertex()
 {
 	float height = texture(height_map,UV).r;
-	//VERTEX.y += height * 0.5;
+	VERTEX.y += height * 32.0;
 }
+
+
+vec3 texture_array(sampler2D tex,vec2 uv,int index)
+{
+	return vec3(uv.x,uv.y,float(index));
+}
+
 
 void fragment()
 {

@@ -1,0 +1,26 @@
+[remap]
+
+importer="2d_array_texture"
+type="CompressedTexture2DArray"
+uid="uid://b4rbjwi3qgpo"
+path="res://.godot/imported/grass_b.png-9151797326134d742c3a6e25a0e06172.ctexarray"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://art/textures/terrain/grass_b.png"
+dest_files=["res://.godot/imported/grass_b.png-9151797326134d742c3a6e25a0e06172.ctexarray"]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/bptc_ldr=0
+compress/channel_pack=0
+mipmaps/generate=false
+mipmaps/limit=-1
+slices/horizontal=2
+slices/vertical=2

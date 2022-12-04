@@ -1,10 +1,6 @@
-res://main_menu.tscn
-res://Options.tscn
-res://fps.tscn
-res://art/meshes/structural/zapotecs/zapotec.material
-res://Singleplayer.tscn
-res://Singleplayer.gd
-res://menus/techtree.gd
+res://default_bus_layout.tres
 res://single_player_map.tscn
+res://main_menu.tscn
+res://arra_texture_generator.tscn
 res://single_player_map.gd
-res://map_editor/editor_camera.gd
+res://game/rms_texture.gd

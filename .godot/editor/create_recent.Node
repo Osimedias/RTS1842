@@ -1,11 +1,13 @@
+ColorRect
+GridContainer
+WorldEnvironment
+DirectionalLight3D
+MeshInstance3D
 SubViewport
 Node
 TextureRect
 Marker3D
-DirectionalLight3D
-WorldEnvironment
 Camera3D
-MeshInstance3D
 Label
 LineEdit
 Button
@@ -28,5 +30,3 @@ Area3D
 CharacterBody3D
 AnimatableBody3D
 StaticBody3D
-ProgressBar
-PanelContainer

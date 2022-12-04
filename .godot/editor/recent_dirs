@@ -1,12 +1,15 @@
+res://
+res://data/shaders
+res://game/shaders
+res://data/material
+res://art/textures/terrain
 /run/media/trinketos/Saul/builds/rts
 res://game
 res://map_editor
-res://
 res://art/gui/singleplayer
 res://data/simulation
 res://data/simulation/structures
 res://data/simulation/structures/zapotecs
-res://game/shaders
 res://data/simulation/units
 res://art/meshes/structural/zapotecs
 res://art/textures/structures

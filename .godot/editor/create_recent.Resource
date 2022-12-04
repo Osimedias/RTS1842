@@ -1,2 +1,3 @@
+Shader
 VisualShader
 StandardMaterial3D

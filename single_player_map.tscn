@@ -1,13 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cwh8oo4yo1jt"]
+[gd_scene load_steps=7 format=3 uid="uid://cwh8oo4yo1jt"]
 
 [ext_resource type="Script" path="res://single_player_map.gd" id="1_t6xhw"]
 [ext_resource type="Script" path="res://game/game_camera.gd" id="2_qevfd"]
 [ext_resource type="PackedScene" uid="uid://dw2f7n07ehp1h" path="res://menus/session_ui.tscn" id="3_afxm7"]
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_u6dgx"]
-size = Vector2(512, 512)
-subdivide_width = 200
-subdivide_depth = 200
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6tuhi"]
 
@@ -22,7 +17,6 @@ sky = SubResource("Sky_hm6jq")
 script = ExtResource("1_t6xhw")
 
 [node name="terrain" type="MeshInstance3D" parent="."]
-mesh = SubResource("PlaneMesh_u6dgx")
 
 [node name="camera_controller" type="Marker3D" parent="."]
 script = ExtResource("2_qevfd")
@@ -48,6 +42,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="GUI"]
+layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.015625
 anchor_top = 0.635802

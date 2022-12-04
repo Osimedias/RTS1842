@@ -1,0 +1,78 @@
+[gd_scene load_steps=14 format=3 uid="uid://ciqwlnj2u54u1"]
+
+[ext_resource type="Shader" path="res://data/shaders/terrain.gdshader" id="1_kegbb"]
+[ext_resource type="CompressedTexture2DArray" path="res://art/textures/terrain/test.png" id="2_fyh2g"]
+[ext_resource type="CompressedTexture2DArray" path="res://art/textures/terrain/test_normal.png" id="3_ryrxg"]
+[ext_resource type="Shader" path="res://game/shaders/water.gdshader" id="3_thohs"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m836p"]
+render_priority = 0
+shader = ExtResource("1_kegbb")
+shader_parameter/grass = ExtResource("2_fyh2g")
+shader_parameter/grass_norm = ExtResource("3_ryrxg")
+shader_parameter/subdivision = 4.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_y84k7"]
+lightmap_size_hint = Vector2i(1002, 1002)
+add_uv2 = true
+size = Vector2(200, 200)
+subdivide_width = 500
+subdivide_depth = 500
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_flpod"]
+noise_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_g33rc"]
+seamless = true
+seamless_blend_skirt = 0.173
+as_normal_map = true
+bump_strength = 32.0
+noise = SubResource("FastNoiseLite_flpod")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0hb1e"]
+render_priority = 0
+shader = ExtResource("3_thohs")
+shader_parameter/albedo = Color(0, 0.478431, 0.521569, 0.443137)
+shader_parameter/metallic = 0.0
+shader_parameter/metallic_texture_channel = Plane(1, 0, 0, 0)
+shader_parameter/normal_scale = 1.0
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/specular = 0.5
+shader_parameter/texture_normal = SubResource("NoiseTexture2D_g33rc")
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_wpums"]
+size = Vector2(200, 200)
+subdivide_width = 350
+subdivide_depth = 350
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_p46vn"]
+
+[sub_resource type="Sky" id="Sky_rv03b"]
+sky_material = SubResource("PhysicalSkyMaterial_p46vn")
+
+[sub_resource type="Environment" id="Environment_oyuo6"]
+background_mode = 2
+sky = SubResource("Sky_rv03b")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("ShaderMaterial_m836p")
+mesh = SubResource("PlaneMesh_y84k7")
+
+[node name="MeshInstance3D_2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.0344, 0)
+material_override = SubResource("ShaderMaterial_0hb1e")
+mesh = SubResource("PlaneMesh_wpums")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.962388, -0.214469, -0.166769, 0.261974, 0.569995, 0.778766, -0.0719635, -0.793164, 0.604741, 0, 35.9538, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_oyuo6")

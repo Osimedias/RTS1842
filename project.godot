@@ -24,6 +24,11 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://game/entity_data.gd"
 }, {
+"base": "Node2D",
+"class": &"RMSTexture",
+"language": &"GDScript",
+"path": "res://game/rms_texture.gd"
+}, {
 "base": "MapRandom",
 "class": &"TestMap",
 "language": &"GDScript",
@@ -43,6 +48,7 @@ _global_script_class_icons={
 "Ability": "",
 "Civilization": "",
 "EntityData": "",
+"RMSTexture": "",
 "TestMap": "",
 "Utils": "",
 "Yucatan": ""
@@ -72,6 +78,7 @@ Fps="*res://fps.tscn"
 
 [display]
 
+window/size/mode=3
 window/stretch/mode="viewport"
 window/stretch/aspect="keep_width"
 
