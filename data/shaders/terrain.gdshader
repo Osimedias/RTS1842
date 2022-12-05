@@ -2,6 +2,8 @@ shader_type spatial;
 
 render_mode blend_mix,depth_draw_opaque,cull_back,diffuse_burley,specular_schlick_ggx;
 
+uniform float vertex_height : hint_range(0.0, 35.0, 0.1) = 10;
+
 uniform sampler2DArray grass : hint_default_white;
 uniform sampler2DArray grass_orm : hint_default_white;
 uniform sampler2DArray grass_norm : hint_normal;
@@ -29,7 +31,7 @@ void vertex(){
 	uv = vec3(UV*subdivision,tile);
 	
 	float height = texture(terrain_height_map, UV).y;
-	VERTEX.y += height * 32.0;
+	VERTEX.y += height * vertex_height;
 }
 
 vec3 blend_red(sampler2DArray tile,vec2 uv_map){

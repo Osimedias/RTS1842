@@ -24,22 +24,22 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://game/entity_data.gd"
 }, {
-"base": "Node2D",
-"class": &"RMSTexture",
-"language": &"GDScript",
-"path": "res://game/rms_texture.gd"
-}, {
 "base": "MapRandom",
 "class": &"TestMap",
 "language": &"GDScript",
 "path": "res://data/maps/random/test_map.gd"
 }, {
 "base": "RefCounted",
+"class": &"TextureList",
+"language": &"GDScript",
+"path": "res://game/texture_list.gd"
+}, {
+"base": "RefCounted",
 "class": &"Utils",
 "language": &"GDScript",
 "path": "res://map/random/rmslib/utils.gd"
 }, {
-"base": "Node",
+"base": "Node2D",
 "class": &"Yucatan",
 "language": &"GDScript",
 "path": "res://map/random/yucatan.gd"
@@ -48,8 +48,8 @@ _global_script_class_icons={
 "Ability": "",
 "Civilization": "",
 "EntityData": "",
-"RMSTexture": "",
 "TestMap": "",
+"TextureList": "",
 "Utils": "",
 "Yucatan": ""
 }
@@ -79,8 +79,9 @@ Fps="*res://fps.tscn"
 [display]
 
 window/size/mode=3
+window/vsync/vsync_mode=2
 window/stretch/mode="viewport"
-window/stretch/aspect="keep_width"
+window/stretch/aspect="expand"
 
 [dotnet]
 
@@ -89,7 +90,8 @@ project/assembly_name="1842 RTS"
 [editor]
 
 movie_writer/speaker_mode=3
-movie_writer/movie_file="E:/GodotProjects/dev_videos/rts/dev.avi"
+movie_writer/mjpeg_quality=1.0
+movie_writer/movie_file="/run/media/trinketos/Saul/GodotProjects/dev_videos/rts_dev/singleplayer.avi"
 node_naming/name_num_separator=2
 
 [filesystem]

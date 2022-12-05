@@ -1,10 +1,13 @@
-res://
+/run/media/trinketos/Saul/GodotProjects/dev_videos/rts_dev
+res://dev
+res://art/textures/terrain
 res://data/shaders
 res://game/shaders
-res://data/material
-res://art/textures/terrain
-/run/media/trinketos/Saul/builds/rts
 res://game
+res://art/gui/wood
+res://
+res://data/material
+/run/media/trinketos/Saul/builds/rts
 res://map_editor
 res://art/gui/singleplayer
 res://data/simulation

@@ -1,17 +1,56 @@
-[gd_scene load_steps=7 format=3 uid="uid://cwh8oo4yo1jt"]
+[gd_scene load_steps=10 format=3 uid="uid://cwh8oo4yo1jt"]
 
 [ext_resource type="Script" path="res://single_player_map.gd" id="1_t6xhw"]
 [ext_resource type="Script" path="res://game/game_camera.gd" id="2_qevfd"]
 [ext_resource type="PackedScene" uid="uid://dw2f7n07ehp1h" path="res://menus/session_ui.tscn" id="3_afxm7"]
+[ext_resource type="PackedScene" uid="uid://oibfjbk0xmjd" path="res://data/simulation/blueprint.tscn" id="4_nv1py"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6tuhi"]
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_eileg"]
+ground_color = Color(0.270588, 0.207843, 0.133333, 1)
 
 [sub_resource type="Sky" id="Sky_hm6jq"]
-sky_material = SubResource("ProceduralSkyMaterial_6tuhi")
+sky_material = SubResource("PhysicalSkyMaterial_eileg")
+process_mode = 1
+radiance_size = 5
 
 [sub_resource type="Environment" id="Environment_4b6w4"]
 background_mode = 2
 sky = SubResource("Sky_hm6jq")
+ambient_light_color = Color(0.635294, 0.635294, 0.635294, 1)
+reflected_light_source = 2
+tonemap_mode = 2
+ssr_enabled = true
+ssao_enabled = true
+ssil_enabled = true
+sdfgi_enabled = true
+sdfgi_use_occlusion = true
+sdfgi_bounce_feedback = 0.58
+sdfgi_y_scale = 2
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 3.56
+fog_enabled = true
+fog_sun_scatter = 0.4
+fog_sky_affect = 0.22
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.02
+volumetric_fog_albedo = Color(0.282353, 0.282353, 0.282353, 1)
+volumetric_fog_length = 15.0
+volumetric_fog_detail_spread = 1.86607
+volumetric_fog_ambient_inject = 3.23
+adjustment_enabled = true
+adjustment_brightness = 1.38
+adjustment_contrast = 0.75
+adjustment_saturation = 1.81
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q5v2f"]
+albedo_color = Color(0, 0, 0, 1)
+emission_enabled = true
+emission = Color(1, 1, 0, 1)
+emission_energy_multiplier = 2.79
+
+[sub_resource type="SphereMesh" id="SphereMesh_3tatm"]
+material = SubResource("StandardMaterial3D_q5v2f")
 
 [node name="WorldMap" type="Node3D"]
 script = ExtResource("1_t6xhw")
@@ -19,10 +58,11 @@ script = ExtResource("1_t6xhw")
 [node name="terrain" type="MeshInstance3D" parent="."]
 
 [node name="camera_controller" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.58438, 0)
 script = ExtResource("2_qevfd")
 
 [node name="pivot" type="Marker3D" parent="camera_controller"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 52.1512, 0)
 
 [node name="camera" type="Camera3D" parent="camera_controller/pivot"]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0)
@@ -31,15 +71,19 @@ current = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_4b6w4")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.937689, 0.217687, -0.270835, 0, 0.779436, 0.626481, 0.347476, -0.587445, 0.730869, 0, 24.643, 0)
+[node name="sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.875465, 0.483282, 0, -0.483282, 0.875465, 0, 24.643, 0)
+layers = 33
 shadow_enabled = true
+shadow_bias = 2.077
+shadow_normal_bias = 1.027
+shadow_transmittance_bias = 1.538
+shadow_opacity = 0.55
+shadow_blur = 9.953
 
 [node name="entities" type="Marker3D" parent="."]
 
 [node name="GUI" parent="." instance=ExtResource("3_afxm7")]
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="GUI"]
 layout_mode = 1
@@ -55,3 +99,18 @@ metadata/_edit_use_anchors_ = true
 [node name="splatmap" type="SubViewport" parent="textures"]
 
 [node name="heightmap" type="SubViewport" parent="textures"]
+
+[node name="SkyProbe" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -5.094)
+mesh = SubResource("SphereMesh_3tatm")
+
+[node name="blueprint" parent="." instance=ExtResource("4_nv1py")]
+floor_constant_speed = true
+floor_block_on_wall = false
+platform_floor_layers = 4278190081
+
+[node name="gi" type="VoxelGI" parent="."]
+extents = Vector3(200, 200, 200)
+
+[node name="LightmapProbe" type="LightmapProbe" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.90899, 0)

@@ -14,7 +14,7 @@ var recheck : bool
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	zoom = 0.5
+	zoom = 52
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -22,7 +22,7 @@ func _process(delta):
 	var horizontal = Input.get_axis("move_up","move_down")
 	var vertical = Input.get_axis("move_left","move_right")
 	
-	zoom = clamp(zoom,1,20)
+	zoom = clamp(zoom,1,100)
 	
 	var dir : Vector3 = Vector3.ZERO
 	

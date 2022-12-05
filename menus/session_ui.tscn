@@ -1,48 +1,28 @@
-[gd_scene load_steps=19 format=3 uid="uid://dw2f7n07ehp1h"]
+[gd_scene load_steps=16 format=3 uid="uid://dw2f7n07ehp1h"]
 
-[ext_resource type="Texture2D" uid="uid://dnh1kmsw0sjt" path="res://art/gui/screen_panels/panel_modern.png" id="1_qyabb"]
-[ext_resource type="Texture2D" uid="uid://572is1qpvy5r" path="res://art/gui/screen_panels/button_modern.png" id="1_umeu1"]
-[ext_resource type="Texture2D" uid="uid://cqfvn14drmfdp" path="res://art/gui/screen_panels/panel_large_modern.png" id="2_hu00e"]
-[ext_resource type="Texture2D" uid="uid://dlbvtuw5xmx5n" path="res://art/gui/screen_panels/panel_command_modern.png" id="3_ihjev"]
-[ext_resource type="Texture2D" uid="uid://c4jryns6eod1k" path="res://art/gui/screen_panels/background.png" id="4_3ojde"]
+[ext_resource type="Texture2D" uid="uid://eqyrw8lcyg4" path="res://art/gui/wood/button.png" id="1_k5gxg"]
+[ext_resource type="Script" path="res://menus/session_ui.gd" id="1_o6rry"]
+[ext_resource type="Texture2D" uid="uid://cjdtu7s36mq2o" path="res://art/gui/wood/panel_normal.png" id="2_jdcla"]
+[ext_resource type="Texture2D" uid="uid://irii17xnjpj7" path="res://art/gui/wood/panel_large.png" id="3_yoofs"]
 [ext_resource type="Texture2D" uid="uid://dc14w6ew08nhd" path="res://art/gui/screen_panels/background_b.png" id="5_h6y2r"]
+[ext_resource type="Texture2D" uid="uid://ckket8hda8p6c" path="res://art/gui/wood/panel_command.png" id="6_tgjk0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_34070"]
-border_width_bottom = 5
-border_color = Color(0.384314, 0.384314, 0.384314, 1)
+bg_color = Color(0.278431, 0.160784, 0.117647, 1)
+border_width_bottom = 2
+border_color = Color(0.927795, 0.795984, 1.15514e-06, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5id72"]
-texture = ExtResource("1_umeu1")
+texture = ExtResource("1_k5gxg")
 region_rect = Rect2(0, 0, 32, 16)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_45lkd"]
-texture = ExtResource("1_qyabb")
+texture = ExtResource("2_jdcla")
 region_rect = Rect2(0, 0, 255, 255)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_puebj"]
-texture = ExtResource("2_hu00e")
+texture = ExtResource("3_yoofs")
 region_rect = Rect2(0, 0, 448, 240)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lh0sw"]
-texture = ExtResource("4_3ojde")
-axis_stretch_horizontal = 2
-axis_stretch_vertical = 2
-region_rect = Rect2(0, 0, 8, 8)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_nyvab"]
-noise_type = 2
-frequency = 0.11
-domain_warp_enabled = true
-domain_warp_amplitude = 60.0
-domain_warp_frequency = 40.0
-domain_warp_fractal_type = 2
-domain_warp_fractal_octaves = 9
-domain_warp_fractal_lacunarity = 9.0
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_k7yh7"]
-width = 153
-height = 183
-noise = SubResource("FastNoiseLite_nyvab")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xi5x5"]
 draw_center = false
@@ -50,10 +30,11 @@ border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
-border_color = Color(0.239216, 0.509804, 0.301961, 1)
+border_color = Color(0.927795, 0.795984, 1.15514e-06, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ee3ov"]
 bg_color = Color(0.0784314, 0.0784314, 0.0784314, 1)
+draw_center = false
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
@@ -66,25 +47,27 @@ axis_stretch_vertical = 1
 region_rect = Rect2(0, 0, 9, 9)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mq7e2"]
-texture = ExtResource("3_ihjev")
+texture = ExtResource("6_tgjk0")
 region_rect = Rect2(0, 0, 449, 257)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jmrd4"]
-bg_color = Color(0, 0, 0, 1)
+draw_center = false
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
-border_color = Color(0.345098, 0.94902, 0, 1)
+border_color = Color(0.929412, 0.796078, 0, 1)
 
 [node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o6rry")
 
 [node name="toolbox" type="Panel" parent="."]
-layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 0.0339506
@@ -92,7 +75,6 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_34070")
 metadata/_edit_use_anchors_ = true
 
 [node name="Button" type="Button" parent="toolbox"]
-layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.953125
 anchor_right = 1.0
@@ -102,7 +84,6 @@ text = "Menu"
 metadata/_edit_use_anchors_ = true
 
 [node name="minimap" type="Panel" parent="."]
-layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.606481
 anchor_right = 0.221354
@@ -111,7 +92,6 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_45lkd")
 metadata/_edit_use_anchors_ = true
 
 [node name="splatmap" type="TextureRect" parent="minimap"]
-layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0705882
 anchor_top = 0.0745098
@@ -121,7 +101,6 @@ ignore_texture_size = true
 metadata/_edit_use_anchors_ = true
 
 [node name="info_panel" type="Panel" parent="."]
-layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.221354
 anchor_top = 0.62963
@@ -130,62 +109,46 @@ anchor_bottom = 1.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_puebj")
 metadata/_edit_use_anchors_ = true
 
-[node name="Panel" type="Panel" parent="info_panel"]
-layout_mode = 1
+[node name="Panel_2" type="Panel" parent="info_panel"]
 anchors_preset = -1
-anchor_left = 0.0379464
-anchor_top = 0.0791667
-anchor_right = 0.955357
-anchor_bottom = 0.925
-theme_override_styles/panel = SubResource("StyleBoxTexture_lh0sw")
-metadata/_edit_use_anchors_ = true
-
-[node name="portrait" type="TextureRect" parent="info_panel/Panel"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.0218978
-anchor_top = 0.0541872
-anchor_right = 0.394161
-anchor_bottom = 0.955665
-texture = SubResource("NoiseTexture2D_k7yh7")
-metadata/_edit_use_anchors_ = true
-
-[node name="Panel" type="Panel" parent="info_panel/Panel"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.0218978
-anchor_top = 0.0541872
-anchor_right = 0.394161
-anchor_bottom = 0.955665
+anchor_left = 0.0691964
+anchor_top = 0.158333
+anchor_right = 0.366071
+anchor_bottom = 0.866668
 theme_override_styles/panel = SubResource("StyleBoxFlat_xi5x5")
 metadata/_edit_use_anchors_ = true
 
-[node name="name" type="Label" parent="info_panel/Panel"]
-layout_mode = 1
+[node name="portrait" type="TextureRect" parent="info_panel/Panel_2"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+ignore_texture_size = true
+
+[node name="name" type="Label" parent="info_panel"]
 anchors_preset = -1
-anchor_left = 0.430657
-anchor_top = 0.0837438
-anchor_right = 0.92944
-anchor_bottom = 0.29064
+anchor_left = 0.399554
+anchor_top = 0.166666
+anchor_right = 0.898337
+anchor_bottom = 0.373562
 text = "{ENTITY_NAME}"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="ProgressBar" type="ProgressBar" parent="info_panel/Panel"]
-layout_mode = 1
+[node name="ProgressBar" type="ProgressBar" parent="info_panel"]
 anchors_preset = -1
-anchor_left = 0.411192
-anchor_top = 0.793103
-anchor_right = 0.96837
-anchor_bottom = 0.926108
+anchor_left = 0.419643
+anchor_top = 0.754166
+anchor_right = 0.879464
+anchor_bottom = 0.866667
 theme_override_styles/background = SubResource("StyleBoxFlat_ee3ov")
 theme_override_styles/fill = SubResource("StyleBoxTexture_obc42")
 value = 50.0
 metadata/_edit_use_anchors_ = true
 
 [node name="command_panel" type="Panel" parent="."]
-layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.610243
 anchor_top = 0.603395
@@ -195,7 +158,6 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_mq7e2")
 metadata/_edit_use_anchors_ = true
 
 [node name="GridContainer" type="GridContainer" parent="command_panel"]
-layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0467706
 anchor_top = 0.077821
@@ -205,7 +167,6 @@ columns = 7
 metadata/_edit_use_anchors_ = true
 
 [node name="button_1" type="PanelContainer" parent="command_panel/GridContainer"]
-layout_mode = 2
 offset_right = 55.0
 offset_bottom = 51.0
 size_flags_horizontal = 3
@@ -213,7 +174,6 @@ size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_jmrd4")
 
 [node name="button_2" type="PanelContainer" parent="command_panel/GridContainer"]
-layout_mode = 2
 offset_left = 59.0
 offset_right = 114.0
 offset_bottom = 51.0
@@ -222,7 +182,6 @@ size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_jmrd4")
 
 [node name="button_3" type="PanelContainer" parent="command_panel/GridContainer"]
-layout_mode = 2
 offset_left = 118.0
 offset_right = 173.0
 offset_bottom = 51.0
@@ -231,7 +190,6 @@ size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_jmrd4")
 
 [node name="button_4" type="PanelContainer" parent="command_panel/GridContainer"]
-layout_mode = 2
 offset_left = 177.0
 offset_right = 231.0
 offset_bottom = 51.0
@@ -240,7 +198,6 @@ size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_jmrd4")
 
 [node name="button_5" type="PanelContainer" parent="command_panel/GridContainer"]
-layout_mode = 2
 offset_left = 235.0
 offset_right = 289.0
 offset_bottom = 51.0
@@ -249,7 +206,6 @@ size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_jmrd4")
 
 [node name="button_6" type="PanelContainer" parent="command_panel/GridContainer"]
-layout_mode = 2
 offset_left = 293.0
 offset_right = 347.0
 offset_bottom = 51.0
@@ -258,7 +214,6 @@ size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_jmrd4")
 
 [node name="button_7" type="PanelContainer" parent="command_panel/GridContainer"]
-layout_mode = 2
 offset_left = 351.0
 offset_right = 405.0
 offset_bottom = 51.0
@@ -267,7 +222,6 @@ size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_jmrd4")
 
 [node name="button_8" type="PanelContainer" parent="command_panel/GridContainer"]
-layout_mode = 2
 offset_top = 55.0
 offset_right = 55.0
 offset_bottom = 106.0
@@ -276,7 +230,6 @@ size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_jmrd4")
 
 [node name="button_9" type="PanelContainer" parent="command_panel/GridContainer"]
-layout_mode = 2
 offset_left = 59.0
 offset_top = 55.0
 offset_right = 114.0
@@ -286,7 +239,6 @@ size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_jmrd4")
 
 [node name="button_10" type="PanelContainer" parent="command_panel/GridContainer"]
-layout_mode = 2
 offset_left = 118.0
 offset_top = 55.0
 offset_right = 173.0
@@ -296,7 +248,6 @@ size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_jmrd4")
 
 [node name="button_11" type="PanelContainer" parent="command_panel/GridContainer"]
-layout_mode = 2
 offset_left = 177.0
 offset_top = 55.0
 offset_right = 231.0
@@ -306,7 +257,6 @@ size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_jmrd4")
 
 [node name="button_12" type="PanelContainer" parent="command_panel/GridContainer"]
-layout_mode = 2
 offset_left = 235.0
 offset_top = 55.0
 offset_right = 289.0
@@ -316,7 +266,6 @@ size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_jmrd4")
 
 [node name="button_13" type="PanelContainer" parent="command_panel/GridContainer"]
-layout_mode = 2
 offset_left = 293.0
 offset_top = 55.0
 offset_right = 347.0
@@ -326,7 +275,6 @@ size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_jmrd4")
 
 [node name="button_14" type="PanelContainer" parent="command_panel/GridContainer"]
-layout_mode = 2
 offset_left = 351.0
 offset_top = 55.0
 offset_right = 405.0
@@ -336,7 +284,6 @@ size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_jmrd4")
 
 [node name="button_15" type="PanelContainer" parent="command_panel/GridContainer"]
-layout_mode = 2
 offset_top = 110.0
 offset_right = 55.0
 offset_bottom = 161.0
@@ -345,7 +292,6 @@ size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_jmrd4")
 
 [node name="button_16" type="PanelContainer" parent="command_panel/GridContainer"]
-layout_mode = 2
 offset_left = 59.0
 offset_top = 110.0
 offset_right = 114.0
@@ -355,7 +301,6 @@ size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_jmrd4")
 
 [node name="button_17" type="PanelContainer" parent="command_panel/GridContainer"]
-layout_mode = 2
 offset_left = 118.0
 offset_top = 110.0
 offset_right = 173.0
@@ -365,7 +310,6 @@ size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_jmrd4")
 
 [node name="button_18" type="PanelContainer" parent="command_panel/GridContainer"]
-layout_mode = 2
 offset_left = 177.0
 offset_top = 110.0
 offset_right = 231.0
@@ -375,7 +319,6 @@ size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_jmrd4")
 
 [node name="button_19" type="PanelContainer" parent="command_panel/GridContainer"]
-layout_mode = 2
 offset_left = 235.0
 offset_top = 110.0
 offset_right = 289.0
@@ -385,7 +328,6 @@ size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_jmrd4")
 
 [node name="button_20" type="PanelContainer" parent="command_panel/GridContainer"]
-layout_mode = 2
 offset_left = 293.0
 offset_top = 110.0
 offset_right = 347.0
@@ -395,7 +337,6 @@ size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_jmrd4")
 
 [node name="button_21" type="PanelContainer" parent="command_panel/GridContainer"]
-layout_mode = 2
 offset_left = 351.0
 offset_top = 110.0
 offset_right = 405.0
@@ -405,7 +346,6 @@ size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_jmrd4")
 
 [node name="button_22" type="PanelContainer" parent="command_panel/GridContainer"]
-layout_mode = 2
 offset_top = 165.0
 offset_right = 55.0
 offset_bottom = 216.0
@@ -414,7 +354,6 @@ size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_jmrd4")
 
 [node name="button_23" type="PanelContainer" parent="command_panel/GridContainer"]
-layout_mode = 2
 offset_left = 59.0
 offset_top = 165.0
 offset_right = 114.0
@@ -424,7 +363,6 @@ size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_jmrd4")
 
 [node name="button_24" type="PanelContainer" parent="command_panel/GridContainer"]
-layout_mode = 2
 offset_left = 118.0
 offset_top = 165.0
 offset_right = 173.0
@@ -434,7 +372,6 @@ size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_jmrd4")
 
 [node name="button_25" type="PanelContainer" parent="command_panel/GridContainer"]
-layout_mode = 2
 offset_left = 177.0
 offset_top = 165.0
 offset_right = 231.0
@@ -444,7 +381,6 @@ size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_jmrd4")
 
 [node name="button_26" type="PanelContainer" parent="command_panel/GridContainer"]
-layout_mode = 2
 offset_left = 235.0
 offset_top = 165.0
 offset_right = 289.0
@@ -454,7 +390,6 @@ size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_jmrd4")
 
 [node name="button_27" type="PanelContainer" parent="command_panel/GridContainer"]
-layout_mode = 2
 offset_left = 293.0
 offset_top = 165.0
 offset_right = 347.0
@@ -464,7 +399,6 @@ size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_jmrd4")
 
 [node name="button_28" type="PanelContainer" parent="command_panel/GridContainer"]
-layout_mode = 2
 offset_left = 351.0
 offset_top = 165.0
 offset_right = 405.0

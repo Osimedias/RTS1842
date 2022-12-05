@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmceaxatgjvbp"]
+
+[ext_resource type="Script" path="res://dev/tree_placeholder.gd" id="1_ihvcr"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_qmnn5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_binjx"]
+
+[node name="StaticBody3D" type="StaticBody3D"]
+script = ExtResource("1_ihvcr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CylinderMesh_qmnn5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.490749, 0)
+shape = SubResource("BoxShape3D_binjx")
+
+[node name="ray" type="RayCast3D" parent="."]
+hit_from_inside = true
