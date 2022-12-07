@@ -1,45 +1,54 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=3 uid="uid://bsryk0e4t4s30"]
 
-[ext_resource path="res://icon.png" type="Texture2D" id=1]
-[ext_resource path="res://noto_sans_ui_regular.ttf" type="FontFile" id=2]
+[ext_resource type="Texture2D" uid="uid://ch1hguh0hb7lr" path="res://icon.svg" id="1"]
+[ext_resource type="FontFile" uid="uid://cwqw78ww86gvn" path="res://noto_sans_ui_regular.ttf" id="2"]
 
-[sub_resource type="FontFile" id=1]
-font_data = ExtResource( 2 )
+[sub_resource type="FontFile" id="1"]
+fallbacks = [ExtResource("2")]
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
-[sub_resource type="Theme" id=2]
-default_font = SubResource( 1 )
-
-[sub_resource type="ButtonGroup" id=3]
+[sub_resource type="Theme" id="2"]
+default_font = SubResource("1")
 
 [node name="ControlGallery" type="Control"]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme = SubResource( 2 )
+theme = SubResource("2")
 
 [node name="MainPanel" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.113725, 0.113725, 0.113725, 1 )
+color = Color(0.113725, 0.113725, 0.113725, 1)
 
 [node name="HSplitContainer" type="HSplitContainer" parent="MainPanel"]
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 10.0
 offset_top = 10.0
 offset_right = -10.0
 offset_bottom = -10.0
-custom_constants/separation = 10
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="BasicControls" type="Panel" parent="MainPanel/HSplitContainer"]
-offset_right = 280.0
-offset_bottom = 580.0
-minimum_size = Vector2( 280, 0 )
+layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainPanel/HSplitContainer/BasicControls"]
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 10.0
@@ -47,387 +56,223 @@ offset_top = 10.0
 offset_right = -10.0
 offset_bottom = -10.0
 size_flags_horizontal = 3
-custom_constants/separation = 15
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Title" type="Label" parent="MainPanel/HSplitContainer/BasicControls/VBoxContainer"]
-offset_right = 260.0
-offset_bottom = 23.0
-custom_colors/font_color = Color( 1, 1, 1, 0.627451 )
+layout_mode = 2
 text = "Basic controls"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Button" type="Button" parent="MainPanel/HSplitContainer/BasicControls/VBoxContainer"]
-offset_top = 38.0
-offset_right = 260.0
-offset_bottom = 67.0
+layout_mode = 2
 text = "Button"
 
 [node name="LinkButton" type="LinkButton" parent="MainPanel/HSplitContainer/BasicControls/VBoxContainer"]
-offset_top = 82.0
-offset_right = 260.0
-offset_bottom = 105.0
+layout_mode = 2
 tooltip_text = "Hint Tooltip"
 text = "LinkButton (hover me for tooltip)"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ColorPickerContainer" type="HBoxContainer" parent="MainPanel/HSplitContainer/BasicControls/VBoxContainer"]
-offset_top = 120.0
-offset_right = 260.0
-offset_bottom = 149.0
-custom_constants/separation = 10
+layout_mode = 2
 
 [node name="ColorPickerButton" type="ColorPickerButton" parent="MainPanel/HSplitContainer/BasicControls/VBoxContainer/ColorPickerContainer"]
-offset_right = 64.0
-offset_bottom = 29.0
-minimum_size = Vector2( 64, 0 )
-color = Color( 0.278431, 0.54902, 0.74902, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+layout_mode = 2
+color = Color(0.278431, 0.54902, 0.74902, 1)
 
 [node name="Label" type="Label" parent="MainPanel/HSplitContainer/BasicControls/VBoxContainer/ColorPickerContainer"]
-offset_left = 74.0
-offset_top = 3.0
-offset_right = 214.0
-offset_bottom = 26.0
+layout_mode = 2
 text = "ColorPickerButton"
 
 [node name="CheckBox" type="CheckBox" parent="MainPanel/HSplitContainer/BasicControls/VBoxContainer"]
-offset_top = 164.0
-offset_right = 260.0
-offset_bottom = 195.0
+layout_mode = 2
 text = "CheckBox"
 
 [node name="CheckButton" type="CheckButton" parent="MainPanel/HSplitContainer/BasicControls/VBoxContainer"]
-offset_top = 210.0
-offset_right = 260.0
-offset_bottom = 250.0
+layout_mode = 2
 text = "CheckButton"
 
 [node name="LineEdit" type="LineEdit" parent="MainPanel/HSplitContainer/BasicControls/VBoxContainer"]
-offset_top = 265.0
-offset_right = 260.0
-offset_bottom = 298.0
+layout_mode = 2
 text = "LineEdit"
 
 [node name="TextEdit" type="TextEdit" parent="MainPanel/HSplitContainer/BasicControls/VBoxContainer"]
-offset_top = 313.0
-offset_right = 260.0
-offset_bottom = 413.0
-minimum_size = Vector2( 0, 100 )
+layout_mode = 2
 text = "TextEdit
 
 Unlike LineEdit, I accept multiple lines."
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Label" type="Label" parent="MainPanel/HSplitContainer/BasicControls/VBoxContainer"]
-offset_top = 428.0
-offset_right = 260.0
-offset_bottom = 451.0
+layout_mode = 2
 text = "Label"
 
 [node name="TabContainer" type="TabContainer" parent="MainPanel/HSplitContainer/BasicControls/VBoxContainer"]
-offset_top = 466.0
-offset_right = 260.0
-offset_bottom = 546.0
-minimum_size = Vector2( 0, 80 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+layout_mode = 2
 
 [node name="Tab 1" type="Control" parent="MainPanel/HSplitContainer/BasicControls/VBoxContainer/TabContainer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = 41.0
-offset_right = -4.0
-offset_bottom = -4.0
+layout_mode = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MainPanel/HSplitContainer/BasicControls/VBoxContainer/TabContainer/Tab 1"]
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 5.0
 bbcode_enabled = true
-text = "[center]RichTextLabel: [color=#8ff]Tab 1[/color] is selected.[/center]"
 text = "RichTextLabel: Tab 1 is selected."
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Tab 2" type="Control" parent="MainPanel/HSplitContainer/BasicControls/VBoxContainer/TabContainer"]
 visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = 41.0
-offset_right = -4.0
-offset_bottom = -4.0
+layout_mode = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MainPanel/HSplitContainer/BasicControls/VBoxContainer/TabContainer/Tab 2"]
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 5.0
 bbcode_enabled = true
-text = "[center]RichTextLabel: [color=#ff8]Tab 2[/color] is selected.[/center]"
 text = "RichTextLabel: Tab 2 is selected."
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="VSplitContainer" type="VSplitContainer" parent="MainPanel/HSplitContainer"]
-offset_left = 290.0
-offset_right = 780.0
-offset_bottom = 580.0
-minimum_size = Vector2( 350, 0 )
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 
 [node name="Numbers" type="Panel" parent="MainPanel/HSplitContainer/VSplitContainer"]
-offset_right = 490.0
-offset_bottom = 260.0
-minimum_size = Vector2( 0, 260 )
+layout_mode = 2
 size_flags_vertical = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainPanel/HSplitContainer/VSplitContainer/Numbers"]
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 10.0
 offset_top = 10.0
 offset_right = -10.0
 offset_bottom = -10.0
-custom_constants/separation = 10
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Title" type="Label" parent="MainPanel/HSplitContainer/VSplitContainer/Numbers/VBoxContainer"]
-offset_right = 470.0
-offset_bottom = 23.0
-custom_colors/font_color = Color( 1, 1, 1, 0.627451 )
+layout_mode = 2
 text = "Numbers"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="SpinBox" type="SpinBox" parent="MainPanel/HSplitContainer/VSplitContainer/Numbers/VBoxContainer"]
-offset_top = 33.0
-offset_right = 190.0
-offset_bottom = 66.0
-minimum_size = Vector2( 190, 0 )
+layout_mode = 2
 size_flags_horizontal = 0
 prefix = "SpinBox"
 
 [node name="HSliderContainer" type="HBoxContainer" parent="MainPanel/HSplitContainer/VSplitContainer/Numbers/VBoxContainer"]
-offset_top = 76.0
-offset_right = 470.0
-offset_bottom = 99.0
-custom_constants/separation = 10
-__meta__ = {
-"_edit_use_anchors_": false
-}
+layout_mode = 2
 
 [node name="HSlider" type="HSlider" parent="MainPanel/HSplitContainer/VSplitContainer/Numbers/VBoxContainer/HSliderContainer"]
-offset_right = 190.0
-offset_bottom = 16.0
-minimum_size = Vector2( 190, 0 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+layout_mode = 2
 
 [node name="Label" type="Label" parent="MainPanel/HSplitContainer/VSplitContainer/Numbers/VBoxContainer/HSliderContainer"]
-offset_left = 200.0
-offset_right = 255.0
-offset_bottom = 23.0
+layout_mode = 2
 text = "HSlider"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ProgressBarContainer" type="HBoxContainer" parent="MainPanel/HSplitContainer/VSplitContainer/Numbers/VBoxContainer"]
-offset_top = 109.0
-offset_right = 470.0
-offset_bottom = 132.0
-custom_constants/separation = 10
-__meta__ = {
-"_edit_use_anchors_": false
-}
+layout_mode = 2
 
 [node name="ProgressBar" type="ProgressBar" parent="MainPanel/HSplitContainer/VSplitContainer/Numbers/VBoxContainer/ProgressBarContainer"]
-offset_right = 190.0
-offset_bottom = 23.0
-minimum_size = Vector2( 190, 0 )
+layout_mode = 2
 value = 50.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Label" type="Label" parent="MainPanel/HSplitContainer/VSplitContainer/Numbers/VBoxContainer/ProgressBarContainer"]
-offset_left = 200.0
-offset_right = 295.0
-offset_bottom = 23.0
+layout_mode = 2
 text = "ProgressBar"
 
 [node name="HSeparatorContainer" type="HBoxContainer" parent="MainPanel/HSplitContainer/VSplitContainer/Numbers/VBoxContainer"]
-offset_top = 142.0
-offset_right = 470.0
-offset_bottom = 165.0
-custom_constants/separation = 10
-__meta__ = {
-"_edit_use_anchors_": false
-}
+layout_mode = 2
 
 [node name="HSeparatorLeft" type="HSeparator" parent="MainPanel/HSplitContainer/VSplitContainer/Numbers/VBoxContainer/HSeparatorContainer"]
-offset_right = 181.0
-offset_bottom = 23.0
+layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="MainPanel/HSplitContainer/VSplitContainer/Numbers/VBoxContainer/HSeparatorContainer"]
-offset_left = 191.0
-offset_right = 279.0
-offset_bottom = 23.0
+layout_mode = 2
 text = "HSeparator"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="HSeparatorRight" type="HSeparator" parent="MainPanel/HSplitContainer/VSplitContainer/Numbers/VBoxContainer/HSeparatorContainer"]
-offset_left = 289.0
-offset_right = 470.0
-offset_bottom = 23.0
+layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="TextureProgressContainer" type="HBoxContainer" parent="MainPanel/HSplitContainer/VSplitContainer/Numbers/VBoxContainer"]
-offset_top = 175.0
-offset_right = 470.0
-offset_bottom = 239.0
-custom_constants/separation = 10
-__meta__ = {
-"_edit_use_anchors_": false
-}
+layout_mode = 2
 
 [node name="Control" type="Control" parent="MainPanel/HSplitContainer/VSplitContainer/Numbers/VBoxContainer/TextureProgressContainer"]
-offset_right = 64.0
-offset_bottom = 64.0
-minimum_size = Vector2( 64, 64 )
+layout_mode = 2
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="MainPanel/HSplitContainer/VSplitContainer/Numbers/VBoxContainer/TextureProgressContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-scale = Vector2( 0.5, 0.5 )
+scale = Vector2(0.5, 0.5)
 value = 67.0
-texture_progress = ExtResource( 1 )
 fill_mode = 4
-__meta__ = {
-"_edit_use_anchors_": false
-}
+texture_progress = ExtResource("1")
 
 [node name="Label" type="Label" parent="MainPanel/HSplitContainer/VSplitContainer/Numbers/VBoxContainer/TextureProgressContainer"]
-offset_left = 74.0
-offset_top = 20.0
-offset_right = 201.0
-offset_bottom = 43.0
+layout_mode = 2
 text = "TextureProgressBar"
 
 [node name="Lists" type="Panel" parent="MainPanel/HSplitContainer/VSplitContainer"]
-offset_top = 272.0
-offset_right = 490.0
-offset_bottom = 580.0
-minimum_size = Vector2( 0, 220 )
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainPanel/HSplitContainer/VSplitContainer/Lists"]
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 10.0
 offset_top = 10.0
 offset_right = -10.0
 offset_bottom = -10.0
-custom_constants/separation = 10
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Title" type="Label" parent="MainPanel/HSplitContainer/VSplitContainer/Lists/VBoxContainer"]
-offset_right = 470.0
-offset_bottom = 23.0
-custom_colors/font_color = Color( 1, 1, 1, 0.627451 )
+layout_mode = 2
 text = "Lists"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="OptionButton" type="OptionButton" parent="MainPanel/HSplitContainer/VSplitContainer/Lists/VBoxContainer"]
-offset_top = 33.0
-offset_right = 200.0
-offset_bottom = 62.0
-minimum_size = Vector2( 200, 0 )
+layout_mode = 2
 size_flags_horizontal = 0
-text = "OptionButton"
-items = [ "OptionButton", null, false, 0, null, "Item 1", null, false, 1, null, "Item 2", null, false, 2, null, "Disabled Item", null, true, 3, null ]
-selected = 0
 
 [node name="MenuButton" type="MenuButton" parent="MainPanel/HSplitContainer/VSplitContainer/Lists/VBoxContainer"]
-offset_top = 72.0
-offset_right = 200.0
-offset_bottom = 101.0
-minimum_size = Vector2( 200, 0 )
+layout_mode = 2
 size_flags_horizontal = 0
 text = "MenuButton"
 flat = false
-items = [ "Action Item", null, 0, false, false, 0, 0, null, "", false, "Separator", null, 0, false, false, 1, 0, null, "", true, "Checkbox Item 1", null, 1, true, false, 2, 0, null, "", false, "Checkbox Item 2", null, 1, false, false, 3, 0, null, "", false, "Disabled Checkbox Item", null, 0, false, true, 4, 0, null, "", false, "Radio Item 1", null, 2, true, false, 5, 0, null, "", false, "Radio Item 2", null, 2, false, false, 6, 0, null, "", false ]
 
 [node name="RadioButtons" type="VBoxContainer" parent="MainPanel/HSplitContainer/VSplitContainer/Lists/VBoxContainer"]
-offset_top = 111.0
-offset_right = 329.0
-offset_bottom = 200.0
+layout_mode = 2
 size_flags_horizontal = 0
-custom_constants/separation = -2
 
 [node name="CheckBox" type="CheckBox" parent="MainPanel/HSplitContainer/VSplitContainer/Lists/VBoxContainer/RadioButtons"]
-offset_right = 329.0
-offset_bottom = 31.0
-pressed = true
-group = SubResource( 3 )
+layout_mode = 2
 text = "CheckBox with ButtonGroup assigned 1"
 
 [node name="CheckBox2" type="CheckBox" parent="MainPanel/HSplitContainer/VSplitContainer/Lists/VBoxContainer/RadioButtons"]
-offset_top = 29.0
-offset_right = 329.0
-offset_bottom = 60.0
-group = SubResource( 3 )
+layout_mode = 2
 text = "CheckBox with ButtonGroup assigned 2"
 
 [node name="CheckBox3" type="CheckBox" parent="MainPanel/HSplitContainer/VSplitContainer/Lists/VBoxContainer/RadioButtons"]
-offset_top = 58.0
-offset_right = 329.0
-offset_bottom = 89.0
-group = SubResource( 3 )
+layout_mode = 2
 text = "CheckBox with ButtonGroup assigned 3"
 
 [node name="ItemList" type="ItemList" parent="MainPanel/HSplitContainer/VSplitContainer/Lists/VBoxContainer"]
-offset_top = 210.0
-offset_right = 470.0
-offset_bottom = 288.0
+layout_mode = 2
+size_flags_vertical = 3
 tooltip_text = "This ItemList allows multiple selection.
 Hold Ctrl or Shift to select multiple items."
-size_flags_vertical = 3
-items = [ "ItemList - Item 1", null, false, "ItemList - Item 2", null, false, "ItemList - Disabled item with icon assigned", ExtResource( 1 ), true, "ItemList - Item 3 with icon assigned", ExtResource( 1 ), false ]
 select_mode = 1
-fixed_icon_size = Vector2( 16, 16 )
+item_count = 4
+fixed_icon_size = Vector2i(16, 16)
+item_0/text = "ItemList - Item 1"
+item_1/text = "ItemList - Item 2"
+item_2/text = "ItemList - Disabled item with icon assigned"
+item_2/icon = ExtResource("1")
+item_2/disabled = true
+item_3/text = "ItemList - Item 3 with icon assigned"
+item_3/icon = ExtResource("1")

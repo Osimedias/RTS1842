@@ -1,15 +1,15 @@
-[gd_resource type="Resource" load_steps=3 format=2]
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://du2s6mesm1na8"]
 
-[ext_resource path="res://game/civilization.gd" type="Script" id=1]
-[ext_resource path="res://art/flags/mexicans.svg" type="Texture2D" id=2]
+[ext_resource type="Script" path="res://game/civilization.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://cmkpp3esp5f03" path="res://art/flags/mexicans.svg" id="2"]
 
 [resource]
-script = ExtResource( 1 )
+script = ExtResource("1")
 sufix = "mex"
 name = "Mexicans"
 personality = "Vicente Guerrero"
-music = [  ]
-revolutions = PackedStringArray( "Federal Republic of Central America", "Rio Grande", "Yucatan", "Republic of Sonora", "Republic of California", "Republic of Texas", "Empire of Mexico" )
+music = []
+revolutions = PackedStringArray("Federal Republic of Central America", "Rio Grande", "Yucatan", "Republic of Sonora", "Republic of California", "Republic of Texas", "Empire of Mexico")
 bonuses = "Have Haciendas.\\nHave Cathedrals.\\nCan Revolt more easy."
-flag = ExtResource( 2 )
+flag = ExtResource("2")
 homecity_name = "Ciudad de Mexico"

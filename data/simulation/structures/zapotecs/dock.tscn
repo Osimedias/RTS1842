@@ -1,13 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://dnci61iy3usod"]
+[gd_scene load_steps=5 format=3 uid="uid://dnci61iy3usod"]
 
 [ext_resource type="PackedScene" uid="uid://dskrsp8ajjjtv" path="res://art/meshes/structural/zapotecs/dock.glb" id="1_meqhr"]
 [ext_resource type="Material" uid="uid://bc8gmmpaudwmd" path="res://art/meshes/structural/zapotecs/zapotec.material" id="2_koed6"]
+[ext_resource type="Script" path="res://game/structures.gd" id="2_ts8t4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_i30e7"]
 size = Vector3(21.3712, 11.2557, 20.0646)
 
 [node name="Dock" instance=ExtResource("1_meqhr")]
 collision_layer = 2
+script = ExtResource("2_ts8t4")
 
 [node name="Dock" parent="." index="0"]
 material_override = ExtResource("2_koed6")

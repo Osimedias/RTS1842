@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://de3qavwr8mpds"]
+[gd_scene load_steps=5 format=3 uid="uid://de3qavwr8mpds"]
 
 [ext_resource type="PackedScene" uid="uid://dvxdyrubncjs0" path="res://art/meshes/structural/zapotecs/wood_tower.glb" id="1_xnil3"]
+[ext_resource type="Script" path="res://game/structures.gd" id="2_mxk1m"]
 [ext_resource type="Material" uid="uid://bc8gmmpaudwmd" path="res://art/meshes/structural/zapotecs/zapotec.material" id="2_ne1dx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hw8ey"]
@@ -8,6 +9,7 @@ size = Vector3(8, 16.669, 10)
 
 [node name="WoodTower" instance=ExtResource("1_xnil3")]
 collision_layer = 2
+script = ExtResource("2_mxk1m")
 
 [node name="WoodTower" parent="." index="0"]
 material_override = ExtResource("2_ne1dx")

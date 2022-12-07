@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dnm3a0sm5t47m"]
+[gd_scene load_steps=5 format=3 uid="uid://dnm3a0sm5t47m"]
 
 [ext_resource type="PackedScene" uid="uid://bxuro4cq3qhev" path="res://art/meshes/structural/zapotecs/defence_tower.glb" id="1_2lloq"]
+[ext_resource type="Script" path="res://game/structures.gd" id="2_igg5e"]
 [ext_resource type="Material" uid="uid://bc8gmmpaudwmd" path="res://art/meshes/structural/zapotecs/zapotec.material" id="2_jjgoh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lsljt"]
@@ -8,6 +9,7 @@ size = Vector3(7.88043, 21.5472, 8.07673)
 
 [node name="DefenseTower" instance=ExtResource("1_2lloq")]
 collision_layer = 2
+script = ExtResource("2_igg5e")
 
 [node name="DefenseTower" parent="." index="0"]
 material_override = ExtResource("2_jjgoh")

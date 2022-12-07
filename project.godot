@@ -22,12 +22,27 @@ _global_script_classes=[{
 "base": "Resource",
 "class": &"EntityData",
 "language": &"GDScript",
-"path": "res://game/entity_data.gd"
+"path": "res://game/resource/entity_data.gd"
 }, {
-"base": "MapRandom",
-"class": &"TestMap",
+"base": "Resource",
+"class": &"PlayerData",
 "language": &"GDScript",
-"path": "res://data/maps/random/test_map.gd"
+"path": "res://game/resource/player_data.gd"
+}, {
+"base": "Node2D",
+"class": &"RMSBase",
+"language": &"GDScript",
+"path": "res://map/random/rmslib/rms_base.gd"
+}, {
+"base": "Resource",
+"class": &"TechnologyNodeActioners",
+"language": &"GDScript",
+"path": "res://game/resource/technology_node_actioners.gd"
+}, {
+"base": "Resource",
+"class": &"TechnologyNodeData",
+"language": &"GDScript",
+"path": "res://game/resource/technology_node_data.gd"
 }, {
 "base": "RefCounted",
 "class": &"TextureList",
@@ -39,7 +54,7 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://map/random/rmslib/utils.gd"
 }, {
-"base": "Node2D",
+"base": "RMSBase",
 "class": &"Yucatan",
 "language": &"GDScript",
 "path": "res://map/random/yucatan.gd"
@@ -48,7 +63,10 @@ _global_script_class_icons={
 "Ability": "",
 "Civilization": "",
 "EntityData": "",
-"TestMap": "",
+"PlayerData": "",
+"RMSBase": "",
+"TechnologyNodeActioners": "",
+"TechnologyNodeData": "",
 "TextureList": "",
 "Utils": "",
 "Yucatan": ""
@@ -72,13 +90,12 @@ driver/enable_input=true
 
 [autoload]
 
-PlayerMapData="*res://menus/player_map_data.tscn"
 UvPosition="*res://map_editor/uv_position.gd"
 Fps="*res://fps.tscn"
+SoundManager="*res://game/sound_manager.tscn"
 
 [display]
 
-window/size/mode=3
 window/vsync/vsync_mode=2
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
@@ -160,3 +177,6 @@ export/aot/use_interpreter=false
 
 lights_and_shadows/directional_shadow/soft_shadow_filter_quality=5
 lights_and_shadows/directional_shadow/soft_shadow_filter_quality.mobile=5
+reflections/sky_reflections/fast_filter_high_quality=true
+global_illumination/voxel_gi/quality=1
+environment/glow/use_high_quality=true

@@ -23,8 +23,16 @@ func _ready():
 	portrait.visible = false
 	object_name.visible = false
 	progress_bar.visible = false
+	
+	var menu_call = Callable(self,"on_id_pressed")
+	$toolbox/menu.get_popup().id_pressed.connect(menu_call)
 
 
+func on_id_pressed(id):
+	match $toolbox/menu.get_popup().get_item_id(id):
+		4:
+			get_tree().change_scene_to_file("res://main_menu.tscn")
+	pass
 
 
 

@@ -38,7 +38,7 @@ func _physics_process(_delta):
 			var to
 			
 			if ray_idx <= 2:
-				to = $"../editor_camera/pivot/camera".global_transform.xform(Vector3(0,ray_idx * splatmap.brush_size() * .2,-1000))
+				to = $"../edidtor_camera/pivot/camera".global_transform.xform(Vector3(0,ray_idx * splatmap.brush_size() * .2,-1000))
 			else:
 				to = $"../editor_camera/pivot/camera".global_transform.xform(Vector3(0, (ray_idx - 2) * splatmap.brush_size() * .2 * -1,-1000))
 			

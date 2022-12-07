@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dx2q58bhfbs02"]
+
+[ext_resource type="Script" path="res://game/sound_manager.gd" id="1_xidox"]
+
+[node name="SoundManager" type="Node"]
+script = ExtResource("1_xidox")
+
+[node name="background_music" type="AudioStreamPlayer" parent="."]
+bus = &"Background Music"

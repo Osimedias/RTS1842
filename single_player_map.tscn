@@ -1,15 +1,21 @@
-[gd_scene load_steps=10 format=3 uid="uid://cwh8oo4yo1jt"]
+[gd_scene load_steps=15 format=3 uid="uid://b1boc4b1yct0x"]
 
 [ext_resource type="Script" path="res://single_player_map.gd" id="1_t6xhw"]
+[ext_resource type="Script" path="res://game/astar_grid.gd" id="2_jj7jd"]
 [ext_resource type="Script" path="res://game/game_camera.gd" id="2_qevfd"]
 [ext_resource type="PackedScene" uid="uid://dw2f7n07ehp1h" path="res://menus/session_ui.tscn" id="3_afxm7"]
-[ext_resource type="PackedScene" uid="uid://oibfjbk0xmjd" path="res://data/simulation/blueprint.tscn" id="4_nv1py"]
+[ext_resource type="Script" path="res://game/player_input_handler.gd" id="4_nm8cg"]
+[ext_resource type="Script" path="res://game/save_game_data.gd" id="5_3rfxs"]
 
-[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_eileg"]
-ground_color = Color(0.270588, 0.207843, 0.133333, 1)
+[sub_resource type="PlaneMesh" id="PlaneMesh_vt30q"]
+size = Vector2(200, 200)
+subdivide_width = 350
+subdivide_depth = 350
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hsa22"]
 
 [sub_resource type="Sky" id="Sky_hm6jq"]
-sky_material = SubResource("PhysicalSkyMaterial_eileg")
+sky_material = SubResource("ProceduralSkyMaterial_hsa22")
 process_mode = 1
 radiance_size = 5
 
@@ -19,7 +25,6 @@ sky = SubResource("Sky_hm6jq")
 ambient_light_color = Color(0.635294, 0.635294, 0.635294, 1)
 reflected_light_source = 2
 tonemap_mode = 2
-ssr_enabled = true
 ssao_enabled = true
 ssil_enabled = true
 sdfgi_enabled = true
@@ -29,10 +34,8 @@ sdfgi_y_scale = 2
 glow_enabled = true
 glow_normalized = true
 glow_intensity = 3.56
-fog_enabled = true
 fog_sun_scatter = 0.4
 fog_sky_affect = 0.22
-volumetric_fog_enabled = true
 volumetric_fog_density = 0.02
 volumetric_fog_albedo = Color(0.282353, 0.282353, 0.282353, 1)
 volumetric_fog_length = 15.0
@@ -43,19 +46,29 @@ adjustment_brightness = 1.38
 adjustment_contrast = 0.75
 adjustment_saturation = 1.81
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q5v2f"]
-albedo_color = Color(0, 0, 0, 1)
-emission_enabled = true
-emission = Color(1, 1, 0, 1)
-emission_energy_multiplier = 2.79
+[sub_resource type="Gradient" id="Gradient_ba4tg"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.498382, 0.802589)
+colors = PackedColorArray(0.346715, 0.99712, 1.54018e-06, 1, 0.272657, 0.427731, 1, 1, 0.963917, 0.129014, 7.70092e-07, 1)
 
-[sub_resource type="SphereMesh" id="SphereMesh_3tatm"]
-material = SubResource("StandardMaterial3D_q5v2f")
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_7q0dc"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_qblh0"]
+seamless = true
+color_ramp = SubResource("Gradient_ba4tg")
+noise = SubResource("FastNoiseLite_7q0dc")
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_igwwb"]
+seamless = true
+noise = SubResource("FastNoiseLite_7q0dc")
 
 [node name="WorldMap" type="Node3D"]
 script = ExtResource("1_t6xhw")
 
-[node name="terrain" type="MeshInstance3D" parent="."]
+[node name="terrain" type="MeshInstance3D" parent="." groups=["pathable"]]
+unique_name_in_owner = true
+mesh = SubResource("PlaneMesh_vt30q")
+script = ExtResource("2_jj7jd")
 
 [node name="camera_controller" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.58438, 0)
@@ -72,14 +85,9 @@ current = true
 environment = SubResource("Environment_4b6w4")
 
 [node name="sun" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.875465, 0.483282, 0, -0.483282, 0.875465, 0, 24.643, 0)
+transform = Transform3D(1, 0, 0, 0, 0.513961, 0.857814, 0, -0.857814, 0.513961, 0, 24.643, 0)
 layers = 33
 shadow_enabled = true
-shadow_bias = 2.077
-shadow_normal_bias = 1.027
-shadow_transmittance_bias = 1.538
-shadow_opacity = 0.55
-shadow_blur = 9.953
 
 [node name="entities" type="Marker3D" parent="."]
 
@@ -94,23 +102,50 @@ anchor_right = 0.207465
 anchor_bottom = 0.975309
 metadata/_edit_use_anchors_ = true
 
+[node name="players" type="RichTextLabel" parent="GUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.907118
+anchor_top = 0.466049
+anchor_right = 0.993924
+anchor_bottom = 0.594136
+bbcode_enabled = true
+metadata/_edit_use_anchors_ = true
+
 [node name="textures" type="Node" parent="."]
 
 [node name="splatmap" type="SubViewport" parent="textures"]
+unique_name_in_owner = true
+
+[node name="TextureRect" type="TextureRect" parent="textures/splatmap"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("NoiseTexture2D_qblh0")
+ignore_texture_size = true
+metadata/_edit_use_anchors_ = true
 
 [node name="heightmap" type="SubViewport" parent="textures"]
+unique_name_in_owner = true
+render_target_clear_mode = 1
+render_target_update_mode = 4
 
-[node name="SkyProbe" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -5.094)
-mesh = SubResource("SphereMesh_3tatm")
+[node name="TextureRect" type="TextureRect" parent="textures/heightmap"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("NoiseTexture2D_igwwb")
+ignore_texture_size = true
+metadata/_edit_use_anchors_ = true
 
-[node name="blueprint" parent="." instance=ExtResource("4_nv1py")]
-floor_constant_speed = true
-floor_block_on_wall = false
-platform_floor_layers = 4278190081
+[node name="PlayerInputHandler" type="Node" parent="."]
+script = ExtResource("4_nm8cg")
 
-[node name="gi" type="VoxelGI" parent="."]
-extents = Vector3(200, 200, 200)
+[node name="Players" type="Node" parent="."]
 
-[node name="LightmapProbe" type="LightmapProbe" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.90899, 0)
+[node name="SaveGameData" type="Node" parent="."]
+script = ExtResource("5_3rfxs")

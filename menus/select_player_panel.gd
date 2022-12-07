@@ -1,30 +1,33 @@
 extends Panel
 
 
+var players : Array
 
-
+var list : Array
 
 func _ready():
-	create_player_panel(%player_slot_1,"Player 1",Color.from_string("Player 1",Color.BLUE),1)
-	create_player_panel(%player_slot_2,"Player 2",Color.from_string("Player 2",Color.RED),2)
-	var player_1 = {
-		"index" : 1,
-		"name" : "player_1",
-		"color" : Color.BLUE,
-		"team" : 1,
-	}
-	var player_2 = {
-		"index" : 2,
-		"name" : "player_2",
-		"color" : Color.RED,
-		"team" : 2,
-	}
-	PlayerMapData.add_player_to_list(player_1)
-	PlayerMapData.add_player_to_list(player_2)
+	create_player_panel($players/player_slot_1,0,"Player 1",Color.BLUE,1)
+	create_player_panel($players/player_slot_2,1,"Player 2",Color.RED,2)
+	create_player_panel($players/player_slot_3,2,"Player 3",Color(randf(),randf(),randf()),3)
+	create_player_panel($players/player_slot_4,3,"Player 4",Color(randf(),randf(),randf()),4)
 
+func dir_contents(path : String):
+	var dir = DirAccess.open(path)
+	if dir:
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+		while file_name != "":
+			if dir.current_is_dir():
+				print("Found directory: " + file_name)
+			else:
+				print("Found directory: " + file_name)
+				list.append(file_name.get_basename())
+				print(list)
+			file_name = dir.get_next()
+	else:
+		printerr("An error occurred when trying to access the path.")
 
-
-func create_player_panel(slot : Node,player_name : String,color : Color,team : int):
+func create_player_panel(slot : Control,civ_index : int,player_name : String,color : Color,team : int):
 	var name_label = Label.new()
 	var civ_list_btn = OptionButton.new()
 	var color_btn = ColorPickerButton.new()
@@ -51,30 +54,39 @@ func create_player_panel(slot : Node,player_name : String,color : Color,team : i
 	slot.add_child(civ_list_btn)
 	slot.add_child(color_btn)
 	slot.add_child(team_spin_box)
-
-func free_player_panel(panel : Node):
-	for i in range(0,panel.get_child_count()):
-		panel.get_child(i).queue_free()
-	var index = str(panel.name)
-	#PlayerMapData.players.erase()
-
-
-
-func _on_counter_value_changed(value):
-	var player_counter := 2
-	player_counter = value
-	var hash = str(get_node("players/player_slot_"+str(player_counter)).name.hash())
+	dir_contents("res://data/civilization/")
+	for i in list.size():
+		civ_list_btn.add_item(list[i],i)
+		#civ_list_btn.set_item_icon(list[i],load(list[i].flag))
 	
-	if player_counter >= 3:
-		create_player_panel(get_node("players/player_slot_"+str(player_counter)),"player "+str(value),Color.from_string(hash,Color.YELLOW_GREEN),value)
-	var player_data = {
-		"index" : value,
-		"name" : "player "+str(value),
-		"color" : Color.from_string(hash,Color.YELLOW_GREEN),
-		"team" : value,
+	var civ = Callable(self,"_on_item_selected")
+	civ_list_btn.item_selected.connect(civ)
+	civ_list_btn.select(civ_index)
+	var data = {
+		"name" : player_name,
+		"color" : color,
+		"team" : team,
+		"civ" : civ_list_btn.get_item_text(civ_index)
 	}
-	PlayerMapData.add_player_to_list(player_data)
-	if player_counter >= 2:
-		free_player_panel(get_node("players/player_slot_" + str(player_counter+1)))
+	players.append(data)
+
+
+
+
+
+#Buscar una forma mejor de hacer esto
+func _on_item_selected(id : int):
+	
+	match id:
+		0:
+			return "british"
+		1:
+			return "france"
+		2:
+			return "mexicans"
+		3:
+			return "spanish"
+		4:
+			return "unite states"
 
 

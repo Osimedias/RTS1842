@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://bvmu13tpg6glr"]
+
+[ext_resource type="Texture2D" uid="uid://b62ukt88m5omc" path="res://sub_marcos.png" id="1_qi1l4"]
+[ext_resource type="Script" path="res://game/resource/entity_data.gd" id="2_k1dgv"]
+
+[resource]
+script = ExtResource("2_k1dgv")
+entity_name = "Town Center"
+entity_portrait = ExtResource("1_qi1l4")
+hit_points = 120
+los_range = 30.0
+need_tech = null
+food_cost = 1500
+wood_cost = 1500
+coin_cost = 1500
+pop_cost = null
+fame_cost = 600

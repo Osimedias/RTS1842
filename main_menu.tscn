@@ -179,6 +179,7 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_xfdul")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_jhsdy")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_avhjp")
 theme_override_styles/focus = SubResource("StyleBoxTexture_46ttu")
+disabled = true
 text = "Map Editor(Dev test)"
 
 [node name="Button_4" type="Button" parent="MenuPanel/VBoxContainer"]

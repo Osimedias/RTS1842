@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cn46avoplt7ts"]
+[gd_scene load_steps=5 format=3 uid="uid://cn46avoplt7ts"]
 
 [ext_resource type="PackedScene" uid="uid://be3gspvcwq7di" path="res://art/meshes/structural/zapotecs/work_shop.glb" id="1_h0dif"]
+[ext_resource type="Script" path="res://game/structures.gd" id="2_4dlps"]
 [ext_resource type="Material" uid="uid://bc8gmmpaudwmd" path="res://art/meshes/structural/zapotecs/zapotec.material" id="2_vq3o6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ujttw"]
@@ -8,6 +9,7 @@ size = Vector3(27.9648, 11.7, 23.5898)
 
 [node name="Workshop" instance=ExtResource("1_h0dif")]
 collision_layer = 2
+script = ExtResource("2_4dlps")
 
 [node name="Workshop" parent="." index="0"]
 material_override = ExtResource("2_vq3o6")

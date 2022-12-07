@@ -1,15 +1,15 @@
-[gd_resource type="Resource" load_steps=3 format=2]
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cg23865oisyox"]
 
-[ext_resource path="res://game/civilization.gd" type="Script" id=1]
-[ext_resource path="res://art/flags/unite_states.svg" type="Texture2D" id=2]
+[ext_resource type="Script" path="res://game/civilization.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://db8dux3ir3i8t" path="res://art/flags/unite_states.svg" id="2"]
 
 [resource]
-script = ExtResource( 1 )
+script = ExtResource("1")
 sufix = "usa"
 name = "Unite States"
 personality = "George"
-music = [  ]
-revolutions = PackedStringArray( "Confederate States of America", "Filipinas" )
+music = []
+revolutions = PackedStringArray("Confederate States of America", "Filipinas")
 bonuses = "Test"
-flag = ExtResource( 2 )
+flag = ExtResource("2")
 homecity_name = "New York"

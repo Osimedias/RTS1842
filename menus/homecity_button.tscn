@@ -1,25 +1,26 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=2 format=3 uid="uid://bxaa7dwpqr742"]
 
-[ext_resource path="res://art/ezln_flag.svg" type="Texture2D" id=1]
+[ext_resource type="Texture2D" uid="uid://dqh536cjjy5ya" path="res://art/ezln_flag.svg" id="1"]
 
 [node name="homecity_button" type="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -560.0
-offset_bottom = -450.0
+layout_mode = 3
+anchor_right = 0.400174
+anchor_bottom = 0.381173
+metadata/_edit_use_anchors_ = true
 
 [node name="background" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="button" type="Button" parent="background"]
-offset_left = 7.0
-offset_top = 7.0
-offset_right = 233.0
-offset_bottom = 143.0
+layout_mode = 2
 
 [node name="flag" type="TextureRect" parent="background/button"]
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 1 )
-expand = true
+texture = ExtResource("1")
+ignore_texture_size = true

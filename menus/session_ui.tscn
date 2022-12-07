@@ -74,13 +74,24 @@ anchor_bottom = 0.0339506
 theme_override_styles/panel = SubResource("StyleBoxFlat_34070")
 metadata/_edit_use_anchors_ = true
 
-[node name="Button" type="Button" parent="toolbox"]
+[node name="menu" type="MenuButton" parent="toolbox"]
 anchors_preset = -1
 anchor_left = 0.953125
 anchor_right = 1.0
 anchor_bottom = 1.04545
 theme_override_styles/normal = SubResource("StyleBoxTexture_5id72")
 text = "Menu"
+item_count = 5
+popup/item_0/text = "Save Map"
+popup/item_0/id = 0
+popup/item_1/text = "Load Map"
+popup/item_1/id = 1
+popup/item_2/text = "Postgame"
+popup/item_2/id = 2
+popup/item_3/text = "Options"
+popup/item_3/id = 3
+popup/item_4/text = "Quit Game"
+popup/item_4/id = 4
 metadata/_edit_use_anchors_ = true
 
 [node name="minimap" type="Panel" parent="."]

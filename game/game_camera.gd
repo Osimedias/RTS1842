@@ -46,20 +46,3 @@ func _input(event):
 		if event.button_index == MOUSE_BUTTON_WHEEL_DOWN and event.is_pressed():
 			zoom -= 1
 
-func _physics_process(_delta):
-	if recheck:
-		var mouse_pos = camera.get_viewport().get_mouse_position()
-		var from = camera.project_ray_origin(mouse_pos)
-		var to = from + camera.project_ray_normal(mouse_pos) * 6000
-		var quarry : PhysicsRayQueryParameters3D = PhysicsRayQueryParameters3D.new()
-		quarry.from = from
-		quarry.to = to
-		var result = get_world_3d().direct_space_state.intersect_ray(quarry)
-		if result.size() > 0:
-			var uv = UvPosition.get_uv_coords(result.position, result.normal, true)
-			if uv:
-				print("paint")
-				$"../../MapTextures/splatmap".paint(uv,color)
-
-
-

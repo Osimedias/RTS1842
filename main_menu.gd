@@ -24,18 +24,18 @@ func _input(event) -> void:
 
 
 func _on_start_pressed():
-	get_tree().change_scene_to_file("res://Singleplayer.tscn")
+	get_tree().change_scene_to_file("res://singleplayer.tscn")
 	pass # Replace with function body.
 
 
 
 func _on_configuration_pressed():
-	get_tree().change_scene_to_file("res://Options.tscn")
+	get_tree().change_scene_to_file("res://options.tscn")
 	pass # Replace with function body.
 
 
 func _on_map_editor_pressed():
-	get_tree().change_scene_to_file("res://MapEditor.tscn")
+	get_tree().change_scene_to_file("res://map_editor.tscn")
 	pass # Replace with function body.
 
 

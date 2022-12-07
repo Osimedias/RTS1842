@@ -2,8 +2,6 @@ extends Node3D
 
 var astar = AStar3D.new()
 
-##This shit is slow in big map's
-
 var grid_step := 1.0
 var grid_y := 0.5
 var points := {}
@@ -11,23 +9,22 @@ var points := {}
 
 
 func _ready() -> void:
-	var pathables = get_tree().get_nodes_in_group("pathable")
-	_add_points(pathables)
+	_add_points()
 	_connect_points()
 
-func _add_points(pathables : Array):
-	for pathable in pathables:
-		var mesh = pathable
-		var aabb : AABB = mesh.get_transformed_aabb()
-		var start_point = aabb.position
+func _add_points():
+	
+	var mesh = %terrain
+	var aabb : AABB = mesh.get_aabb()
+	var start_point = aabb.position
 		
-		var x_steps = aabb.size.x / grid_step
-		var z_steps = aabb.size.z / grid_step
+	var x_steps = aabb.size.x / grid_step
+	var z_steps = aabb.size.z / grid_step
 		
-		for x in x_steps:
-			for z in z_steps:
-				var next_point = start_point + Vector3(x * grid_step, 0, z * grid_step)
-				_add_point(next_point)
+	for x in x_steps:
+		for z in z_steps:
+			var next_point = start_point + Vector3(x * grid_step, 0, z * grid_step)
+			_add_point(next_point)
 
 func _add_point(point : Vector3):
 	point.y = grid_y
@@ -42,7 +39,6 @@ func _connect_points():
 		var pos_str = point.split(",")
 		var world_position : Vector3 = Vector3(pos_str[0].to_float(),pos_str[1].to_float(),pos_str[2].to_float())
 		var search_cords = [-grid_step, 0, grid_step]
-		print("search cords: ", search_cords)
 		for x in search_cords:
 			for z in search_cords:
 				var search_offset = Vector3(x, 0, z)

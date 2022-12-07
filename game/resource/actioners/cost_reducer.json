@@ -1,0 +1,7 @@
+{
+	"action":{
+		"cost": "multiplay":{
+			"cost_reduce": 9.0
+		}
+	}
+}

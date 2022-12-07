@@ -1,10 +1,7 @@
-res://dev/tree_placeholder.tscn
-res://single_player_map.gd
-res://dev/tree_placeholder.gd
-res://menus/session_ui.tscn
+res://default_bus_layout.tres
 res://single_player_map.tscn
-res://art/meshes/structural/zapotecs/zapotec.material
-res://game/buildprint.gd
-res://blueprint_dev.tscn
-res://menus/session_ui.gd
-res://game/game_camera.gd
+res://single_player_map.gd
+res://game/astar_grid.gd
+res://main_menu.tscn
+res://game/a_star_grid.gd
+res://game/grid_map.gd

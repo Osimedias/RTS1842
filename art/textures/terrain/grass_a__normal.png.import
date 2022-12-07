@@ -1,0 +1,26 @@
+[remap]
+
+importer="2d_array_texture"
+type="CompressedTexture2DArray"
+uid="uid://d0l4qxkjuex2v"
+path="res://.godot/imported/grass_a__normal.png-dea5bb4b147cfa132d8a175aa552225a.ctexarray"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://art/textures/terrain/grass_a__normal.png"
+dest_files=["res://.godot/imported/grass_a__normal.png-dea5bb4b147cfa132d8a175aa552225a.ctexarray"]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/bptc_ldr=0
+compress/channel_pack=0
+mipmaps/generate=false
+mipmaps/limit=-1
+slices/horizontal=2
+slices/vertical=2

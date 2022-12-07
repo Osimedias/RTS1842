@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cjxnjk7e3kmvb"]
+[gd_scene load_steps=5 format=3 uid="uid://cjxnjk7e3kmvb"]
 
 [ext_resource type="PackedScene" uid="uid://cehdkm0hs2lq8" path="res://art/meshes/structural/zapotecs/house_b.glb" id="1_31mkk"]
+[ext_resource type="Script" path="res://game/structures.gd" id="2_7tccm"]
 [ext_resource type="Material" uid="uid://bc8gmmpaudwmd" path="res://art/meshes/structural/zapotecs/zapotec.material" id="2_tjxqu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a8vt0"]
@@ -8,6 +9,7 @@ size = Vector3(14.4274, 11.1159, 15.6476)
 
 [node name="HouseB" instance=ExtResource("1_31mkk")]
 collision_layer = 2
+script = ExtResource("2_7tccm")
 
 [node name="HouseB" parent="." index="0"]
 material_override = ExtResource("2_tjxqu")

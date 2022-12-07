@@ -1,13 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://wu61i6tbvsjs"]
+[gd_scene load_steps=5 format=3 uid="uid://wu61i6tbvsjs"]
 
 [ext_resource type="PackedScene" uid="uid://dvnhstbxw5gqs" path="res://art/meshes/structural/zapotecs/temple.glb" id="1_niahk"]
 [ext_resource type="Material" uid="uid://bc8gmmpaudwmd" path="res://art/meshes/structural/zapotecs/zapotec.material" id="2_m20mi"]
+[ext_resource type="Script" path="res://game/structures.gd" id="2_rskf1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lmn2b"]
 size = Vector3(21.8518, 17.5814, 25.2335)
 
 [node name="Temple" instance=ExtResource("1_niahk")]
 collision_layer = 2
+script = ExtResource("2_rskf1")
 
 [node name="Temple" parent="." index="0"]
 material_override = ExtResource("2_m20mi")
