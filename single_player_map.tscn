@@ -94,7 +94,6 @@ shadow_enabled = true
 [node name="GUI" parent="." instance=ExtResource("3_afxm7")]
 
 [node name="TextureRect" type="TextureRect" parent="GUI"]
-layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.015625
 anchor_top = 0.635802
@@ -103,7 +102,6 @@ anchor_bottom = 0.975309
 metadata/_edit_use_anchors_ = true
 
 [node name="players" type="RichTextLabel" parent="GUI"]
-layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.907118
 anchor_top = 0.466049

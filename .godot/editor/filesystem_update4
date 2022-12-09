@@ -1,7 +1,4 @@
-res://default_bus_layout.tres
-res://single_player_map.tscn
-res://single_player_map.gd
-res://game/astar_grid.gd
 res://main_menu.tscn
-res://game/a_star_grid.gd
-res://game/grid_map.gd
+res://data/homecity/mexicans/mexican_homecity.tscn
+res://singleplayer.tscn
+res://menus/select_player_panel.gd

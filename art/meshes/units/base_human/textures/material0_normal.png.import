@@ -5,16 +5,15 @@ type="CompressedTexture2D"
 uid="uid://bf1p0bcd318rc"
 path.s3tc="res://.godot/imported/material0_normal.png-8c8ac6c6319527d8a38dfdfe390e54b9.s3tc.ctex"
 path.etc2="res://.godot/imported/material0_normal.png-8c8ac6c6319527d8a38dfdfe390e54b9.etc2.ctex"
-path.etc="res://.godot/imported/material0_normal.png-8c8ac6c6319527d8a38dfdfe390e54b9.etc.ctex"
 metadata={
-"imported_formats": ["bptc", "s3tc", "etc2", "etc"],
+"imported_formats": ["s3tc", "etc2"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://art/meshes/units/base_human/textures/material0_normal.png"
-dest_files=["res://.godot/imported/material0_normal.png-8c8ac6c6319527d8a38dfdfe390e54b9.s3tc.ctex", "res://.godot/imported/material0_normal.png-8c8ac6c6319527d8a38dfdfe390e54b9.etc2.ctex", "res://.godot/imported/material0_normal.png-8c8ac6c6319527d8a38dfdfe390e54b9.etc.ctex"]
+dest_files=["res://.godot/imported/material0_normal.png-8c8ac6c6319527d8a38dfdfe390e54b9.s3tc.ctex", "res://.godot/imported/material0_normal.png-8c8ac6c6319527d8a38dfdfe390e54b9.etc2.ctex"]
 
 [params]
 

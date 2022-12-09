@@ -1,0 +1,57 @@
+[gd_scene load_steps=11 format=3 uid="uid://psuy5mh3vlft"]
+
+[ext_resource type="PackedScene" uid="uid://b7ocdqgotogax" path="res://art/homecity/mexican/city.glb" id="1_ltj1a"]
+[ext_resource type="Material" uid="uid://ca47vk80cbsej" path="res://art/homecity/mexican/main_buildings.material" id="2_dngsw"]
+[ext_resource type="Texture2D" uid="uid://cpwxbbyvc0otg" path="res://art/homecity/mexican/main_floor.png" id="2_k72gr"]
+[ext_resource type="Texture2D" uid="uid://d0b7xebtfvss0" path="res://art/homecity/mexican/zocalo_floor.png" id="3_1j6vl"]
+[ext_resource type="ArrayMesh" uid="uid://cmdiccgokvink" path="res://art/homecity/mexican/water_plane.obj" id="5_euad7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wa1yj"]
+albedo_texture = ExtResource("2_k72gr")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w8hx7"]
+albedo_texture = ExtResource("3_1j6vl")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_odqi6"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_2hhsk"]
+invert = true
+seamless = true
+as_normal_map = true
+noise = SubResource("FastNoiseLite_odqi6")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gqvuf"]
+transparency = 1
+blend_mode = 1
+depth_draw_mode = 1
+albedo_color = Color(0.164706, 0.662745, 1, 0.611765)
+normal_enabled = true
+normal_scale = 6.93
+normal_texture = SubResource("NoiseTexture2D_2hhsk")
+
+[node name="MexicanHomecity" instance=ExtResource("1_ltj1a")]
+
+[node name="ground" parent="." index="0"]
+material_override = SubResource("StandardMaterial3D_wa1yj")
+
+[node name="CatedralMetropolitana" parent="ground" index="0"]
+material_override = ExtResource("2_dngsw")
+
+[node name="CentralDeAbastos" parent="ground" index="1"]
+material_override = ExtResource("2_dngsw")
+
+[node name="PalacioNacional" parent="ground" index="2"]
+material_override = ExtResource("2_dngsw")
+
+[node name="Zocalo" parent="ground" index="3"]
+surface_material_override/0 = ExtResource("2_dngsw")
+surface_material_override/1 = SubResource("StandardMaterial3D_w8hx7")
+
+[node name="water" type="MeshInstance3D" parent="ground" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0343838, -0.0980458, 0.0729408)
+material_override = SubResource("StandardMaterial3D_gqvuf")
+mesh = ExtResource("5_euad7")

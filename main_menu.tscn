@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cu7k8rlxxbi5p"]
+[gd_scene load_steps=36 format=3 uid="uid://cu7k8rlxxbi5p"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_mjmp6"]
 [ext_resource type="Texture2D" uid="uid://b3cgyogwy8ma0" path="res://art/gui/main_menu/background.png" id="2_ttmus"]
@@ -6,6 +6,47 @@
 [ext_resource type="Texture2D" uid="uid://bkpylh0hxplx7" path="res://art/gui/main_menu/button_hovel.png" id="4_vpd1d"]
 [ext_resource type="Texture2D" uid="uid://dy6jyfcql2g8v" path="res://art/gui/main_menu/button_pressed.png" id="5_41p28"]
 [ext_resource type="Texture2D" uid="uid://ddwm74xju6ek1" path="res://art/gui/main_menu/button_disambled.png" id="6_mtvwa"]
+[ext_resource type="PackedScene" uid="uid://psuy5mh3vlft" path="res://data/homecity/mexicans/mexican_homecity.tscn" id="7_217ov"]
+[ext_resource type="Texture2D" uid="uid://di120jvv8eo7v" path="res://art/homecity/mexican/backroundtest.jpg" id="8_mara1"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8rppx"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+sky_energy_multiplier = 3.0
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_teg8y"]
+sky_material = SubResource("ProceduralSkyMaterial_8rppx")
+
+[sub_resource type="Environment" id="Environment_uyf6j"]
+background_mode = 2
+sky = SubResource("Sky_teg8y")
+ambient_light_source = 3
+ambient_light_color = Color(0.592157, 0.592157, 0.592157, 1)
+ambient_light_energy = 1.48
+reflected_light_source = 2
+tonemap_mode = 2
+ssr_enabled = true
+ssao_enabled = true
+sdfgi_enabled = true
+sdfgi_use_occlusion = true
+glow_enabled = true
+fog_enabled = true
+adjustment_enabled = true
+adjustment_brightness = 0.95
+adjustment_contrast = 1.05
+adjustment_saturation = 1.76
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_5thkt"]
+exposure_multiplier = 1.4
+auto_exposure_enabled = true
+auto_exposure_speed = 4.18
+dof_blur_far_enabled = true
+dof_blur_far_distance = 1.03
+dof_blur_far_transition = 0.56
+dof_blur_near_enabled = true
+dof_blur_near_distance = 0.19
+dof_blur_near_transition = 0.29
+dof_blur_amount = 0.06
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eif4w"]
 texture = ExtResource("2_ttmus")
@@ -95,6 +136,15 @@ texture = ExtResource("5_41p28")
 region_rect = Rect2(0, 0, 281, 31)
 modulate_color = Color(0.698039, 0.384314, 0, 1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q2nms"]
+shading_mode = 0
+specular_mode = 2
+albedo_texture = ExtResource("8_mara1")
+
+[sub_resource type="QuadMesh" id="QuadMesh_0uker"]
+material = SubResource("StandardMaterial3D_q2nms")
+size = Vector2(400, 300)
+
 [node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -104,15 +154,16 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_mjmp6")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_uyf6j")
+camera_attributes = SubResource("CameraAttributesPractical_5thkt")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.93358, -0.285451, 0.216669, 0, 0.604599, 0.79653, -0.358368, 0.743625, -0.564442, 0, 0, 0)
+shadow_enabled = true
 
 [node name="MenuPanel" type="Panel" parent="."]
+layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.366667
 anchor_right = 0.611458
@@ -124,6 +175,7 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_eif4w")
 metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MenuPanel"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -133,25 +185,18 @@ pivot_offset = Vector2(141, 324)
 metadata/_edit_use_anchors_ = true
 
 [node name="Control" type="Control" parent="MenuPanel/VBoxContainer"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 281.0
-offset_bottom = 253.0
+layout_mode = 2
 size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="MenuPanel/VBoxContainer"]
-offset_top = 257.0
-offset_right = 281.0
-offset_bottom = 283.0
+layout_mode = 2
 text = "1842"
 horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
 
 [node name="Button" type="Button" parent="MenuPanel/VBoxContainer"]
-offset_top = 287.0
-offset_right = 281.0
-offset_bottom = 310.0
+layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_265ax")
 theme_override_styles/hover = SubResource("StyleBoxTexture_n1y2j")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_s5vyy")
@@ -160,9 +205,7 @@ theme_override_styles/focus = SubResource("StyleBoxTexture_a6x7l")
 text = "Start New Game"
 
 [node name="Button_2" type="Button" parent="MenuPanel/VBoxContainer"]
-offset_top = 314.0
-offset_right = 281.0
-offset_bottom = 337.0
+layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_nhyiw")
 theme_override_styles/hover = SubResource("StyleBoxTexture_glcmc")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_pnb1b")
@@ -171,9 +214,7 @@ theme_override_styles/focus = SubResource("StyleBoxTexture_bfwxj")
 text = "Configuaration"
 
 [node name="Button_3" type="Button" parent="MenuPanel/VBoxContainer"]
-offset_top = 341.0
-offset_right = 281.0
-offset_bottom = 364.0
+layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_ggmps")
 theme_override_styles/hover = SubResource("StyleBoxTexture_xfdul")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_jhsdy")
@@ -183,9 +224,7 @@ disabled = true
 text = "Map Editor(Dev test)"
 
 [node name="Button_4" type="Button" parent="MenuPanel/VBoxContainer"]
-offset_top = 368.0
-offset_right = 281.0
-offset_bottom = 391.0
+layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_r5kuj")
 theme_override_styles/hover = SubResource("StyleBoxTexture_fq110")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_iycmy")
@@ -194,12 +233,21 @@ theme_override_styles/focus = SubResource("StyleBoxTexture_ufdco")
 text = "Quit Game"
 
 [node name="Control_2" type="Control" parent="MenuPanel/VBoxContainer"]
-layout_mode = 3
-anchors_preset = 0
-offset_top = 395.0
-offset_right = 281.0
-offset_bottom = 648.0
+layout_mode = 2
 size_flags_vertical = 3
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 0.99648, 0.0838344, 0, -0.0838344, 0.99648, 0, 4.895, 57)
+keep_aspect = 0
+current = true
+
+[node name="MexicanHomecity" parent="Node3D" instance=ExtResource("7_217ov")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.87068, -131.928)
+mesh = SubResource("QuadMesh_0uker")
 
 [connection signal="pressed" from="MenuPanel/VBoxContainer/Button" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="MenuPanel/VBoxContainer/Button_2" to="." method="_on_configuration_pressed"]

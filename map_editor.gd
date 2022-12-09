@@ -29,6 +29,23 @@ func _ready():
 	data = d
 
 
+var mode : String
+
+var points : PackedVector2Array
+
+func _input(event):
+	if event is InputEventKey and event.is_pressed():
+		if event.keycode == KEY_Q:
+			get_tree().quit()
+		if event.keycode == KEY_ESCAPE:
+			get_tree().change_scene_to_file("res://main_menu.tscn")
+	
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
+			if mode == "Paint":
+				points.append(event.position)
+				print(points)
+
 func write_zip_file(map_name : String):
 	var writer := ZIPPacker.new()
 	var err := writer.open("user://"+map_name+".rtsmap")
@@ -56,3 +73,66 @@ func load_zip_file(map_name : String):
 	if err != OK:
 		return PackedByteArray()
 	print(loader.get_files())
+
+
+func _on_paint_pressed():
+	%Splatmap_layer.visible = true
+	%Heightmap_layer.visible = false
+	$GUI/ObjectPanel.visible = false
+	$GUI/ColorPicker.visible = true
+	mode = "Paint"
+	pass # Replace with function body.
+
+
+
+func _on_height_pressed():
+	%Splatmap_layer.visible = false
+	%Heightmap_layer.visible = true
+	$GUI/ObjectPanel.visible = false
+	$GUI/ColorPicker.visible = false
+	mode = "Paint"
+	pass # Replace with function body.
+
+
+func _on_flat_pressed():
+	%Splatmap_layer.visible = false
+	%Heightmap_layer.visible = true
+	$GUI/ObjectPanel.visible = false
+	$GUI/ColorPicker.visible = false
+	mode = "Paint"
+	pass # Replace with function body.
+
+
+func _on_smooth_pressed():
+	%Splatmap_layer.visible = false
+	%Heightmap_layer.visible = true
+	$GUI/ObjectPanel.visible = false
+	$GUI/ColorPicker.visible = false
+	mode = "Paint"
+	pass # Replace with function body.
+
+
+func _on_object_pressed():
+	%Splatmap_layer.visible = false
+	%Heightmap_layer.visible = true
+	$GUI/ObjectPanel.visible = true
+	$GUI/ColorPicker.visible = false
+	mode = "Object"
+	pass # Replace with function body.
+
+
+func _on_player_pressed():
+	pass # Replace with function body.
+
+
+func _on_map_pressed():
+	
+	pass # Replace with function body.
+
+
+
+
+func _on_save_pressed():
+	%Splatmap_layer/splatmap.get_viewport().get_texture().get_image().save_png("res://map/scenario/debug.png")
+	%Heightmap_layer/heightmap.get_viewport().get_texture().get_image().save_exr("res://map/scenario/debug.exr")
+	pass # Replace with function body.

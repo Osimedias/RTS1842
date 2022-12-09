@@ -90,12 +90,13 @@ driver/enable_input=true
 
 [autoload]
 
-UvPosition="*res://map_editor/uv_position.gd"
 Fps="*res://fps.tscn"
 SoundManager="*res://game/sound_manager.tscn"
 
 [display]
 
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/vsync/vsync_mode=2
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"

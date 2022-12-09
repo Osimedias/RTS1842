@@ -5,16 +5,15 @@ type="CompressedTexture2D"
 uid="uid://cxg0yv1dp03id"
 path.s3tc="res://.godot/imported/material0_0_baseColor.png-1b2e1dbcc26de3d14dc54c5043e500a1.s3tc.ctex"
 path.etc2="res://.godot/imported/material0_0_baseColor.png-1b2e1dbcc26de3d14dc54c5043e500a1.etc2.ctex"
-path.etc="res://.godot/imported/material0_0_baseColor.png-1b2e1dbcc26de3d14dc54c5043e500a1.etc.ctex"
 metadata={
-"imported_formats": ["bptc", "s3tc", "etc2", "etc"],
+"imported_formats": ["s3tc", "etc2"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://art/meshes/units/base_human/textures/material0_0_baseColor.png"
-dest_files=["res://.godot/imported/material0_0_baseColor.png-1b2e1dbcc26de3d14dc54c5043e500a1.s3tc.ctex", "res://.godot/imported/material0_0_baseColor.png-1b2e1dbcc26de3d14dc54c5043e500a1.etc2.ctex", "res://.godot/imported/material0_0_baseColor.png-1b2e1dbcc26de3d14dc54c5043e500a1.etc.ctex"]
+dest_files=["res://.godot/imported/material0_0_baseColor.png-1b2e1dbcc26de3d14dc54c5043e500a1.s3tc.ctex", "res://.godot/imported/material0_0_baseColor.png-1b2e1dbcc26de3d14dc54c5043e500a1.etc2.ctex"]
 
 [params]
 

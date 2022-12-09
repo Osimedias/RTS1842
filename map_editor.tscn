@@ -1,57 +1,17 @@
-[gd_scene load_steps=22 format=3 uid="uid://c4pp2oluu18n6"]
+[gd_scene load_steps=10 format=3 uid="uid://c4pp2oluu18n6"]
 
 [ext_resource type="Script" path="res://map_editor.gd" id="1_ummfq"]
-[ext_resource type="Script" path="res://map_editor/map_data.gd" id="2_6au4h"]
-[ext_resource type="Script" path="res://map_editor/toolbar.gd" id="3_hbxh5"]
-[ext_resource type="Script" path="res://game/mini_map.gd" id="4_7hdo1"]
-[ext_resource type="Texture2D" uid="uid://dnh1kmsw0sjt" path="res://art/gui/screen_panels/panel_modern.png" id="5_qweel"]
-[ext_resource type="Script" path="res://map_editor/save_panel.gd" id="6_2muap"]
-[ext_resource type="Script" path="res://map_editor/load_panel.gd" id="7_d7yjq"]
-[ext_resource type="Script" path="res://map_editor/3d_map.gd" id="8_x3nk1"]
-[ext_resource type="Script" path="res://map_editor/setup_mesh.gd" id="9_hhfjk"]
-[ext_resource type="Script" path="res://map_editor/editor_camera.gd" id="10_rfslp"]
-[ext_resource type="Script" path="res://map_editor/draw_viewport.gd" id="11_2b2ft"]
-[ext_resource type="Texture2D" uid="uid://dactp4hpeji08" path="res://map_editor/brush/textures/9.png" id="12_i3ai2"]
-[ext_resource type="Script" path="res://map_editor/brush.gd" id="13_ry4sr"]
-
-[sub_resource type="SystemFont" id="SystemFont_k5avh"]
-generate_mipmaps = true
-force_autohinter = true
-hinting = 2
-
-[sub_resource type="LabelSettings" id="LabelSettings_gipqd"]
-font = SubResource("SystemFont_k5avh")
-font_color = Color(0, 0, 0, 1)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_p82vf"]
-resource_local_to_scene = true
-size = Vector2(200, 200)
-subdivide_width = 400
-subdivide_depth = 400
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bed23"]
-
-[sub_resource type="Sky" id="Sky_4dkvf"]
-sky_material = SubResource("ProceduralSkyMaterial_bed23")
-
-[sub_resource type="Environment" id="Environment_6yu7r"]
-background_mode = 2
-sky = SubResource("Sky_4dkvf")
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_n8v05"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ksyjj"]
-noise = SubResource("FastNoiseLite_n8v05")
+[ext_resource type="Texture2D" uid="uid://c3k71ll1westo" path="res://map_editor/icons/paintterrain.png" id="2_5nvg0"]
+[ext_resource type="Texture2D" uid="uid://d234o0hw2gq6k" path="res://map_editor/icons/alterelevation.png" id="3_wyocv"]
+[ext_resource type="Texture2D" uid="uid://tcnxxbpdy2cy" path="res://map_editor/icons/flattenelevation.png" id="4_7wrsi"]
+[ext_resource type="Texture2D" uid="uid://b2jnkdli7tel2" path="res://map_editor/icons/terrain.png" id="5_dbqat"]
+[ext_resource type="Texture2D" uid="uid://ewg7cddd05tq" path="res://map_editor/icons/object.png" id="6_0aalf"]
+[ext_resource type="Texture2D" uid="uid://b44we3ed1vubm" path="res://map_editor/icons/player.png" id="7_ffl03"]
+[ext_resource type="Texture2D" uid="uid://ck4opmxbh5igh" path="res://map_editor/icons/map.png" id="8_40t5j"]
+[ext_resource type="Script" path="res://map_editor/painter.gd" id="9_indah"]
 
 [node name="MapEditor" type="Node"]
 script = ExtResource("1_ummfq")
-
-[node name="MapData" type="Node" parent="."]
-script = ExtResource("2_6au4h")
-
-[node name="WallsPaths" type="Node" parent="."]
-
-[node name="TradeRutePaths" type="Node" parent="."]
 
 [node name="GUI" type="Control" parent="."]
 layout_mode = 3
@@ -62,305 +22,82 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="tool_bar" type="Panel" parent="GUI"]
+[node name="Heightmap_layer" type="SubViewportContainer" parent="GUI"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 0.0509259
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("3_hbxh5")
+anchor_left = 0.345486
+anchor_top = 0.0540123
+anchor_right = 0.789931
+anchor_bottom = 0.844136
 metadata/_edit_use_anchors_ = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="GUI/tool_bar"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="MenuButton" type="MenuButton" parent="GUI/tool_bar/HBoxContainer"]
-custom_minimum_size = Vector2(15, 15)
-layout_mode = 2
-size_flags_horizontal = 3
-text = "File"
-item_count = 4
-popup/item_0/text = "Save Scenario As..."
-popup/item_0/id = 0
-popup/item_1/text = "Load Scenario"
-popup/item_1/id = 1
-popup/item_2/text = ""
-popup/item_2/id = 2
-popup/item_2/separator = true
-popup/item_3/text = "Close"
-popup/item_3/id = 3
-
-[node name="MenuButton_2" type="MenuButton" parent="GUI/tool_bar/HBoxContainer"]
-custom_minimum_size = Vector2(15, 15)
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Edit"
-item_count = 6
-popup/item_0/text = "Select"
-popup/item_0/id = 0
-popup/item_1/text = "Unselect"
-popup/item_1/id = 1
-popup/item_2/text = ""
-popup/item_2/id = 2
-popup/item_2/separator = true
-popup/item_3/text = "Copy"
-popup/item_3/id = 3
-popup/item_4/text = "Cut"
-popup/item_4/id = 4
-popup/item_5/text = "Paste"
-popup/item_5/id = 5
-
-[node name="MenuButton_3" type="MenuButton" parent="GUI/tool_bar/HBoxContainer"]
-custom_minimum_size = Vector2(15, 15)
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Triggers"
-item_count = 4
-popup/item_0/text = "Trigger Editor"
-popup/item_0/id = 0
-popup/item_1/text = "Trigger Group"
-popup/item_1/id = 1
-popup/item_2/text = "Make Area"
-popup/item_2/id = 2
-popup/item_3/text = "Remove Area"
-popup/item_3/id = 3
-
-[node name="MenuButton_4" type="MenuButton" parent="GUI/tool_bar/HBoxContainer"]
-custom_minimum_size = Vector2(15, 15)
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Objects"
-item_count = 3
-popup/item_0/text = "Place Object"
-popup/item_0/id = 0
-popup/item_1/text = "Create Wall"
-popup/item_1/id = 1
-popup/item_2/text = "Create Trade Rute"
-popup/item_2/id = 2
-
-[node name="MenuButton_5" type="MenuButton" parent="GUI/tool_bar/HBoxContainer"]
-custom_minimum_size = Vector2(15, 15)
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Map Data"
-item_count = 2
-popup/item_0/text = "Data Editor"
-popup/item_0/id = 0
-popup/item_1/text = "Map Information"
-popup/item_1/id = 1
-
-[node name="Control" type="Control" parent="GUI/tool_bar/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 20.0
-
-[node name="mini_map" type="PanelContainer" parent="GUI"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.00260417
-anchor_top = 0.600309
-anchor_right = 0.223958
-anchor_bottom = 0.993827
-script = ExtResource("4_7hdo1")
-metadata/_edit_use_anchors_ = true
-metadata/_edit_group_ = true
-
-[node name="terrain" type="TextureRect" parent="GUI/mini_map"]
-layout_mode = 2
-ignore_texture_size = true
-
-[node name="map_entities" type="TextureRect" parent="GUI/mini_map"]
-layout_mode = 2
-ignore_texture_size = true
-
-[node name="panel" type="TextureRect" parent="GUI/mini_map"]
-layout_mode = 2
-texture = ExtResource("5_qweel")
-metadata/_edit_use_anchors_ = true
-
-[node name="grid_panel" type="Panel" parent="GUI"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.684375
-anchor_top = 0.7
-anchor_right = 1.0
-anchor_bottom = 1.0
-metadata/_edit_use_anchors_ = true
-
-[node name="brush_panel" type="PanelContainer" parent="GUI"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.00520833
-anchor_top = 0.143519
-anchor_right = 0.068
-anchor_bottom = 0.593
-offset_right = -0.336006
-offset_bottom = -0.264038
-grow_horizontal = 2
-grow_vertical = 2
-metadata/_edit_group_ = true
-metadata/_edit_use_anchors_ = true
-
-[node name="list" type="VBoxContainer" parent="GUI/brush_panel"]
-visible = false
-layout_mode = 2
-
-[node name="tooltip" type="Label" parent="GUI"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.344271
-anchor_top = 0.797222
-anchor_right = 0.555208
-anchor_bottom = 0.955556
-text = "LOL"
-label_settings = SubResource("LabelSettings_gipqd")
-metadata/_edit_use_anchors_ = true
-
-[node name="save_panel" type="Panel" parent="GUI"]
-visible = false
-layout_mode = 0
-offset_left = 608.0
-offset_top = 351.0
-offset_right = 1075.0
-offset_bottom = 589.0
-script = ExtResource("6_2muap")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="GUI/save_panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="GUI/save_panel/VBoxContainer"]
-layout_mode = 2
-text = "Save scenario as.."
-horizontal_alignment = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="GUI/save_panel/VBoxContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="Label" type="Label" parent="GUI/save_panel/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-text = "Path"
-
-[node name="LineEdit" type="LineEdit" parent="GUI/save_panel/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-placeholder_text = "map name"
-
-[node name="HBoxContainer_2" type="HBoxContainer" parent="GUI/save_panel/VBoxContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="Button" type="Button" parent="GUI/save_panel/VBoxContainer/HBoxContainer_2"]
-layout_mode = 2
-text = "Save"
-
-[node name="Control" type="Control" parent="GUI/save_panel/VBoxContainer/HBoxContainer_2"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-
-[node name="Button_2" type="Button" parent="GUI/save_panel/VBoxContainer/HBoxContainer_2"]
-layout_mode = 2
-text = "Cancel"
-
-[node name="load_panel" type="Panel" parent="GUI"]
-visible = false
-layout_mode = 1
-offset_left = 608.0
-offset_top = 351.0
-offset_right = 1075.0
-offset_bottom = 589.0
-script = ExtResource("7_d7yjq")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="GUI/load_panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="GUI/load_panel/VBoxContainer"]
-layout_mode = 2
-text = "Save scenario as.."
-horizontal_alignment = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="GUI/load_panel/VBoxContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="Label" type="Label" parent="GUI/load_panel/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-text = "Path"
-
-[node name="LineEdit" type="LineEdit" parent="GUI/load_panel/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-placeholder_text = "map name"
-
-[node name="HBoxContainer_2" type="HBoxContainer" parent="GUI/load_panel/VBoxContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="Button" type="Button" parent="GUI/load_panel/VBoxContainer/HBoxContainer_2"]
-layout_mode = 2
-text = "load"
-
-[node name="Control" type="Control" parent="GUI/load_panel/VBoxContainer/HBoxContainer_2"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-
-[node name="Button_2" type="Button" parent="GUI/load_panel/VBoxContainer/HBoxContainer_2"]
-layout_mode = 2
-text = "Cancel"
-
-[node name="3D" type="Node3D" parent="."]
-script = ExtResource("8_x3nk1")
-
-[node name="terrain" type="MeshInstance3D" parent="3D"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
-mesh = SubResource("PlaneMesh_p82vf")
-script = ExtResource("9_hhfjk")
-
-[node name="editor_camera" type="Marker3D" parent="3D"]
-script = ExtResource("10_rfslp")
-color = Color(0.862745, 0.00784314, 0, 1)
-
-[node name="pivot" type="Marker3D" parent="3D/editor_camera"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
-
-[node name="camera" type="Camera3D" parent="3D/editor_camera/pivot"]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0)
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="3D"]
-transform = Transform3D(0.609667, 0.790201, -0.0623544, -0.25094, 0.26703, 0.930443, 0.751888, -0.551613, 0.361092, 0, 26.2879, 0)
-shadow_enabled = true
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="3D"]
-environment = SubResource("Environment_6yu7r")
-
-[node name="MapTextures" type="Node" parent="."]
-
-[node name="splatmap" type="SubViewport" parent="MapTextures"]
+[node name="heightmap" type="SubViewport" parent="GUI/Heightmap_layer"]
 disable_3d = true
+handle_input_locally = false
 msaa_2d = 3
-gui_snap_controls_to_pixels = false
 size_2d_override_stretch = true
 render_target_clear_mode = 1
 render_target_update_mode = 4
-script = ExtResource("11_2b2ft")
 
-[node name="ColorRect" type="ColorRect" parent="MapTextures/splatmap"]
+[node name="ColorRect" type="ColorRect" parent="GUI/Heightmap_layer/heightmap"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.470588, 0.470588, 0.470588, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="painter_heightmap" type="Node2D" parent="GUI/Heightmap_layer/heightmap"]
+script = ExtResource("9_indah")
+
+[node name="lines" type="Node2D" parent="GUI/Heightmap_layer/heightmap/painter_heightmap"]
+
+[node name="Splatmap_layer" type="SubViewportContainer" parent="GUI"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.345486
+anchor_top = 0.0540123
+anchor_right = 0.789931
+anchor_bottom = 0.844136
+metadata/_edit_use_anchors_ = true
+
+[node name="splatmap" type="SubViewport" parent="GUI/Splatmap_layer"]
+disable_3d = true
+handle_input_locally = false
+msaa_2d = 3
+size_2d_override_stretch = true
+render_target_clear_mode = 1
+render_target_update_mode = 4
+
+[node name="ColorRect" type="ColorRect" parent="GUI/Splatmap_layer/splatmap"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="painter_splatmap" type="Node2D" parent="GUI/Splatmap_layer/splatmap"]
+script = ExtResource("9_indah")
+
+[node name="lines" type="Node2D" parent="GUI/Splatmap_layer/splatmap/painter_splatmap"]
+
+[node name="BrushPanel" type="Panel" parent="GUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.83941
+anchor_top = 0.137346
+anchor_right = 0.868924
+anchor_bottom = 0.549383
+metadata/_edit_use_anchors_ = true
+metadata/_edit_group_ = true
+
+[node name="GridContainer" type="GridContainer" parent="GUI/BrushPanel"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -368,41 +105,110 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="brush" type="Sprite2D" parent="MapTextures/splatmap"]
-texture = ExtResource("12_i3ai2")
-script = ExtResource("13_ry4sr")
-brush_size = 1
+[node name="paint" type="Button" parent="GUI/BrushPanel/GridContainer"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+tooltip_text = "Paint Mode"
+icon = ExtResource("2_5nvg0")
+expand_icon = true
 
-[node name="heightmap" type="SubViewport" parent="MapTextures"]
-render_target_clear_mode = 1
-render_target_update_mode = 4
+[node name="height" type="Button" parent="GUI/BrushPanel/GridContainer"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+tooltip_text = "Height mode
+"
+icon = ExtResource("3_wyocv")
+expand_icon = true
 
-[node name="ColorRect" type="ColorRect" parent="MapTextures/heightmap"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.533333, 0.533333, 0.533333, 1)
+[node name="flat" type="Button" parent="GUI/BrushPanel/GridContainer"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+tooltip_text = "Flat mode"
+icon = ExtResource("4_7wrsi")
+expand_icon = true
+
+[node name="smooth" type="Button" parent="GUI/BrushPanel/GridContainer"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+tooltip_text = "Smooth mode"
+icon = ExtResource("5_dbqat")
+expand_icon = true
+
+[node name="object" type="Button" parent="GUI/BrushPanel/GridContainer"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+tooltip_text = "Object mode"
+icon = ExtResource("6_0aalf")
+expand_icon = true
+
+[node name="player" type="Button" parent="GUI/BrushPanel/GridContainer"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+tooltip_text = "Player mode"
+icon = ExtResource("7_ffl03")
+expand_icon = true
+
+[node name="map" type="Button" parent="GUI/BrushPanel/GridContainer"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+tooltip_text = "Map data"
+icon = ExtResource("8_40t5j")
+expand_icon = true
+
+[node name="ObjectPanel" type="Panel" parent="GUI"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0217014
+anchor_top = 0.140432
+anchor_right = 0.231771
+anchor_bottom = 0.762346
 metadata/_edit_use_anchors_ = true
 
-[node name="brush" type="Node2D" parent="MapTextures/heightmap"]
-
-[node name="TextureRect" type="TextureRect" parent="MapTextures/heightmap"]
+[node name="objects_list" type="Tree" parent="GUI/ObjectPanel"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("NoiseTexture2D_ksyjj")
+columns = 6
 
-[node name="mini_map" type="SubViewport" parent="MapTextures"]
-render_target_clear_mode = 1
-render_target_update_mode = 4
+[node name="ColorPicker" type="ColorPicker" parent="GUI"]
+visible = false
+layout_mode = 0
+offset_left = 80.0
+offset_top = 40.0
+offset_right = 338.0
+offset_bottom = 608.0
 
-[node name="TerrainTextures" type="Node" parent="MapTextures"]
+[node name="brush_size" type="HSlider" parent="GUI"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.015625
+anchor_top = 0.947531
+anchor_right = 0.333333
+anchor_bottom = 0.972222
+metadata/_edit_use_anchors_ = true
 
-[connection signal="pressed" from="GUI/save_panel/VBoxContainer/HBoxContainer_2/Button" to="GUI/save_panel" method="_on_button_pressed"]
-[connection signal="pressed" from="GUI/save_panel/VBoxContainer/HBoxContainer_2/Button_2" to="GUI/save_panel" method="_on_button_2_pressed"]
-[connection signal="pressed" from="GUI/load_panel/VBoxContainer/HBoxContainer_2/Button" to="GUI/load_panel" method="_on_load_pressed"]
-[connection signal="pressed" from="GUI/load_panel/VBoxContainer/HBoxContainer_2/Button_2" to="GUI/load_panel" method="_on_cancel_pressed"]
+[node name="save" type="Button" parent="GUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.611979
+anchor_top = 0.885802
+anchor_right = 0.678819
+anchor_bottom = 0.938272
+text = "Save"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="GUI/BrushPanel/GridContainer/paint" to="." method="_on_paint_pressed"]
+[connection signal="pressed" from="GUI/BrushPanel/GridContainer/height" to="." method="_on_height_pressed"]
+[connection signal="pressed" from="GUI/BrushPanel/GridContainer/flat" to="." method="_on_flat_pressed"]
+[connection signal="pressed" from="GUI/BrushPanel/GridContainer/smooth" to="." method="_on_smooth_pressed"]
+[connection signal="pressed" from="GUI/BrushPanel/GridContainer/object" to="." method="_on_object_pressed"]
+[connection signal="pressed" from="GUI/BrushPanel/GridContainer/player" to="." method="_on_player_pressed"]
+[connection signal="pressed" from="GUI/BrushPanel/GridContainer/map" to="." method="_on_map_pressed"]
+[connection signal="color_changed" from="GUI/ColorPicker" to="GUI/Splatmap_layer/splatmap/painter_splatmap" method="_on_color_picker_color_changed"]
+[connection signal="value_changed" from="GUI/brush_size" to="GUI/Splatmap_layer/splatmap/painter_splatmap" method="_on_brush_size_value_changed"]
+[connection signal="pressed" from="GUI/save" to="." method="_on_save_pressed"]

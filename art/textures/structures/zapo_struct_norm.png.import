@@ -5,16 +5,15 @@ type="CompressedTexture2D"
 uid="uid://s1conbhakxbc"
 path.s3tc="res://.godot/imported/zapo_struct_norm.png-1af7eade4deab6175b56b001b1d875f8.s3tc.ctex"
 path.etc2="res://.godot/imported/zapo_struct_norm.png-1af7eade4deab6175b56b001b1d875f8.etc2.ctex"
-path.etc="res://.godot/imported/zapo_struct_norm.png-1af7eade4deab6175b56b001b1d875f8.etc.ctex"
 metadata={
-"imported_formats": ["bptc", "s3tc", "etc2", "etc"],
+"imported_formats": ["s3tc", "etc2"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://art/textures/structures/zapo_struct_norm.png"
-dest_files=["res://.godot/imported/zapo_struct_norm.png-1af7eade4deab6175b56b001b1d875f8.s3tc.ctex", "res://.godot/imported/zapo_struct_norm.png-1af7eade4deab6175b56b001b1d875f8.etc2.ctex", "res://.godot/imported/zapo_struct_norm.png-1af7eade4deab6175b56b001b1d875f8.etc.ctex"]
+dest_files=["res://.godot/imported/zapo_struct_norm.png-1af7eade4deab6175b56b001b1d875f8.s3tc.ctex", "res://.godot/imported/zapo_struct_norm.png-1af7eade4deab6175b56b001b1d875f8.etc2.ctex"]
 
 [params]
 

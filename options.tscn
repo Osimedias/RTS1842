@@ -1,0 +1,178 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://options.gd" id="1_eo6vj"]
+
+[node name="Options" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eo6vj")
+metadata/_edit_use_anchors_ = true
+
+[node name="TabContainer" type="TabContainer" parent="."]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.87037
+grow_horizontal = 2
+grow_vertical = 2
+use_hidden_tabs_for_min_size = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Video" type="Control" parent="TabContainer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 31.0
+
+[node name="HBoxContainer" type="VBoxContainer" parent="TabContainer/Video"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Video/HBoxContainer"]
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Label" type="Label" parent="TabContainer/Video/HBoxContainer/HBoxContainer"]
+size_flags_horizontal = 3
+size_flags_vertical = 5
+text = "Window Resolution"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionButton" type="OptionButton" parent="TabContainer/Video/HBoxContainer/HBoxContainer"]
+size_flags_horizontal = 3
+size_flags_vertical = 5
+item_count = 3
+selected = 1
+popup/item_0/text = "800x600"
+popup/item_0/id = 2
+popup/item_1/text = "1920x1080"
+popup/item_1/id = 0
+popup/item_2/text = "3840x1080"
+popup/item_2/id = 1
+
+[node name="HBoxContainer_2" type="HBoxContainer" parent="TabContainer/Video/HBoxContainer"]
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Label" type="Label" parent="TabContainer/Video/HBoxContainer/HBoxContainer_2"]
+size_flags_horizontal = 3
+size_flags_vertical = 5
+text = "Vsync"
+
+[node name="CheckButton" type="CheckButton" parent="TabContainer/Video/HBoxContainer/HBoxContainer_2"]
+size_flags_horizontal = 3
+size_flags_vertical = 5
+alignment = 1
+icon_alignment = 1
+
+[node name="HBoxContainer_3" type="HBoxContainer" parent="TabContainer/Video/HBoxContainer"]
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Label" type="Label" parent="TabContainer/Video/HBoxContainer/HBoxContainer_3"]
+size_flags_horizontal = 3
+size_flags_vertical = 5
+text = "Display FPS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CheckButton" type="CheckButton" parent="TabContainer/Video/HBoxContainer/HBoxContainer_3"]
+size_flags_horizontal = 3
+size_flags_vertical = 5
+
+[node name="HBoxContainer_4" type="HBoxContainer" parent="TabContainer/Video/HBoxContainer"]
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Label" type="Label" parent="TabContainer/Video/HBoxContainer/HBoxContainer_4"]
+size_flags_horizontal = 3
+size_flags_vertical = 5
+text = "FPS Rate"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CheckButton" type="HSlider" parent="TabContainer/Video/HBoxContainer/HBoxContainer_4"]
+size_flags_horizontal = 3
+size_flags_vertical = 5
+
+[node name="HBoxContainer_6" type="HBoxContainer" parent="TabContainer/Video/HBoxContainer"]
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Label" type="Label" parent="TabContainer/Video/HBoxContainer/HBoxContainer_6"]
+size_flags_horizontal = 3
+size_flags_vertical = 5
+text = "Bloom"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CheckButton" type="CheckButton" parent="TabContainer/Video/HBoxContainer/HBoxContainer_6"]
+size_flags_horizontal = 3
+size_flags_vertical = 5
+
+[node name="HBoxContainer_5" type="HBoxContainer" parent="TabContainer/Video/HBoxContainer"]
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Label" type="Label" parent="TabContainer/Video/HBoxContainer/HBoxContainer_5"]
+size_flags_horizontal = 3
+size_flags_vertical = 5
+text = "Brightness"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CheckButton" type="HSlider" parent="TabContainer/Video/HBoxContainer/HBoxContainer_5"]
+size_flags_horizontal = 3
+size_flags_vertical = 5
+
+[node name="Audio" type="Control" parent="TabContainer"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+
+[node name="HBoxContainer" type="VBoxContainer" parent="TabContainer/Audio"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Gameplay" type="Control" parent="TabContainer"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+
+[node name="HBoxContainer" type="VBoxContainer" parent="TabContainer/Gameplay"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = -1
+anchor_left = 0.0182292
+anchor_top = 0.887346
+anchor_right = 0.356771
+anchor_bottom = 0.979938
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="HBoxContainer"]
+text = "Save"
+
+[node name="Button_2" type="Button" parent="HBoxContainer"]
+text = "Back"
+
+[connection signal="item_selected" from="TabContainer/Video/HBoxContainer/HBoxContainer/OptionButton" to="." method="_on_resolution_item_selected"]
+[connection signal="toggled" from="TabContainer/Video/HBoxContainer/HBoxContainer_2/CheckButton" to="." method="_on_vsync_toggled"]
+[connection signal="toggled" from="TabContainer/Video/HBoxContainer/HBoxContainer_3/CheckButton" to="." method="_on_fps_toggled"]
+[connection signal="pressed" from="HBoxContainer/Button" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="HBoxContainer/Button_2" to="." method="_on_back_pressed"]

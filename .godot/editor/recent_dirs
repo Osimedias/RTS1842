@@ -1,3 +1,7 @@
+res://art/homecity/mexican
+res://data/homecity/mexicans
+res://map_editor
+res://map_editor/icons
 res://game
 res://dev
 res://art/gui/singleplayer
@@ -14,9 +18,5 @@ res://game/shaders
 res://art/gui/wood
 res://data/material
 /run/media/trinketos/Saul/builds/rts
-res://map_editor
 res://data/simulation/structures
 res://data/simulation/structures/zapotecs
-res://data/simulation/units
-res://art/meshes/structural/zapotecs
-res://art/textures/structures

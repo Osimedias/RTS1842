@@ -6,6 +6,7 @@ var players : Array
 var list : Array
 
 func _ready():
+	dir_contents("res://data/civilization/")
 	create_player_panel($players/player_slot_1,0,"Player 1",Color.BLUE,1)
 	create_player_panel($players/player_slot_2,1,"Player 2",Color.RED,2)
 	create_player_panel($players/player_slot_3,2,"Player 3",Color(randf(),randf(),randf()),3)
@@ -54,7 +55,7 @@ func create_player_panel(slot : Control,civ_index : int,player_name : String,col
 	slot.add_child(civ_list_btn)
 	slot.add_child(color_btn)
 	slot.add_child(team_spin_box)
-	dir_contents("res://data/civilization/")
+	
 	for i in list.size():
 		civ_list_btn.add_item(list[i],i)
 		#civ_list_btn.set_item_icon(list[i],load(list[i].flag))
