@@ -1,0 +1,158 @@
+[gd_scene load_steps=3 format=3 uid="uid://meikjxsb35al"]
+
+[ext_resource type="Script" path="res://menus/technology_node.gd" id="1_wrgyt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_61gnc"]
+bg_color = Color(0.27451, 0.698039, 0.403922, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+
+[node name="TechnologyNode" type="GraphNode"]
+anchors_preset = -1
+anchor_right = 0.135937
+anchor_bottom = 0.159259
+theme_override_constants/title_offset = 1
+theme_override_constants/title_h_offset = 55
+theme_override_styles/frame = SubResource("StyleBoxFlat_61gnc")
+theme_override_styles/selected_frame = SubResource("StyleBoxFlat_61gnc")
+theme_override_styles/comment = SubResource("StyleBoxFlat_61gnc")
+theme_override_styles/comment_focus = SubResource("StyleBoxFlat_61gnc")
+theme_override_styles/breakpoint = SubResource("StyleBoxFlat_61gnc")
+theme_override_styles/position = SubResource("StyleBoxFlat_61gnc")
+title = "Technology Node"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color(1, 1, 1, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color(1, 1, 1, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color(1, 1, 1, 1)
+slot/2/left_icon = null
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color(1, 1, 1, 1)
+slot/2/right_icon = null
+slot/2/draw_stylebox = true
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color(1, 1, 1, 1)
+slot/3/left_icon = null
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color(1, 1, 1, 1)
+slot/3/right_icon = null
+slot/3/draw_stylebox = true
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color(1, 1, 1, 1)
+slot/4/left_icon = null
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color(1, 1, 1, 1)
+slot/4/right_icon = null
+slot/4/draw_stylebox = true
+slot/5/left_enabled = true
+slot/5/left_type = 2
+slot/5/left_color = Color(0.890196, 0.764706, 0, 1)
+slot/5/left_icon = null
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color(1, 1, 1, 1)
+slot/5/right_icon = null
+slot/5/draw_stylebox = true
+script = ExtResource("1_wrgyt")
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "Entity Data"
+
+[node name="line" type="LineEdit" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer_5" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer_5"]
+layout_mode = 2
+text = "Modification"
+
+[node name="OptionButton" type="OptionButton" parent="HBoxContainer_5"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer_2" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer_2"]
+layout_mode = 2
+text = "Expresion"
+
+[node name="OptionButton" type="OptionButton" parent="HBoxContainer_2"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+item_count = 4
+selected = 0
+popup/item_0/text = "Add"
+popup/item_0/id = 0
+popup/item_1/text = "Multiply"
+popup/item_1/id = 1
+popup/item_2/text = "Divide"
+popup/item_2/id = 2
+popup/item_3/text = "Rest"
+popup/item_3/id = 3
+
+[node name="HBoxContainer_3" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer_3"]
+layout_mode = 2
+text = "Value"
+
+[node name="value" type="SpinBox" parent="HBoxContainer_3"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="HBoxContainer_4" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer_4"]
+layout_mode = 2
+text = "Value"
+
+[node name="value" type="SpinBox" parent="HBoxContainer_4"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "Parent
+"
+horizontal_alignment = 1
+
+[connection signal="dragged" from="." to="." method="_on_dragged"]
+[connection signal="selected" from="." to="." method="_on_selected"]
+[connection signal="slot_updated" from="." to="." method="_on_slot_updated"]

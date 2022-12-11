@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dw2f7n07ehp1h"]
+[gd_scene load_steps=17 format=3 uid="uid://dw2f7n07ehp1h"]
 
 [ext_resource type="Texture2D" uid="uid://eqyrw8lcyg4" path="res://art/gui/wood/button.png" id="1_k5gxg"]
 [ext_resource type="Script" path="res://menus/session_ui.gd" id="1_o6rry"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://irii17xnjpj7" path="res://art/gui/wood/panel_large.png" id="3_yoofs"]
 [ext_resource type="Texture2D" uid="uid://dc14w6ew08nhd" path="res://art/gui/screen_panels/background_b.png" id="5_h6y2r"]
 [ext_resource type="Texture2D" uid="uid://ckket8hda8p6c" path="res://art/gui/wood/panel_command.png" id="6_tgjk0"]
+[ext_resource type="PackedScene" uid="uid://02y145x3cag" path="res://menus/chat.tscn" id="7_d6ple"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_34070"]
 bg_color = Color(0.278431, 0.160784, 0.117647, 1)
@@ -68,6 +69,7 @@ grow_vertical = 2
 script = ExtResource("1_o6rry")
 
 [node name="toolbox" type="Panel" parent="."]
+layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 0.0339506
@@ -75,6 +77,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_34070")
 metadata/_edit_use_anchors_ = true
 
 [node name="menu" type="MenuButton" parent="toolbox"]
+layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.953125
 anchor_right = 1.0
@@ -95,14 +98,17 @@ popup/item_4/id = 4
 metadata/_edit_use_anchors_ = true
 
 [node name="minimap" type="Panel" parent="."]
+layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.606481
+anchor_top = 0.64537
 anchor_right = 0.221354
 anchor_bottom = 1.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_45lkd")
 metadata/_edit_use_anchors_ = true
+metadata/_edit_group_ = true
 
 [node name="splatmap" type="TextureRect" parent="minimap"]
+layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0705882
 anchor_top = 0.0745098
@@ -112,15 +118,18 @@ ignore_texture_size = true
 metadata/_edit_use_anchors_ = true
 
 [node name="info_panel" type="Panel" parent="."]
+layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.221354
-anchor_top = 0.62963
-anchor_right = 0.610243
+anchor_top = 0.684259
+anchor_right = 0.610417
 anchor_bottom = 1.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_puebj")
 metadata/_edit_use_anchors_ = true
+metadata/_edit_group_ = true
 
 [node name="Panel_2" type="Panel" parent="info_panel"]
+layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0691964
 anchor_top = 0.158333
@@ -130,6 +139,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_xi5x5")
 metadata/_edit_use_anchors_ = true
 
 [node name="portrait" type="TextureRect" parent="info_panel/Panel_2"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -138,6 +148,7 @@ grow_vertical = 2
 ignore_texture_size = true
 
 [node name="name" type="Label" parent="info_panel"]
+layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.399554
 anchor_top = 0.166666
@@ -149,6 +160,7 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="ProgressBar" type="ProgressBar" parent="info_panel"]
+layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.419643
 anchor_top = 0.754166
@@ -160,15 +172,18 @@ value = 50.0
 metadata/_edit_use_anchors_ = true
 
 [node name="command_panel" type="Panel" parent="."]
+layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.610243
-anchor_top = 0.603395
+anchor_left = 0.610417
+anchor_top = 0.659259
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_mq7e2")
 metadata/_edit_use_anchors_ = true
+metadata/_edit_group_ = true
 
 [node name="GridContainer" type="GridContainer" parent="command_panel"]
+layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0467706
 anchor_top = 0.077821
@@ -178,242 +193,176 @@ columns = 7
 metadata/_edit_use_anchors_ = true
 
 [node name="button_1" type="PanelContainer" parent="command_panel/GridContainer"]
-offset_right = 55.0
-offset_bottom = 51.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_jmrd4")
 
 [node name="button_2" type="PanelContainer" parent="command_panel/GridContainer"]
-offset_left = 59.0
-offset_right = 114.0
-offset_bottom = 51.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_jmrd4")
 
 [node name="button_3" type="PanelContainer" parent="command_panel/GridContainer"]
-offset_left = 118.0
-offset_right = 173.0
-offset_bottom = 51.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_jmrd4")
 
 [node name="button_4" type="PanelContainer" parent="command_panel/GridContainer"]
-offset_left = 177.0
-offset_right = 231.0
-offset_bottom = 51.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_jmrd4")
 
 [node name="button_5" type="PanelContainer" parent="command_panel/GridContainer"]
-offset_left = 235.0
-offset_right = 289.0
-offset_bottom = 51.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_jmrd4")
 
 [node name="button_6" type="PanelContainer" parent="command_panel/GridContainer"]
-offset_left = 293.0
-offset_right = 347.0
-offset_bottom = 51.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_jmrd4")
 
 [node name="button_7" type="PanelContainer" parent="command_panel/GridContainer"]
-offset_left = 351.0
-offset_right = 405.0
-offset_bottom = 51.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_jmrd4")
 
 [node name="button_8" type="PanelContainer" parent="command_panel/GridContainer"]
-offset_top = 55.0
-offset_right = 55.0
-offset_bottom = 106.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_jmrd4")
 
 [node name="button_9" type="PanelContainer" parent="command_panel/GridContainer"]
-offset_left = 59.0
-offset_top = 55.0
-offset_right = 114.0
-offset_bottom = 106.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_jmrd4")
 
 [node name="button_10" type="PanelContainer" parent="command_panel/GridContainer"]
-offset_left = 118.0
-offset_top = 55.0
-offset_right = 173.0
-offset_bottom = 106.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_jmrd4")
 
 [node name="button_11" type="PanelContainer" parent="command_panel/GridContainer"]
-offset_left = 177.0
-offset_top = 55.0
-offset_right = 231.0
-offset_bottom = 106.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_jmrd4")
 
 [node name="button_12" type="PanelContainer" parent="command_panel/GridContainer"]
-offset_left = 235.0
-offset_top = 55.0
-offset_right = 289.0
-offset_bottom = 106.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_jmrd4")
 
 [node name="button_13" type="PanelContainer" parent="command_panel/GridContainer"]
-offset_left = 293.0
-offset_top = 55.0
-offset_right = 347.0
-offset_bottom = 106.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_jmrd4")
 
 [node name="button_14" type="PanelContainer" parent="command_panel/GridContainer"]
-offset_left = 351.0
-offset_top = 55.0
-offset_right = 405.0
-offset_bottom = 106.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_jmrd4")
 
 [node name="button_15" type="PanelContainer" parent="command_panel/GridContainer"]
-offset_top = 110.0
-offset_right = 55.0
-offset_bottom = 161.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_jmrd4")
 
 [node name="button_16" type="PanelContainer" parent="command_panel/GridContainer"]
-offset_left = 59.0
-offset_top = 110.0
-offset_right = 114.0
-offset_bottom = 161.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_jmrd4")
 
 [node name="button_17" type="PanelContainer" parent="command_panel/GridContainer"]
-offset_left = 118.0
-offset_top = 110.0
-offset_right = 173.0
-offset_bottom = 161.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_jmrd4")
 
 [node name="button_18" type="PanelContainer" parent="command_panel/GridContainer"]
-offset_left = 177.0
-offset_top = 110.0
-offset_right = 231.0
-offset_bottom = 161.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_jmrd4")
 
 [node name="button_19" type="PanelContainer" parent="command_panel/GridContainer"]
-offset_left = 235.0
-offset_top = 110.0
-offset_right = 289.0
-offset_bottom = 161.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_jmrd4")
 
 [node name="button_20" type="PanelContainer" parent="command_panel/GridContainer"]
-offset_left = 293.0
-offset_top = 110.0
-offset_right = 347.0
-offset_bottom = 161.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_jmrd4")
 
 [node name="button_21" type="PanelContainer" parent="command_panel/GridContainer"]
-offset_left = 351.0
-offset_top = 110.0
-offset_right = 405.0
-offset_bottom = 161.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_jmrd4")
 
 [node name="button_22" type="PanelContainer" parent="command_panel/GridContainer"]
-offset_top = 165.0
-offset_right = 55.0
-offset_bottom = 216.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_jmrd4")
 
 [node name="button_23" type="PanelContainer" parent="command_panel/GridContainer"]
-offset_left = 59.0
-offset_top = 165.0
-offset_right = 114.0
-offset_bottom = 216.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_jmrd4")
 
 [node name="button_24" type="PanelContainer" parent="command_panel/GridContainer"]
-offset_left = 118.0
-offset_top = 165.0
-offset_right = 173.0
-offset_bottom = 216.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_jmrd4")
 
 [node name="button_25" type="PanelContainer" parent="command_panel/GridContainer"]
-offset_left = 177.0
-offset_top = 165.0
-offset_right = 231.0
-offset_bottom = 216.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_jmrd4")
 
 [node name="button_26" type="PanelContainer" parent="command_panel/GridContainer"]
-offset_left = 235.0
-offset_top = 165.0
-offset_right = 289.0
-offset_bottom = 216.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_jmrd4")
 
 [node name="button_27" type="PanelContainer" parent="command_panel/GridContainer"]
-offset_left = 293.0
-offset_top = 165.0
-offset_right = 347.0
-offset_bottom = 216.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_jmrd4")
 
 [node name="button_28" type="PanelContainer" parent="command_panel/GridContainer"]
-offset_left = 351.0
-offset_top = 165.0
-offset_right = 405.0
-offset_bottom = 216.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_jmrd4")
+
+[node name="Chat" parent="." instance=ExtResource("7_d6ple")]
+layout_mode = 1
+anchor_left = 0.0161458
+anchor_top = 0.0592593
+anchor_right = 0.279688
+anchor_bottom = 0.613889

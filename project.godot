@@ -10,9 +10,14 @@ config_version=5
 
 _global_script_classes=[{
 "base": "Resource",
-"class": &"Ability",
+"class": &"Abilities",
 "language": &"GDScript",
-"path": "res://game/abilities.gd"
+"path": "res://game/resource/abilities.gd"
+}, {
+"base": "Resource",
+"class": &"Actioners",
+"language": &"GDScript",
+"path": "res://game/resource/actioners.gd"
 }, {
 "base": "Resource",
 "class": &"Civilization",
@@ -34,15 +39,10 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://map/random/rmslib/rms_base.gd"
 }, {
-"base": "Resource",
-"class": &"TechnologyNodeActioners",
+"base": "Label",
+"class": &"TechnologyTreeNode",
 "language": &"GDScript",
-"path": "res://game/resource/technology_node_actioners.gd"
-}, {
-"base": "Resource",
-"class": &"TechnologyNodeData",
-"language": &"GDScript",
-"path": "res://game/resource/technology_node_data.gd"
+"path": "res://game/resource/technology_tree_node.gd"
 }, {
 "base": "RefCounted",
 "class": &"TextureList",
@@ -60,13 +60,13 @@ _global_script_classes=[{
 "path": "res://map/random/yucatan.gd"
 }]
 _global_script_class_icons={
-"Ability": "",
+"Abilities": "",
+"Actioners": "",
 "Civilization": "",
 "EntityData": "",
 "PlayerData": "",
 "RMSBase": "",
-"TechnologyNodeActioners": "",
-"TechnologyNodeData": "",
+"TechnologyTreeNode": "",
 "TextureList": "",
 "Utils": "",
 "Yucatan": ""
@@ -111,6 +111,10 @@ movie_writer/speaker_mode=3
 movie_writer/mjpeg_quality=1.0
 movie_writer/movie_file="/run/media/trinketos/Saul/GodotProjects/dev_videos/rts_dev/singleplayer.avi"
 node_naming/name_num_separator=2
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/tech_tree_generator_editor/plugin.cfg")
 
 [filesystem]
 

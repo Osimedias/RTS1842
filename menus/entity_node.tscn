@@ -1,0 +1,199 @@
+[gd_scene load_steps=8 format=3 uid="uid://djk4ofvp46kw1"]
+
+[ext_resource type="Script" path="res://menus/entity_node.gd" id="1_0r441"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y478x"]
+bg_color = Color(0.627451, 0.368627, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2yn3y"]
+bg_color = Color(0.627451, 0.368627, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cmig7"]
+bg_color = Color(0.627451, 0.368627, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rq38t"]
+bg_color = Color(0.627451, 0.368627, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xdqeb"]
+bg_color = Color(0.627451, 0.368627, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x1d26"]
+bg_color = Color(0.627451, 0.368627, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+
+[node name="EntityNode" type="GraphNode"]
+anchors_preset = -1
+anchor_right = 0.203646
+anchor_bottom = 0.262037
+theme_override_constants/separation = 14
+theme_override_constants/title_offset = -2
+theme_override_constants/title_h_offset = 144
+theme_override_constants/close_offset = 88
+theme_override_constants/close_h_offset = 37
+theme_override_styles/frame = SubResource("StyleBoxFlat_y478x")
+theme_override_styles/selected_frame = SubResource("StyleBoxFlat_2yn3y")
+theme_override_styles/comment = SubResource("StyleBoxFlat_cmig7")
+theme_override_styles/comment_focus = SubResource("StyleBoxFlat_rq38t")
+theme_override_styles/breakpoint = SubResource("StyleBoxFlat_xdqeb")
+theme_override_styles/position = SubResource("StyleBoxFlat_x1d26")
+title = "Entity Node"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color(1, 1, 1, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color(1, 1, 1, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color(1, 1, 1, 1)
+slot/2/left_icon = null
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color(1, 1, 1, 1)
+slot/2/right_icon = null
+slot/2/draw_stylebox = true
+slot/3/left_enabled = true
+slot/3/left_type = 0
+slot/3/left_color = Color(0.423529, 0.423529, 0.423529, 1)
+slot/3/left_icon = null
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color(1, 1, 1, 1)
+slot/3/right_icon = null
+slot/3/draw_stylebox = true
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color(1, 1, 1, 1)
+slot/4/left_icon = null
+slot/4/right_enabled = true
+slot/4/right_type = 1
+slot/4/right_color = Color(0, 0.729412, 0.901961, 1)
+slot/4/right_icon = null
+slot/4/draw_stylebox = true
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color(1, 1, 1, 1)
+slot/5/left_icon = null
+slot/5/right_enabled = true
+slot/5/right_type = 2
+slot/5/right_color = Color(0.890196, 0.764706, 0, 1)
+slot/5/right_icon = null
+slot/5/draw_stylebox = true
+script = ExtResource("1_0r441")
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.05
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "Type     "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionButton" type="OptionButton" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.05
+
+[node name="Control" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer_2" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.05
+
+[node name="Label" type="Label" parent="HBoxContainer_2"]
+layout_mode = 2
+text = "Actions"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionButton" type="OptionButton" parent="HBoxContainer_2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.05
+
+[node name="Control" type="Control" parent="HBoxContainer_2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer_3" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.05
+
+[node name="Label" type="Label" parent="HBoxContainer_3"]
+layout_mode = 2
+text = "Actions"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionButton" type="OptionButton" parent="HBoxContainer_3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.05
+
+[node name="Control" type="Control" parent="HBoxContainer_3"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "Parent
+"
+horizontal_alignment = 1
+
+[node name="childrens" type="Label" parent="."]
+layout_mode = 2
+text = "Childrens
+"
+horizontal_alignment = 1
+
+[node name="childrens_2" type="Label" parent="."]
+layout_mode = 2
+text = "Technology Queue"
+horizontal_alignment = 1
+
+[connection signal="dragged" from="." to="." method="_on_dragged"]
+[connection signal="selected" from="." to="." method="_on_selected"]
+[connection signal="slot_updated" from="." to="." method="_on_slot_updated"]

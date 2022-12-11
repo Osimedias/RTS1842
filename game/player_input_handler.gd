@@ -14,6 +14,5 @@ func _input(event):
 	if event is InputEventKey and event.is_pressed():
 		match event.keycode:
 			KEY_H:
-				print("Town Center Buildprint")
-			KEY_A:
-				print("House Buildprint")
+				print("Sent to Firts TC")
+			

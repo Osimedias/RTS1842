@@ -1,6 +1,5 @@
+StaticBody3D
 Node3D
-TechnologyNodeActioners (technology_node_actioners.gd)
 AnimatableBody3D
 CharacterBody3D
-StaticBody3D
 MeshInstance3D

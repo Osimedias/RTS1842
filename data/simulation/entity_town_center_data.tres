@@ -1,14 +1,21 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://bvmu13tpg6glr"]
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://bvmu13tpg6glr"]
 
 [ext_resource type="Texture2D" uid="uid://b62ukt88m5omc" path="res://sub_marcos.png" id="1_qi1l4"]
+[ext_resource type="Script" path="res://game/resource/actioners.gd" id="1_uwhva"]
 [ext_resource type="Script" path="res://game/resource/entity_data.gd" id="2_k1dgv"]
+
+[sub_resource type="Resource" id="Resource_eubx6"]
+script = ExtResource("1_uwhva")
+name = ""
 
 [resource]
 script = ExtResource("2_k1dgv")
+civilization_code = "gaia"
 entity_name = "Town Center"
 entity_portrait = ExtResource("1_qi1l4")
 hit_points = 120
 los_range = 30.0
+action = SubResource("Resource_eubx6")
 need_tech = null
 food_cost = 1500
 wood_cost = 1500

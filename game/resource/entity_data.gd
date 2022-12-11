@@ -1,12 +1,13 @@
 class_name EntityData
 extends Resource
 
-
+@export var civilization_code : String = "gaia"
 @export var entity_name : String
 @export var entity_portrait : Texture2D
 @export var hit_points : int = 1
 @export var los_range : float = 2.0
-@export var action : TechnologyNodeActioners
+@export var action : Actioners
+@export var abilities : Abilities
 
 @export var need_tech : Array
 
