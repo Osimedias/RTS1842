@@ -6,6 +6,7 @@ extends Control
 func _ready() -> void:
 	print("Game version: 0.0.0")
 	print("Made by Trinketos")
+	print("Warning this project use Physical Lights units")
 	
 	$MenuPanel/VBoxContainer/Button_3.disabled = OS.has_feature("Demo")
 
@@ -17,8 +18,6 @@ func _input(event) -> void:
 			get_tree().change_scene_to_file("res://Singleplayer.tscn")
 		if event.keycode == KEY_M and event.is_pressed():
 			get_tree().change_scene_to_file("res://Multiplayer.tscn")
-		if event.keycode == KEY_T and event.is_pressed():
-			get_tree().change_scene_to_file("res://Tools.tscn")
 		if event.keycode == KEY_O and event.is_pressed():
 			get_tree().change_scene_to_file("res://Options.tscn")
 		if event.keycode == KEY_Q and event.is_pressed():

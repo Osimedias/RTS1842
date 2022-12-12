@@ -91,12 +91,12 @@ driver/enable_input=true
 [autoload]
 
 Fps="*res://fps.tscn"
-SoundManager="*res://game/sound_manager.tscn"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/mode=3
 window/vsync/vsync_mode=2
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
@@ -114,7 +114,7 @@ node_naming/name_num_separator=2
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/tech_tree_generator_editor/plugin.cfg")
+enabled=PackedStringArray()
 
 [filesystem]
 
@@ -170,9 +170,19 @@ buffering/agile_event_flushing=true
 
 [layer_names]
 
-2d_render/layer_1="Minimap"
-3d_physics/layer_1="terrain"
-3d_physics/layer_2="entities"
+2d_render/layer_1="In-Game"
+3d_render/layer_1="Main Menu"
+2d_render/layer_2="Homecity"
+3d_render/layer_2="In-Game"
+2d_render/layer_3="Painter"
+3d_render/layer_3="Homecity"
+3d_render/layer_4="Visible"
+3d_render/layer_5="On Fog of War"
+3d_render/layer_6="Black Zone"
+3d_render/layer_7="Painter"
+3d_physics/layer_1="Terrain"
+3d_physics/layer_2="Entities"
+3d_physics/layer_3="Painter"
 
 [mono]
 
@@ -180,8 +190,23 @@ export/aot/use_interpreter=false
 
 [rendering]
 
+lights_and_shadows/use_physical_light_units=true
 lights_and_shadows/directional_shadow/soft_shadow_filter_quality=5
 lights_and_shadows/directional_shadow/soft_shadow_filter_quality.mobile=5
+lights_and_shadows/positional_shadow/soft_shadow_filter_quality=4
+lights_and_shadows/positional_shadow/soft_shadow_filter_quality.mobile=4
 reflections/sky_reflections/fast_filter_high_quality=true
 global_illumination/voxel_gi/quality=1
+camera/depth_of_field/depth_of_field_bokeh_quality=2
+environment/ssao/quality=3
+environment/ssil/quality=3
+textures/decals/filter=5
+textures/light_projectors/filter=5
 environment/glow/use_high_quality=true
+environment/screen_space_reflection/roughness_quality=3
+environment/subsurface_scattering/subsurface_scattering_quality=3
+anti_aliasing/quality/msaa_2d=3
+anti_aliasing/quality/msaa_3d=3
+anti_aliasing/quality/screen_space_aa=1
+textures/canvas_textures/default_texture_filter=3
+textures/canvas_textures/default_texture_repeat=1

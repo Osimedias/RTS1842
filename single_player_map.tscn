@@ -1,50 +1,78 @@
-[gd_scene load_steps=15 format=3 uid="uid://b1boc4b1yct0x"]
+[gd_scene load_steps=22 format=3 uid="uid://b1boc4b1yct0x"]
 
 [ext_resource type="Script" path="res://single_player_map.gd" id="1_t6xhw"]
 [ext_resource type="Script" path="res://game/astar_grid.gd" id="2_jj7jd"]
 [ext_resource type="Script" path="res://game/game_camera.gd" id="2_qevfd"]
 [ext_resource type="PackedScene" uid="uid://dw2f7n07ehp1h" path="res://menus/session_ui.tscn" id="3_afxm7"]
+[ext_resource type="Script" path="res://game/pathfinder_debuger.gd" id="3_m6km1"]
 [ext_resource type="Script" path="res://game/player_input_handler.gd" id="4_nm8cg"]
 [ext_resource type="Script" path="res://game/save_game_data.gd" id="5_3rfxs"]
+[ext_resource type="PackedScene" uid="uid://dx2q58bhfbs02" path="res://game/sound_manager.tscn" id="7_g8d63"]
+[ext_resource type="PackedScene" uid="uid://oibfjbk0xmjd" path="res://data/simulation/blueprint.tscn" id="9_taoqv"]
+[ext_resource type="PackedScene" uid="uid://c5q73nvhe4ayn" path="res://data/simulation/units/unit_test.tscn" id="10_jtjy3"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_vt30q"]
 size = Vector2(200, 200)
 subdivide_width = 350
 subdivide_depth = 350
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hsa22"]
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_o3ero"]
+
+[sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_ch8m2"]
+auto_exposure_enabled = true
+frustum_focal_length = 12.69
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_pk2ce"]
+rayleigh_coefficient = 13.76
+mie_coefficient = 0.199
+mie_eccentricity = 0.49
+turbidity = 144.62
+sun_disk_scale = 14.85
+energy_multiplier = 2.23
 
 [sub_resource type="Sky" id="Sky_hm6jq"]
-sky_material = SubResource("ProceduralSkyMaterial_hsa22")
+sky_material = SubResource("PhysicalSkyMaterial_pk2ce")
 process_mode = 1
 radiance_size = 5
 
 [sub_resource type="Environment" id="Environment_4b6w4"]
 background_mode = 2
 sky = SubResource("Sky_hm6jq")
-ambient_light_color = Color(0.635294, 0.635294, 0.635294, 1)
+ambient_light_source = 3
+ambient_light_color = Color(0.454902, 0.788235, 1, 1)
+ambient_light_energy = 3.71
 reflected_light_source = 2
 tonemap_mode = 2
+ssr_enabled = true
 ssao_enabled = true
+ssao_light_affect = 0.61
+ssao_ao_channel_affect = 0.63
 ssil_enabled = true
+ssil_radius = 9.57
+ssil_intensity = 4.14
+ssil_normal_rejection = 0.92
 sdfgi_enabled = true
 sdfgi_use_occlusion = true
-sdfgi_bounce_feedback = 0.58
-sdfgi_y_scale = 2
 glow_enabled = true
 glow_normalized = true
 glow_intensity = 3.56
-fog_sun_scatter = 0.4
-fog_sky_affect = 0.22
-volumetric_fog_density = 0.02
-volumetric_fog_albedo = Color(0.282353, 0.282353, 0.282353, 1)
+fog_light_color = Color(0.517647, 0.552941, 0.607843, 1)
+fog_light_energy = 0.0
+fog_sun_scatter = 0.56
+fog_density = 0.011
+volumetric_fog_albedo = Color(0.117647, 0.239216, 0.313726, 1)
+volumetric_fog_emission_energy = 55.86
+volumetric_fog_anisotropy = -0.32
 volumetric_fog_length = 15.0
-volumetric_fog_detail_spread = 1.86607
-volumetric_fog_ambient_inject = 3.23
+volumetric_fog_detail_spread = 0.5
+volumetric_fog_ambient_inject = 2.17
+volumetric_fog_sky_affect = 0.411
 adjustment_enabled = true
-adjustment_brightness = 1.38
-adjustment_contrast = 0.75
-adjustment_saturation = 1.81
+adjustment_brightness = 1.21
+adjustment_contrast = 1.08
+adjustment_saturation = 1.15
+
+[sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_q7lu3"]
 
 [sub_resource type="Gradient" id="Gradient_ba4tg"]
 interpolation_mode = 1
@@ -70,6 +98,10 @@ unique_name_in_owner = true
 mesh = SubResource("PlaneMesh_vt30q")
 script = ExtResource("2_jj7jd")
 
+[node name="pathfinder_debuger" type="MeshInstance3D" parent="."]
+mesh = SubResource("ImmediateMesh_o3ero")
+script = ExtResource("3_m6km1")
+
 [node name="camera_controller" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.58438, 0)
 script = ExtResource("2_qevfd")
@@ -79,10 +111,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 52.1512, 0)
 
 [node name="camera" type="Camera3D" parent="camera_controller/pivot"]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0)
+attributes = SubResource("CameraAttributesPhysical_ch8m2")
 current = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_4b6w4")
+camera_attributes = SubResource("CameraAttributesPhysical_q7lu3")
 
 [node name="sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.513961, 0.857814, 0, -0.857814, 0.513961, 0, 24.643, 0)
@@ -147,3 +181,10 @@ script = ExtResource("4_nm8cg")
 
 [node name="SaveGameData" type="Node" parent="."]
 script = ExtResource("5_3rfxs")
+
+[node name="SoundManager" parent="." instance=ExtResource("7_g8d63")]
+
+[node name="UnitSpawner" type="Node" parent="."]
+
+[node name="blueprint" parent="." instance=ExtResource("9_taoqv")]
+building_fundation = ExtResource("10_jtjy3")

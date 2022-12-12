@@ -60,8 +60,14 @@ func create_terrain(map_size : Vector2 = Vector2(200,200)):
 	%terrain.add_child(terrain_body)
 	terrain_body.add_child(shape)
 	
+	var array : PackedVector3Array = $terrain.find_path($camera_controller.transform.origin,Vector3(32,0,32))
+	for i in array.size():
+		$pathfinder_debuger.draw_sphere(array[i],5,Color.WEB_PURPLE)
+
 	
-	#print($terrain.find_path($camera_controller.transform.origin,Vector3(32,0,32)))
+	
+	
+	
 	
 	
 

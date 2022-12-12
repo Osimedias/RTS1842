@@ -2,7 +2,6 @@ shader_type spatial;
 
 render_mode blend_mix,depth_draw_opaque,cull_back,diffuse_burley,specular_schlick_ggx;
 
-uniform sampler2D mask : hint_default_white;
 uniform float vertex_height : hint_range(0.0, 35.0, 0.1) = 10;
 
 uniform sampler2DArray grass : hint_default_white;
@@ -106,15 +105,9 @@ void fragment()
 	vec3 ORM1 = texture(grass_orm,uv).rgb * vertex_color;
 	vec3 ORM2 = texture(sand_orm,uv).rgb * vertex_color;
 	vec3 ORM3 = texture(cliff_orm,uv).rgb * vertex_color;
-	ALBEDO.rgb = albedo * texture(mask,UV).rgb;
+	ALBEDO.rgb = albedo;
 	NORMAL_MAP = normal;
-	AO = ORM1.r + ORM2.r + ORM3.r;
-	METALLIC = ORM1.b + ORM2.b + ORM3.b;
-	ROUGHNESS = ORM1.g + ORM2.g + ORM3.g;
-}
-
-
-void light()
-{
-	//DIFFUSE_LIGHT += clamp(dot(NORMAL,LIGHT),0.0,1.0) * ATTENUATION * ALBEDO;
+	//AO = ORM1.r + ORM2.r + ORM3.r;
+	//METALLIC = ORM1.b + ORM2.b + ORM3.b;
+	//ROUGHNESS = ORM1.g + ORM2.g + ORM3.g;
 }

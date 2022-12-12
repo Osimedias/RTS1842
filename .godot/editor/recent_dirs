@@ -1,4 +1,5 @@
-res://addons/tech_tree_generator_editor
+res://data/simulation/units
+res://game
 res://art/meshes/structural/mexicans
 res://art/textures/structures
 res://art/meshes/structural/mexicans/
@@ -10,14 +11,11 @@ res://art/homecity/mexican
 res://data/homecity/mexicans
 res://map_editor
 res://map_editor/icons
-res://game
 res://dev
 res://art/gui/singleplayer
 res://art/gui/main_menu
-res://fonts
 /run/media/trinketos/Saul/builds/rts/version0
 res://art/textures/terrain
 /run/media/trinketos/Saul/GodotProjects/RTS1842/game/resource/actioners
 /run/media/trinketos/Saul/GodotProjects/dev_videos/rts_dev
-res://data/shaders
 /run/media/trinketos/Saul/builds/rts

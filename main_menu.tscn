@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://cu7k8rlxxbi5p"]
+[gd_scene load_steps=37 format=3 uid="uid://cu7k8rlxxbi5p"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_mjmp6"]
 [ext_resource type="Texture2D" uid="uid://b3cgyogwy8ma0" path="res://art/gui/main_menu/background.png" id="2_ttmus"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ddwm74xju6ek1" path="res://art/gui/main_menu/button_disambled.png" id="6_mtvwa"]
 [ext_resource type="PackedScene" uid="uid://psuy5mh3vlft" path="res://data/homecity/mexicans/mexican_homecity.tscn" id="7_217ov"]
 [ext_resource type="Texture2D" uid="uid://di120jvv8eo7v" path="res://art/homecity/mexican/backroundtest.jpg" id="8_mara1"]
+[ext_resource type="AudioStream" uid="uid://cx55lq37y3nw" path="res://data/audio/music/Honor_Bound.ogg" id="9_o6d1e"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8rppx"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -163,6 +164,7 @@ transform = Transform3D(-0.93358, -0.285451, 0.216669, 0, 0.604599, 0.79653, -0.
 shadow_enabled = true
 
 [node name="MenuPanel" type="Panel" parent="."]
+layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.366667
 anchor_right = 0.611458
@@ -174,6 +176,7 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_eif4w")
 metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MenuPanel"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -183,25 +186,18 @@ pivot_offset = Vector2(141, 324)
 metadata/_edit_use_anchors_ = true
 
 [node name="Control" type="Control" parent="MenuPanel/VBoxContainer"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 468.0
-offset_bottom = 469.0
+layout_mode = 2
 size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="MenuPanel/VBoxContainer"]
-offset_top = 473.0
-offset_right = 468.0
-offset_bottom = 499.0
+layout_mode = 2
 text = "1842"
 horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
 
 [node name="Button" type="Button" parent="MenuPanel/VBoxContainer"]
-offset_top = 503.0
-offset_right = 468.0
-offset_bottom = 526.0
+layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_265ax")
 theme_override_styles/hover = SubResource("StyleBoxTexture_n1y2j")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_s5vyy")
@@ -210,9 +206,7 @@ theme_override_styles/focus = SubResource("StyleBoxTexture_a6x7l")
 text = "Start New Game"
 
 [node name="Button_2" type="Button" parent="MenuPanel/VBoxContainer"]
-offset_top = 530.0
-offset_right = 468.0
-offset_bottom = 553.0
+layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_nhyiw")
 theme_override_styles/hover = SubResource("StyleBoxTexture_glcmc")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_pnb1b")
@@ -221,9 +215,7 @@ theme_override_styles/focus = SubResource("StyleBoxTexture_bfwxj")
 text = "Configuaration"
 
 [node name="Button_3" type="Button" parent="MenuPanel/VBoxContainer"]
-offset_top = 557.0
-offset_right = 468.0
-offset_bottom = 580.0
+layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_ggmps")
 theme_override_styles/hover = SubResource("StyleBoxTexture_xfdul")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_jhsdy")
@@ -233,9 +225,7 @@ disabled = true
 text = "Map Editor(Dev test)"
 
 [node name="Button_4" type="Button" parent="MenuPanel/VBoxContainer"]
-offset_top = 584.0
-offset_right = 468.0
-offset_bottom = 607.0
+layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_r5kuj")
 theme_override_styles/hover = SubResource("StyleBoxTexture_fq110")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_iycmy")
@@ -244,11 +234,7 @@ theme_override_styles/focus = SubResource("StyleBoxTexture_ufdco")
 text = "Quit Game"
 
 [node name="Control_2" type="Control" parent="MenuPanel/VBoxContainer"]
-layout_mode = 3
-anchors_preset = 0
-offset_top = 611.0
-offset_right = 468.0
-offset_bottom = 1080.0
+layout_mode = 2
 size_flags_vertical = 3
 
 [node name="Node3D" type="Node3D" parent="."]
@@ -263,6 +249,11 @@ current = true
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.87068, -131.928)
 mesh = SubResource("QuadMesh_0uker")
+
+[node name="main_menu" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_o6d1e")
+autoplay = true
+bus = &"Background Music"
 
 [connection signal="pressed" from="MenuPanel/VBoxContainer/Button" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="MenuPanel/VBoxContainer/Button_2" to="." method="_on_configuration_pressed"]

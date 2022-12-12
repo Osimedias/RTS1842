@@ -7,3 +7,5 @@ script = ExtResource("1_xidox")
 
 [node name="background_music" type="AudioStreamPlayer" parent="."]
 bus = &"Background Music"
+
+[connection signal="finished" from="background_music" to="." method="_on_background_music_finished"]
