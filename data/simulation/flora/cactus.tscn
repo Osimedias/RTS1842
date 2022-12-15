@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://c5qu15ydjdia2"]
+
+[ext_resource type="ArrayMesh" uid="uid://cmlgpy17d2pwx" path="res://art/meshes/flora/cactus/cactus.obj" id="1_om13o"]
+[ext_resource type="Texture2D" uid="uid://cts3pmp0kqo15" path="res://art/meshes/flora/cactus/diffuse.tga" id="2_1u6sd"]
+[ext_resource type="Texture2D" uid="uid://78bdu84uy5cg" path="res://art/meshes/flora/cactus/specular.tga" id="3_bw1gl"]
+[ext_resource type="Texture2D" uid="uid://cvw8xwko2akra" path="res://art/meshes/flora/cactus/normal.tga" id="4_yf0ur"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wuiom"]
+transparency = 3
+alpha_hash_scale = 1.0
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("2_1u6sd")
+metallic = 1.0
+metallic_texture = ExtResource("3_bw1gl")
+roughness_texture = ExtResource("3_bw1gl")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("4_yf0ur")
+texture_filter = 0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qelj4"]
+size = Vector3(2.4765, 8.70345, 1.81711)
+
+[node name="Cactus" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0545149, 0, 0.0685513)
+mesh = ExtResource("1_om13o")
+surface_material_override/0 = SubResource("StandardMaterial3D_wuiom")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.09032, 0)
+shape = SubResource("BoxShape3D_qelj4")
+
+[node name="Decal" type="Decal" parent="."]
+extents = Vector3(5.52725, 1, 6.53872)

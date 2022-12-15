@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c5q73nvhe4ayn"]
+[gd_scene load_steps=7 format=3 uid="uid://c5q73nvhe4ayn"]
 
 [ext_resource type="Script" path="res://game/unit.gd" id="1_aii0d"]
 
@@ -14,11 +14,29 @@ material = SubResource("StandardMaterial3D_h57mh")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mnkm0"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pqhl6"]
+albedo_color = Color(0, 0, 0, 1)
+emission_enabled = true
+emission = Color(0.239216, 0.596078, 0, 1)
+emission_intensity = 62111.1
+
+[sub_resource type="BoxMesh" id="BoxMesh_cr5l3"]
+material = SubResource("StandardMaterial3D_pqhl6")
+size = Vector3(0.5, 0.5, 0.5)
+
 [node name="Unit" type="CharacterBody3D"]
 script = ExtResource("1_aii0d")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("CapsuleMesh_xjuro")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_mnkm0")
+
+[node name="ray" type="RayCast3D" parent="."]
+
+[node name="MeshInstance3D_2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.40839, 0.48664)
+mesh = SubResource("BoxMesh_cr5l3")

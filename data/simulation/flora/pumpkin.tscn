@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://carxqyk2kwee"]
+
+[ext_resource type="Texture2D" uid="uid://bgs5lmrqitpjg" path="res://art/meshes/flora/pumpkin/diffuse.tga" id="1_4nbtq"]
+[ext_resource type="ArrayMesh" uid="uid://ddpqu1h4gxlc3" path="res://art/meshes/flora/pumpkin/pumpkin_plant.obj" id="1_f2i1s"]
+[ext_resource type="Texture2D" uid="uid://m25bm55rdw02" path="res://art/meshes/flora/pumpkin/specular.tga" id="2_v4lms"]
+[ext_resource type="Texture2D" uid="uid://cdx2h6e6c5vhs" path="res://art/meshes/flora/pumpkin/normal.tga" id="3_3t2km"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1xx7a"]
+transparency = 3
+alpha_hash_scale = 1.0
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("1_4nbtq")
+metallic = 1.0
+metallic_texture = ExtResource("2_v4lms")
+roughness_texture = ExtResource("2_v4lms")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("3_3t2km")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_jj68a"]
+height = 0.722673
+radius = 2.20683
+
+[node name="Pumpkin" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_1xx7a")
+mesh = ExtResource("1_f2i1s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.361984, 0)
+shape = SubResource("CylinderShape3D_jj68a")

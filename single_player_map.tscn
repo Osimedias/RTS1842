@@ -12,9 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://c5q73nvhe4ayn" path="res://data/simulation/units/unit_test.tscn" id="10_jtjy3"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_vt30q"]
-size = Vector2(200, 200)
-subdivide_width = 350
-subdivide_depth = 350
+size = Vector2(100, 100)
+subdivide_width = 50
+subdivide_depth = 50
 
 [sub_resource type="ImmediateMesh" id="ImmediateMesh_o3ero"]
 
@@ -32,7 +32,7 @@ energy_multiplier = 2.23
 
 [sub_resource type="Sky" id="Sky_hm6jq"]
 sky_material = SubResource("PhysicalSkyMaterial_pk2ce")
-process_mode = 1
+process_mode = 3
 radiance_size = 5
 
 [sub_resource type="Environment" id="Environment_4b6w4"]
@@ -53,7 +53,15 @@ ssil_intensity = 4.14
 ssil_normal_rejection = 0.92
 sdfgi_enabled = true
 sdfgi_use_occlusion = true
-glow_enabled = true
+sdfgi_bounce_feedback = 1.09
+sdfgi_cascades = 8
+sdfgi_y_scale = 2
+sdfgi_energy = 1.958
+sdfgi_normal_bias = 1.15
+sdfgi_probe_bias = 1.144
+glow_levels/1 = 1.0
+glow_levels/3 = 0.0
+glow_levels/5 = 0.0
 glow_normalized = true
 glow_intensity = 3.56
 fog_light_color = Color(0.517647, 0.552941, 0.607843, 1)
@@ -67,7 +75,6 @@ volumetric_fog_length = 15.0
 volumetric_fog_detail_spread = 0.5
 volumetric_fog_ambient_inject = 2.17
 volumetric_fog_sky_affect = 0.411
-adjustment_enabled = true
 adjustment_brightness = 1.21
 adjustment_contrast = 1.08
 adjustment_saturation = 1.15
@@ -99,6 +106,7 @@ mesh = SubResource("PlaneMesh_vt30q")
 script = ExtResource("2_jj7jd")
 
 [node name="pathfinder_debuger" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
 mesh = SubResource("ImmediateMesh_o3ero")
 script = ExtResource("3_m6km1")
 
@@ -128,6 +136,7 @@ shadow_enabled = true
 [node name="GUI" parent="." instance=ExtResource("3_afxm7")]
 
 [node name="TextureRect" type="TextureRect" parent="GUI"]
+layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.015625
 anchor_top = 0.635802
@@ -136,6 +145,7 @@ anchor_bottom = 0.975309
 metadata/_edit_use_anchors_ = true
 
 [node name="players" type="RichTextLabel" parent="GUI"]
+layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.907118
 anchor_top = 0.466049

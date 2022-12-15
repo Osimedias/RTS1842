@@ -1,6 +1,9 @@
-Node
 CollisionShape3D
 MeshInstance3D
+StaticBody3D
+Decal
+RayCast3D
+Node
 CharacterBody3D
 AudioStreamPlayer
 OptionButton
@@ -27,6 +30,3 @@ LightmapProbe
 WorldEnvironment
 Node2D
 Line2D
-SubViewportContainer
-SubViewport
-HSlider

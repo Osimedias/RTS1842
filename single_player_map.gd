@@ -20,59 +20,60 @@ var is_scenario : bool = false
 
 var player_node : PackedScene = load("res://game/player.tscn")
 
-
+var terrain_height : PackedFloat32Array
 
 func _ready():
-	create_terrain(Vector2(1024,1024))
-
-func create_terrain(map_size : Vector2 = Vector2(200,200)):
-	noise = NoiseTexture2D.new()
-	noise.noise = $textures/heightmap/TextureRect.texture.noise
-	noise_seed = noise.noise.seed
-	await  noise.changed
-	
+	var heightmap = load("res://data/maps/terrains/terrain_01.exr")
 	material = load("res://data/material/terrain.material")
-	material.set_shader_parameter("terrain_height_map",noise)
-	%terrain.mesh.material = material
-	%terrain.mesh.size = map_size
+	%terrain.material_override = material
+	create_terrain()
+	material.set_shader_parameter("terrain_height_map",heightmap)
+	material.set_shader_parameter("vertex_height",vertex_height)
+
+func create_terrain():
+	create_heightmap("res://data/maps/terrains/terrain_01.exr")
+	pass
+
+
+
+
+func create_heightmap(heightmap : String = "",chunk_size : float = 2.0,colshape_size_ratio : float = 0.1):
+	var img = Image.new()
+	img.load(heightmap)
+	img.convert(Image.FORMAT_RF)
+	img.resize(img.get_width()*colshape_size_ratio,img.get_height()*colshape_size_ratio)
+	material.set_shader_parameter("terrain_height_map",heightmap)
+	material.set_shader_parameter("vertex_height",vertex_height)
+	var data = img.get_data().to_float32_array()
 	
+	for i in data.size():
+		data[i] *= vertex_height
+		terrain_height.append(i)
 	
-	var img = noise.get_image()
-	@warning_ignore(narrowing_conversion)
-	img.resize(%terrain.mesh.size.x + 1,%terrain.mesh.size.y + 1)
 	terrain_shape = HeightMapShape3D.new()
-	
-	terrain_shape.map_depth = img.get_height()
 	terrain_shape.map_width = img.get_width()
-	
-	@warning_ignore(unassigned_variable)
-	var data : PackedFloat32Array
-	
-	for y in img.get_height():
-		for x in img.get_width():
-			data.push_back(img.get_pixel(x,y).r*vertex_height+0.5)
-	shape = CollisionShape3D.new()
-	
+	terrain_shape.map_depth = img.get_height()
 	terrain_shape.map_data = data
+	%terrain.mesh.size = Vector2(img.get_width(),img.get_height())
+	var terrain_body = StaticBody3D.new()
+	add_child(terrain_body)
+	shape = CollisionShape3D.new()
 	shape.shape = terrain_shape
-	terrain_body = StaticBody3D.new()
-	
-	%terrain.add_child(terrain_body)
 	terrain_body.add_child(shape)
-	
-	var array : PackedVector3Array = $terrain.find_path($camera_controller.transform.origin,Vector3(32,0,32))
-	for i in array.size():
-		$pathfinder_debuger.draw_sphere(array[i],5,Color.WEB_PURPLE)
-
-	
-	
-	
-	
-	
-	
+	terrain_body.collision_layer = 1
+	terrain_body.name = "terrain_body"
+	shape.name = "terrain_collision_shape"
+	terrain_shape.resource_name = "heightmap_shape"
+	#%terrain.visible = false
 
 
-func create_players(radius : float):
+func create_forest(center : Vector3):
+	
+	pass
+
+
+
+func create_players(radius : float,scene : PackedScene):
 	var angle = 0
 	var center = %terrain.transform.origin
 	var angle_steps = 2.0 * PI / players.size()
@@ -81,28 +82,11 @@ func create_players(radius : float):
 		var direction = Vector3(cos(angle),0,sin(angle))
 		var pos = center + direction * radius
 		
-		var spawner : PackedScene = load("res://data/simulation/structures/zapotecs/defense_tower.tscn")
+		var spawner : PackedScene = scene
 		var new = spawner.instantiate(PackedScene.GEN_EDIT_STATE_INSTANCE)
 		$entities.add_child(new)
 		new.transform.origin = pos
 		angle += angle_steps
-	pass
-
-#No probado
-func set_map_data(rms : Node2D):
-	var viewport_group = Node.new()
-	var new_splatmap = SubViewport.new()
-	var new_height_map = SubViewport.new()
-	material = load("res://data/material/terrain.material")
-	material.set_shader_parameter("terrain_height_map",new_height_map.get_viewport().get_texture().get_image().get_data())
-	material.set_shader_parameter("terrain_texture",new_splatmap.get_viewport().get_texture().get_image().get_data())
-	add_child(viewport_group)
-	viewport_group.add_child(new_splatmap)
-	viewport_group.add_child(new_height_map)
-	new_splatmap.add_child(rms)
-	new_splatmap.get_child(0).generate_splatmap()
-	new_height_map.get_child(0).generate_height_map()
-
 
 
 func _input(event):

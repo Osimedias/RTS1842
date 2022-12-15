@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cni63b3wfbaf2"
+path="res://.godot/imported/huge_tree.obj-f9adff718e8bde155d273ddcdbd8f04e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/huge_tree.obj-f9adff718e8bde155d273ddcdbd8f04e.mesh"]
+
+source_file="res://art/meshes/flora/huge tree/huge_tree.obj"
+dest_files=["res://.godot/imported/huge_tree.obj-f9adff718e8bde155d273ddcdbd8f04e.mesh", "res://.godot/imported/huge_tree.obj-f9adff718e8bde155d273ddcdbd8f04e.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(0.05, 0.05, 0.05)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

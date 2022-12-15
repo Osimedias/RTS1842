@@ -1,0 +1,40 @@
+[gd_scene load_steps=9 format=3 uid="uid://b2ecwrjy0w000"]
+
+[ext_resource type="ArrayMesh" uid="uid://ck8v66ob4tk2n" path="res://art/meshes/flora/pine/snow_pine_tree.obj" id="1_et51p"]
+[ext_resource type="Texture2D" uid="uid://sjcuotbvarcp" path="res://art/meshes/flora/pine/diffuse_none.tga" id="1_jux1m"]
+[ext_resource type="Texture2D" uid="uid://drdf40ahif2v" path="res://art/meshes/flora/pine/specular_none.tga" id="2_x13f5"]
+[ext_resource type="Texture2D" uid="uid://cly7j124ckm1v" path="res://art/meshes/flora/pine/normal_none.tga" id="3_nin8x"]
+[ext_resource type="Texture2D" uid="uid://ouk17tbnoorq" path="res://art/meshes/flora/pine/specular_full.tga" id="4_nteom"]
+[ext_resource type="Texture2D" uid="uid://dkmx4bwdjfogi" path="res://art/meshes/flora/pine/translucency_half.tga" id="5_y3li1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vj1a0"]
+transparency = 3
+alpha_hash_scale = 1.0
+alpha_antialiasing_mode = 1
+alpha_antialiasing_edge = 0.3
+albedo_texture = ExtResource("1_jux1m")
+metallic = 1.0
+metallic_texture = ExtResource("2_x13f5")
+roughness_texture = ExtResource("4_nteom")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("3_nin8x")
+subsurf_scatter_enabled = true
+subsurf_scatter_skin_mode = true
+subsurf_scatter_texture = ExtResource("5_y3li1")
+subsurf_scatter_transmittance_enabled = true
+subsurf_scatter_transmittance_depth = 1.378
+subsurf_scatter_transmittance_boost = 0.39
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hhutj"]
+size = Vector3(3.98478, 10.2147, 3.49109)
+
+[node name="Pine" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_vj1a0")
+mesh = ExtResource("1_et51p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.11073, 0)
+shape = SubResource("BoxShape3D_hhutj")

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ddpqu1h4gxlc3"
+path="res://.godot/imported/pumpkin_plant.obj-754f9dba5c2b4859ecdad9e1f425039e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/pumpkin_plant.obj-754f9dba5c2b4859ecdad9e1f425039e.mesh"]
+
+source_file="res://art/meshes/flora/pumpkin/pumpkin_plant.obj"
+dest_files=["res://.godot/imported/pumpkin_plant.obj-754f9dba5c2b4859ecdad9e1f425039e.mesh", "res://.godot/imported/pumpkin_plant.obj-754f9dba5c2b4859ecdad9e1f425039e.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(0.05, 0.05, 0.05)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
