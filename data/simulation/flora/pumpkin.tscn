@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://carxqyk2kwee"]
+[gd_scene load_steps=8 format=3 uid="uid://carxqyk2kwee"]
 
 [ext_resource type="Texture2D" uid="uid://bgs5lmrqitpjg" path="res://art/meshes/flora/pumpkin/diffuse.tga" id="1_4nbtq"]
 [ext_resource type="ArrayMesh" uid="uid://ddpqu1h4gxlc3" path="res://art/meshes/flora/pumpkin/pumpkin_plant.obj" id="1_f2i1s"]
+[ext_resource type="Script" path="res://data/gameplay/flora_bush_resource_food.gd" id="1_ovpyn"]
 [ext_resource type="Texture2D" uid="uid://m25bm55rdw02" path="res://art/meshes/flora/pumpkin/specular.tga" id="2_v4lms"]
 [ext_resource type="Texture2D" uid="uid://cdx2h6e6c5vhs" path="res://art/meshes/flora/pumpkin/normal.tga" id="3_3t2km"]
 
@@ -22,6 +23,7 @@ height = 0.722673
 radius = 2.20683
 
 [node name="Pumpkin" type="StaticBody3D"]
+script = ExtResource("1_ovpyn")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 material_override = SubResource("StandardMaterial3D_1xx7a")

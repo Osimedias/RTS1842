@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cgnrndpvn1qr4"
+path="res://.godot/imported/LP_B-Rocks_03.obj-c3435b842de5a87a7386d5367318a714.mesh"
+
+[deps]
+
+files=["res://.godot/imported/LP_B-Rocks_03.obj-c3435b842de5a87a7386d5367318a714.mesh"]
+
+source_file="res://art/meshes/geology/OBJ/LP_B-Rocks_03.obj"
+dest_files=["res://.godot/imported/LP_B-Rocks_03.obj-c3435b842de5a87a7386d5367318a714.mesh", "res://.godot/imported/LP_B-Rocks_03.obj-c3435b842de5a87a7386d5367318a714.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

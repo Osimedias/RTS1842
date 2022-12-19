@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://36106y7h5n8u"]
+[gd_scene load_steps=6 format=3 uid="uid://36106y7h5n8u"]
 
 [ext_resource type="PackedScene" uid="uid://dv1f6dhdplyne" path="res://art/meshes/structural/zapotecs/barracks.glb" id="1_8tlav"]
 [ext_resource type="Script" path="res://game/structures.gd" id="2_g1oxp"]
 [ext_resource type="Material" uid="uid://bc8gmmpaudwmd" path="res://art/meshes/structural/zapotecs/zapotec.material" id="2_lwuci"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_3cor6"]
+size = Vector2(25, 25)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bmqwj"]
 size = Vector3(23.9326, 15.689, 21.4344)
@@ -11,9 +14,17 @@ size = Vector3(23.9326, 15.689, 21.4344)
 collision_layer = 2
 script = ExtResource("2_g1oxp")
 
-[node name="Barracks" parent="." index="0"]
+[node name="selected" type="MeshInstance3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.000279903, -2.22555)
+visible = false
+mesh = SubResource("QuadMesh_3cor6")
+
+[node name="Barracks" parent="." index="1"]
 material_override = ExtResource("2_lwuci")
 
-[node name="coll" type="CollisionShape3D" parent="." index="1"]
+[node name="coll" type="CollisionShape3D" parent="." index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.40728, -2.22555)
 shape = SubResource("BoxShape3D_bmqwj")
+
+[node name="sound" type="AudioStreamPlayer" parent="." index="3"]
+bus = &"UI"

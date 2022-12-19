@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://bolld0l7r5sb1"]
+[gd_scene load_steps=9 format=3 uid="uid://bolld0l7r5sb1"]
 
+[ext_resource type="Script" path="res://data/gameplay/flora_tree_resource_wood.gd" id="1_ieuxm"]
 [ext_resource type="Texture2D" uid="uid://bf3sekqr67gr4" path="res://art/meshes/flora/huge tree/diffuse.tga" id="1_tpg8d"]
 [ext_resource type="Texture2D" uid="uid://baoo78d5ms00f" path="res://art/meshes/flora/huge tree/specular.tga" id="2_v0ckc"]
 [ext_resource type="ArrayMesh" uid="uid://cni63b3wfbaf2" path="res://art/meshes/flora/huge tree/huge_tree.obj" id="3_3nodn"]
@@ -36,6 +37,8 @@ distance_fade_mode = 1
 size = Vector3(8.76981, 22.173, 8.33556)
 
 [node name="BigTree" type="StaticBody3D"]
+script = ExtResource("1_ieuxm")
+wood = 600
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 material_override = SubResource("StandardMaterial3D_js1k4")

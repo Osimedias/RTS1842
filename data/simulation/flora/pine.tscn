@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://b2ecwrjy0w000"]
+[gd_scene load_steps=10 format=3 uid="uid://b2ecwrjy0w000"]
 
+[ext_resource type="Script" path="res://data/gameplay/flora_tree_resource_wood.gd" id="1_82waq"]
 [ext_resource type="ArrayMesh" uid="uid://ck8v66ob4tk2n" path="res://art/meshes/flora/pine/snow_pine_tree.obj" id="1_et51p"]
 [ext_resource type="Texture2D" uid="uid://sjcuotbvarcp" path="res://art/meshes/flora/pine/diffuse_none.tga" id="1_jux1m"]
 [ext_resource type="Texture2D" uid="uid://drdf40ahif2v" path="res://art/meshes/flora/pine/specular_none.tga" id="2_x13f5"]
@@ -30,11 +31,17 @@ subsurf_scatter_transmittance_boost = 0.39
 size = Vector3(3.98478, 10.2147, 3.49109)
 
 [node name="Pine" type="StaticBody3D"]
+script = ExtResource("1_82waq")
+wood = 600
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 material_override = SubResource("StandardMaterial3D_vj1a0")
 mesh = ExtResource("1_et51p")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="col" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.11073, 0)
 shape = SubResource("BoxShape3D_hhutj")
+
+[node name="ray" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00297581, 0)
+target_position = Vector3(0, -2, 0)

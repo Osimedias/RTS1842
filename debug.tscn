@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://binedsx2oikwg"]
+
+[ext_resource type="PackedScene" uid="uid://36106y7h5n8u" path="res://data/simulation/structures/zapotecs/barracks.tscn" id="1_rpd8g"]
+[ext_resource type="AudioStream" uid="uid://cphg43ipdpcek" path="res://data/audio/interface/select/building/sel_universal_1.ogg" id="2_3m8mp"]
+[ext_resource type="Script" path="res://game/selection_box.gd" id="3_l3sls"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_q5lt7"]
+
+[node name="World" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_q5lt7")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.761097, 0.648638, 0, -0.648638, 0.761097, 0, 36.0469, 27.3464)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+light_intensity_lux = 100.0
+light_energy = 0.036
+
+[node name="entities" type="Node3D" parent="."]
+
+[node name="Barracks" parent="entities" instance=ExtResource("1_rpd8g")]
+selected_sound = ExtResource("2_3m8mp")
+
+[node name="Barracks_2" parent="entities" instance=ExtResource("1_rpd8g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.6719, 0, 0)
+selected_sound = ExtResource("2_3m8mp")
+
+[node name="SelectionBox" type="Node" parent="."]
+script = ExtResource("3_l3sls")
+
+[node name="selectionbox" type="Panel" parent="SelectionBox"]
+
+[connection signal="input_event" from="entities/Barracks" to="entities/Barracks" method="_on_input_event"]
+[connection signal="mouse_entered" from="entities/Barracks" to="entities/Barracks" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="entities/Barracks" to="entities/Barracks" method="_on_mouse_exited"]
+[connection signal="input_event" from="entities/Barracks_2" to="entities/Barracks_2" method="_on_input_event"]
+[connection signal="mouse_entered" from="entities/Barracks_2" to="entities/Barracks_2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="entities/Barracks_2" to="entities/Barracks_2" method="_on_mouse_exited"]
+[connection signal="draw" from="SelectionBox/selectionbox" to="SelectionBox" method="_on_selectionbox_draw"]

@@ -1,7 +1,11 @@
-[gd_resource type="AudioBusLayout" load_steps=2 format=3 uid="uid://djyk1icsdfvit"]
+[gd_resource type="AudioBusLayout" load_steps=3 format=3 uid="uid://djyk1icsdfvit"]
 
 [sub_resource type="AudioEffectRecord" id="1"]
 resource_name = "Record"
+
+[sub_resource type="AudioEffectAmplify" id="AudioEffectAmplify_tnbad"]
+resource_name = "Amplify"
+volume_db = 0.5
 
 [resource]
 bus/0/volume_db = -15.795
@@ -19,3 +23,11 @@ bus/2/mute = false
 bus/2/bypass_fx = false
 bus/2/volume_db = 0.0
 bus/2/send = &"Master"
+bus/3/name = &"UI"
+bus/3/solo = false
+bus/3/mute = false
+bus/3/bypass_fx = false
+bus/3/volume_db = 0.0
+bus/3/send = &"Master"
+bus/3/effect/0/effect = SubResource("AudioEffectAmplify_tnbad")
+bus/3/effect/0/enabled = true

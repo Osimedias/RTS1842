@@ -1,0 +1,26 @@
+[gd_scene load_steps=7 format=3 uid="uid://cmmdj04j7rw1b"]
+
+[ext_resource type="Script" path="res://game/player_ai_personality.gd" id="1_025m7"]
+[ext_resource type="Script" path="res://game/ai/attack_plan.gd" id="2_s37tb"]
+[ext_resource type="Script" path="res://game/ai/defence_action.gd" id="3_ip1xg"]
+[ext_resource type="Script" path="res://game/ai/economic_plan.gd" id="3_j55dw"]
+[ext_resource type="Script" path="res://game/ai/diplomacy_manager.gd" id="4_kd2c6"]
+[ext_resource type="Script" path="res://game/ai/attack_action.gd" id="4_rwgyc"]
+
+[node name="PlayerAIPersonality" type="Node"]
+script = ExtResource("1_025m7")
+
+[node name="attack_plan" type="Node" parent="."]
+script = ExtResource("2_s37tb")
+
+[node name="defence" type="Node" parent="attack_plan"]
+script = ExtResource("3_ip1xg")
+
+[node name="attack" type="Node" parent="attack_plan"]
+script = ExtResource("4_rwgyc")
+
+[node name="economic_plan" type="Node" parent="."]
+script = ExtResource("3_j55dw")
+
+[node name="diplomacy_manager" type="Node" parent="."]
+script = ExtResource("4_kd2c6")

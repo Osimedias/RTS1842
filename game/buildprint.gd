@@ -13,7 +13,6 @@ func _physics_process(_delta):
 	transform.origin.z = floor(transform.origin.z / grid_size) * grid_size
 	
 	transform.origin.y = $height_detector.get_collision_point().y
-	pass
 
 
 

@@ -11,7 +11,7 @@ var shape : CollisionShape3D
 
 var noise : NoiseTexture2D
 
-var vertex_height = 10
+var vertex_height = 32
 
 var noise_seed : int
 
@@ -20,7 +20,7 @@ var is_scenario : bool = false
 
 var player_node : PackedScene = load("res://game/player.tscn")
 
-var terrain_height : PackedFloat32Array
+var water_height : float = 3.5
 
 func _ready():
 	var heightmap = load("res://data/maps/terrains/terrain_01.exr")
@@ -32,30 +32,27 @@ func _ready():
 
 func create_terrain():
 	create_heightmap("res://data/maps/terrains/terrain_01.exr")
-	pass
+	call_deferred("spawn_object",load("res://data/simulation/flora/pine.tscn"))
 
 
-
-
-func create_heightmap(heightmap : String = "",chunk_size : float = 2.0,colshape_size_ratio : float = 0.1):
+func create_heightmap(heightmap : String = ""):
 	var img = Image.new()
 	img.load(heightmap)
 	img.convert(Image.FORMAT_RF)
-	img.resize(img.get_width()*colshape_size_ratio,img.get_height()*colshape_size_ratio)
+	img.resize(img.get_width(),img.get_height())
 	material.set_shader_parameter("terrain_height_map",heightmap)
 	material.set_shader_parameter("vertex_height",vertex_height)
 	var data = img.get_data().to_float32_array()
 	
 	for i in data.size():
 		data[i] *= vertex_height
-		terrain_height.append(i)
 	
 	terrain_shape = HeightMapShape3D.new()
 	terrain_shape.map_width = img.get_width()
 	terrain_shape.map_depth = img.get_height()
 	terrain_shape.map_data = data
 	%terrain.mesh.size = Vector2(img.get_width(),img.get_height())
-	var terrain_body = StaticBody3D.new()
+	terrain_body = StaticBody3D.new()
 	add_child(terrain_body)
 	shape = CollisionShape3D.new()
 	shape.shape = terrain_shape
@@ -64,12 +61,24 @@ func create_heightmap(heightmap : String = "",chunk_size : float = 2.0,colshape_
 	terrain_body.name = "terrain_body"
 	shape.name = "terrain_collision_shape"
 	terrain_shape.resource_name = "heightmap_shape"
-	#%terrain.visible = false
+	$water.mesh.size = Vector2(img.get_width(),img.get_height())
+	$water.transform.origin.y = water_height
 
 
-func create_forest(center : Vector3):
+func spawn_object(object : PackedScene):
 	
-	pass
+	var new_object = object.instantiate()
+	
+	var query = PhysicsShapeQueryParameters3D.new()
+	
+	var space_state = get_world_3d().direct_space_state
+	query.shape = new_object.get_node("col").shape
+	var hits = space_state.intersect_shape(query)
+	
+	if hits.size() != 0:
+		pass
+	
+	$entities.add_child(new_object)
 
 
 

@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://dsu40cx4x621r"]
+
+[ext_resource type="Shader" path="res://data/shaders/moon_phase.gdshader" id="1_l6fg3"]
+[ext_resource type="Texture2D" uid="uid://ch1hguh0hb7lr" path="res://icon.svg" id="2_slfek"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_24iv2"]
+shader = ExtResource("1_l6fg3")
+shader_parameter/cval = null
+shader_parameter/shade = null
+shader_parameter/shader_radius = null
+
+[node name="Sprite2D" type="Sprite2D"]
+material = SubResource("ShaderMaterial_24iv2")
+texture = ExtResource("2_slfek")

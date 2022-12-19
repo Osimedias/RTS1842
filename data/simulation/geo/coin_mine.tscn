@@ -1,0 +1,88 @@
+[gd_scene load_steps=18 format=3 uid="uid://cbdr8t07uubrv"]
+
+[ext_resource type="Script" path="res://data/gameplay/geo_mine_resource_coin.gd" id="1_wmmx2"]
+[ext_resource type="MeshLibrary" uid="uid://bx65sphgml0e3" path="res://art/meshes/geology/OBJ/rocks.meshlib" id="2_kicm8"]
+
+[sub_resource type="Gradient" id="Gradient_eyjjj"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.598425, 0.846457)
+colors = PackedColorArray(0.643146, 0.478848, 0.342817, 1, 0.539655, 0.402846, 0.100623, 1, 0.843988, 0.726075, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_1lyyl"]
+noise_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_sbfem"]
+in_3d_space = true
+seamless = true
+seamless_blend_skirt = 0.575
+color_ramp = SubResource("Gradient_eyjjj")
+noise = SubResource("FastNoiseLite_1lyyl")
+
+[sub_resource type="Gradient" id="Gradient_14e6h"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.783465)
+colors = PackedColorArray(0.0661952, 0.0569471, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_plrf5"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_n3rt3"]
+seamless = true
+seamless_blend_skirt = 0.386
+color_ramp = SubResource("Gradient_14e6h")
+noise = SubResource("FastNoiseLite_plrf5")
+
+[sub_resource type="Gradient" id="Gradient_km8l7"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.551181, 0.874016)
+colors = PackedColorArray(1, 1, 1, 1, 0.534282, 0.529669, 0.501268, 1, 0.113221, 0.104439, 0.0503597, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_s8bg6"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_27siu"]
+color_ramp = SubResource("Gradient_km8l7")
+noise = SubResource("FastNoiseLite_s8bg6")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_j8f76"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_kw7g5"]
+seamless = true
+as_normal_map = true
+noise = SubResource("FastNoiseLite_j8f76")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_uhbyk"]
+noise_type = 5
+frequency = 0.552
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3fojb"]
+invert = true
+in_3d_space = true
+seamless = true
+seamless_blend_skirt = 1.0
+noise = SubResource("FastNoiseLite_uhbyk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5qope"]
+albedo_texture = SubResource("NoiseTexture2D_sbfem")
+metallic = 1.0
+metallic_texture = SubResource("NoiseTexture2D_27siu")
+roughness_texture = SubResource("NoiseTexture2D_3fojb")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 1.11
+emission_intensity = 3000.0
+emission_operator = 1
+emission_texture = SubResource("NoiseTexture2D_n3rt3")
+normal_enabled = true
+normal_texture = SubResource("NoiseTexture2D_kw7g5")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mfwff"]
+
+[node name="CoinMine" type="StaticBody3D"]
+script = ExtResource("1_wmmx2")
+mesh_library = ExtResource("2_kicm8")
+
+[node name="mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.13127, 0)
+material_override = SubResource("StandardMaterial3D_5qope")
+
+[node name="col" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_mfwff")

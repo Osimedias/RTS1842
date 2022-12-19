@@ -10,6 +10,10 @@ var target : Vector3
 
 var path : PackedVector3Array
 
+@export var data : EntityData
+
+
+
 
 
 func _input(event):
@@ -28,7 +32,7 @@ func _input(event):
 			
 			if collision.size() > 0:
 				target = collision.position
-				#path = get_parent().get_parent().get_node("terrain").find_path(position,collision.normal)
+				set_physics_process(true)
 				#draw_path(path)
 
 func _physics_process(delta):
@@ -40,23 +44,34 @@ func _physics_process(delta):
 	
 	path = get_parent().get_parent().get_node("terrain").find_path(position,target)
 	
-	if path.is_empty():
-		var destination := path[0]
+	if path.size() > 1:
+		var to_walk = delta*SPEED
+		var to_watch = Vector3.UP
+		while to_walk > 0 and path.size() >= 2:
+			var pfrom = path[path.size() - 1]
+			var pto = path[path.size() - 2]
+			to_watch = (pto - pfrom).normalized()
+			var d = pfrom.distance_to(pto)
+			if d <= to_walk:
+				path.remove_at(path.size() - 1)
+				to_walk -= d
+			else:
+				path[path.size() - 1] = pfrom.lerp(pto,to_walk/d)
+				to_walk = 0
+		var atpos = path[path.size() - 1]
+		var atdir = to_watch
+		atdir.y = 0
 		
-		direction = destination - position
+		var t = Transform3D()
+		t.origin = atpos
+		t=t.looking_at(atpos + atdir, Vector3.UP)
+		transform = t
 		
-		if step_size > direction.length():
-			step_size = direction.length()
-			path.remove_at(0)
-		
-		velocity = direction.normalized() * step_size
-		move_and_slide()
-		
-		direction.y = 0
-		if direction:
-			look_at(target,Vector3.UP)
-	
-	
+		if path.size() < 2:
+			path = []
+			set_physics_process(false)
+		else:
+			set_physics_process(true)
 
 
 func draw_path(path_array : PackedVector3Array) -> void:
