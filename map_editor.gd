@@ -1,138 +1,119 @@
 extends Node
 
+var scenario_data : Dictionary
 
-var data = {
-	
-}
+var splatmap_texture : SubViewport
+var heightmap_texture : SubViewport
 
-var map_name_ : String
-var map_description : String
-var map_preview = "res://sub_marcos.png"
-var map_entites = {
-	
-}
+var terrain : MeshInstance3D
+var water : MeshInstance3D
 
-var map_data = {
-	
-}
+var material : StandardMaterial3D = StandardMaterial3D.new()
+
+var clicks_pos : PackedVector2Array
+
+var is_paint : bool = false
 
 func _ready():
-	map_description = "Write a nice description here"
-	var d = {
-		"name" : map_name_,
-		"description" : map_description,
-		"preview" : map_preview,
-		"map_entites" : map_entites,
-		"map_data" : map_data
+	splatmap_texture = SubViewport.new()
+	splatmap_texture.name = "splatmap"
+	heightmap_texture = SubViewport.new()
+	heightmap_texture.name = "heightmap"
+	add_child(splatmap_texture)
+	add_child(heightmap_texture)
+	splatmap_texture
+	var background_1 = ColorRect.new()
+	background_1.color = Color.CRIMSON
+	var background_2 = ColorRect.new()
+	background_1.layout_direction = Control.LAYOUT_DIRECTION_INHERITED
+	background_1.anchors_preset = Control.PRESET_FULL_RECT
+	background_2.layout_direction = Control.LAYOUT_DIRECTION_INHERITED
+	background_2.anchors_preset = Control.PRESET_FULL_RECT
+	splatmap_texture.add_child(background_1)
+	heightmap_texture.add_child(background_2)
+	splatmap_texture.render_target_clear_mode = SubViewport.CLEAR_MODE_ALWAYS
+	splatmap_texture.render_target_update_mode = SubViewport.UPDATE_ALWAYS
+	terrain = $"GUI/2/3DEditor/VBoxContainer/SubViewportContainer/MapViewport/Map/terrain"
+	water = $"GUI/2/3DEditor/VBoxContainer/SubViewportContainer/MapViewport/Map/water"
+
+
+
+func _physics_process(delta):
+	var m_pos = $"GUI/2/3DEditor/VBoxContainer/SubViewportContainer/MapViewport".get_mouse_position()
+	var cam = $"GUI/2/3DEditor/VBoxContainer/SubViewportContainer/MapViewport".get_camera_3d() as Camera3D
+	
+	var from = cam.project_ray_origin(m_pos)
+	var to = cam.project_ray_normal(m_pos) * 1000
+	
+	var querry = PhysicsRayQueryParameters3D.create(from,to,1,[])
+	
+	var space = $"GUI/2/3DEditor/VBoxContainer/SubViewportContainer/MapViewport".find_world_3d().get_direct_space_state()
+	var result = space.intersect_ray(querry)
+	
+	
+	
+	if result.size() != 0 and result.collider.name == "terrain_body":
+		var r = cam.unproject_position(result.position)
+		
+		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+			is_paint = true
+			clicks_pos.append(r)
+			print(clicks_pos)
+			var new_line = Line2D.new()
+			new_line.points = clicks_pos
+			splatmap_texture.add_child(new_line)
+		else:
+			is_paint = false
+			clicks_pos.clear()
+	
+	
+	pass
+
+
+func _on_create_pressed():
+	scenario_data = {
+		"name":$"GUI/2/MapPanel/TabContainer/Mapa/VBoxContainer/map_name".text,
+		"description":$"GUI/2/MapPanel/TabContainer/Mapa/VBoxContainer/map_description".text,
+		"preview":$"GUI/2/MapPanel/TabContainer/Mapa/VBoxContainer/map_preview_path".text,
+		"size":$"GUI/2/MapPanel/TabContainer/Mapa/VBoxContainer/map_size".value,
+		"players":$"GUI/2/MapPanel/TabContainer/Mapa/VBoxContainer/players".value,
 	}
 	
-	data = d
+	splatmap_texture.size = Vector2($"GUI/2/MapPanel/TabContainer/Mapa/VBoxContainer/map_size".value,$"GUI/2/MapPanel/TabContainer/Mapa/VBoxContainer/map_size".value)
+	heightmap_texture.size = Vector2($"GUI/2/MapPanel/TabContainer/Mapa/VBoxContainer/map_size".value,$"GUI/2/MapPanel/TabContainer/Mapa/VBoxContainer/map_size".value)
+	terrain.mesh.size = Vector2(heightmap_texture.get_texture().get_image().get_width(),heightmap_texture.get_texture().get_image().get_height())
+	water.mesh.size = Vector2(heightmap_texture.get_texture().get_image().get_width(),heightmap_texture.get_texture().get_image().get_height())
+	terrain.material_override = material
+	material.albedo_texture = splatmap_texture.get_texture()
+	water.transform.origin.y = water.transform.origin.y - 7
+	create_heightmap()
 
 
-var mode : String
-
-var points : PackedVector2Array
-
-func _input(event):
-	if event is InputEventKey and event.is_pressed():
-		if event.keycode == KEY_Q:
-			get_tree().quit()
-		if event.keycode == KEY_ESCAPE:
-			get_tree().change_scene_to_file("res://main_menu.tscn")
+func create_heightmap():
+	var vertex_height = 30
+	var img = heightmap_texture.get_texture().get_image()
+	img.resize(img.get_width(),img.get_height())
+	img.convert(Image.FORMAT_RF)
+	img.resize(img.get_width(),img.get_height())
+	var data = img.get_data().to_float32_array()
 	
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
-			if mode == "Paint":
-				points.append(event.position)
-				print(points)
-
-func write_zip_file(map_name : String):
-	var writer := ZIPPacker.new()
-	var err := writer.open("user://"+map_name+".rtsmap")
-	if err != OK:
-		return err
-	print("save map data..")
-	writer.start_file("map.json")
-	writer.write_file(var_to_str(data).to_utf8_buffer())
-	writer.close_file()
-	print("saving map textures")
-	await get_tree().create_timer(1).timeout
-	writer.start_file("splatmap.png")
-	writer.write_file($MapTextures/splatmap.get_viewport().get_texture().get_image().save_png_to_buffer())
-	writer.close_file()
-	await get_tree().create_timer(1).timeout
-	writer.start_file("heightmap.exr")
-	writer.write_file($MapTextures/heightmap.get_viewport().get_texture().get_image().save_exr_to_buffer())
-	writer.close_file()
-	writer.close()
-	return OK
-
-func load_zip_file(map_name : String):
-	var loader := ZIPReader.new()
-	var err := loader.open("user://"+map_name+".rtsmap")
-	if err != OK:
-		return PackedByteArray()
-	print(loader.get_files())
-
-
-func _on_paint_pressed():
-	%Splatmap_layer.visible = true
-	%Heightmap_layer.visible = false
-	$GUI/ObjectPanel.visible = false
-	$GUI/ColorPicker.visible = true
-	mode = "Paint"
-	pass # Replace with function body.
-
-
-
-func _on_height_pressed():
-	%Splatmap_layer.visible = false
-	%Heightmap_layer.visible = true
-	$GUI/ObjectPanel.visible = false
-	$GUI/ColorPicker.visible = false
-	mode = "Paint"
-	pass # Replace with function body.
-
-
-func _on_flat_pressed():
-	%Splatmap_layer.visible = false
-	%Heightmap_layer.visible = true
-	$GUI/ObjectPanel.visible = false
-	$GUI/ColorPicker.visible = false
-	mode = "Paint"
-	pass # Replace with function body.
-
-
-func _on_smooth_pressed():
-	%Splatmap_layer.visible = false
-	%Heightmap_layer.visible = true
-	$GUI/ObjectPanel.visible = false
-	$GUI/ColorPicker.visible = false
-	mode = "Paint"
-	pass # Replace with function body.
-
-
-func _on_object_pressed():
-	%Splatmap_layer.visible = false
-	%Heightmap_layer.visible = true
-	$GUI/ObjectPanel.visible = true
-	$GUI/ColorPicker.visible = false
-	mode = "Object"
-	pass # Replace with function body.
-
-
-func _on_player_pressed():
-	pass # Replace with function body.
-
-
-func _on_map_pressed():
+	for i in data.size():
+		data[i] *= vertex_height
 	
-	pass # Replace with function body.
+	var terrain_shape = HeightMapShape3D.new()
+	terrain_shape.map_width = img.get_width()
+	terrain_shape.map_depth = img.get_height()
+	terrain_shape.map_data = data
+	var terrain_body = StaticBody3D.new()
+	terrain_body.input_ray_pickable = true
+	terrain.add_child(terrain_body)
+	var shape = CollisionShape3D.new()
+	shape.shape = terrain_shape
+	terrain_body.add_child(shape)
+	terrain_body.collision_layer = 1
+	terrain_body.name = "terrain_body"
+	shape.name = "terrain_collision_shape"
+	terrain_shape.resource_name = "heightmap_shape"
 
 
 
-
-func _on_save_pressed():
-	%Splatmap_layer/splatmap.get_viewport().get_texture().get_image().save_png("res://map/scenario/debug.png")
-	%Heightmap_layer/heightmap.get_viewport().get_texture().get_image().save_exr("res://map/scenario/debug.exr")
-	pass # Replace with function body.

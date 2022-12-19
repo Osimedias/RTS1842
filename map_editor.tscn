@@ -1,14 +1,39 @@
-[gd_scene load_steps=10 format=3 uid="uid://c4pp2oluu18n6"]
+[gd_scene load_steps=13 format=3 uid="uid://c4pp2oluu18n6"]
 
 [ext_resource type="Script" path="res://map_editor.gd" id="1_ummfq"]
-[ext_resource type="Texture2D" uid="uid://c3k71ll1westo" path="res://map_editor/icons/paintterrain.png" id="2_5nvg0"]
-[ext_resource type="Texture2D" uid="uid://d234o0hw2gq6k" path="res://map_editor/icons/alterelevation.png" id="3_wyocv"]
-[ext_resource type="Texture2D" uid="uid://tcnxxbpdy2cy" path="res://map_editor/icons/flattenelevation.png" id="4_7wrsi"]
-[ext_resource type="Texture2D" uid="uid://b2jnkdli7tel2" path="res://map_editor/icons/terrain.png" id="5_dbqat"]
-[ext_resource type="Texture2D" uid="uid://ewg7cddd05tq" path="res://map_editor/icons/object.png" id="6_0aalf"]
-[ext_resource type="Texture2D" uid="uid://b44we3ed1vubm" path="res://map_editor/icons/player.png" id="7_ffl03"]
-[ext_resource type="Texture2D" uid="uid://ck4opmxbh5igh" path="res://map_editor/icons/map.png" id="8_40t5j"]
-[ext_resource type="Script" path="res://map_editor/painter.gd" id="9_indah"]
+[ext_resource type="Script" path="res://game/game_camera.gd" id="2_vvet1"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_yt3j1"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_n3wk6"]
+seamless = true
+as_normal_map = true
+noise = SubResource("FastNoiseLite_yt3j1")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gpq6u"]
+albedo_color = Color(0.47451, 0.47451, 0.47451, 1)
+normal_enabled = true
+normal_texture = SubResource("NoiseTexture2D_n3wk6")
+
+[sub_resource type="SphereMesh" id="SphereMesh_jodde"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mo5ak"]
+
+[sub_resource type="Sky" id="Sky_ccvi2"]
+sky_material = SubResource("ProceduralSkyMaterial_mo5ak")
+
+[sub_resource type="Environment" id="Environment_5jjrw"]
+background_mode = 2
+sky = SubResource("Sky_ccvi2")
+
+[sub_resource type="World3D" id="World3D_w4ko8"]
+environment = SubResource("Environment_5jjrw")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_oole4"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_fi5f2"]
+subdivide_width = 512
+subdivide_depth = 512
 
 [node name="MapEditor" type="Node"]
 script = ExtResource("1_ummfq")
@@ -22,81 +47,16 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Heightmap_layer" type="SubViewportContainer" parent="GUI"]
-unique_name_in_owner = true
+[node name="MenuPanel" type="Panel" parent="GUI"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.345486
-anchor_top = 0.0540123
-anchor_right = 0.789931
-anchor_bottom = 0.844136
-metadata/_edit_use_anchors_ = true
-
-[node name="heightmap" type="SubViewport" parent="GUI/Heightmap_layer"]
-disable_3d = true
-handle_input_locally = false
-msaa_2d = 3
-size_2d_override_stretch = true
-render_target_clear_mode = 1
-render_target_update_mode = 4
-
-[node name="ColorRect" type="ColorRect" parent="GUI/Heightmap_layer/heightmap"]
-anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 0.0509259
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.470588, 0.470588, 0.470588, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="painter_heightmap" type="Node2D" parent="GUI/Heightmap_layer/heightmap"]
-script = ExtResource("9_indah")
-
-[node name="lines" type="Node2D" parent="GUI/Heightmap_layer/heightmap/painter_heightmap"]
-
-[node name="Splatmap_layer" type="SubViewportContainer" parent="GUI"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.345486
-anchor_top = 0.0540123
-anchor_right = 0.789931
-anchor_bottom = 0.844136
-metadata/_edit_use_anchors_ = true
-
-[node name="splatmap" type="SubViewport" parent="GUI/Splatmap_layer"]
-disable_3d = true
-handle_input_locally = false
-msaa_2d = 3
-size_2d_override_stretch = true
-render_target_clear_mode = 1
-render_target_update_mode = 4
-
-[node name="ColorRect" type="ColorRect" parent="GUI/Splatmap_layer/splatmap"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(1, 0, 0, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="painter_splatmap" type="Node2D" parent="GUI/Splatmap_layer/splatmap"]
-script = ExtResource("9_indah")
-
-[node name="lines" type="Node2D" parent="GUI/Splatmap_layer/splatmap/painter_splatmap"]
-
-[node name="BrushPanel" type="Panel" parent="GUI"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.83941
-anchor_top = 0.137346
-anchor_right = 0.868924
-anchor_bottom = 0.549383
-metadata/_edit_use_anchors_ = true
-metadata/_edit_group_ = true
-
-[node name="GridContainer" type="GridContainer" parent="GUI/BrushPanel"]
+[node name="HBoxContainer" type="HBoxContainer" parent="GUI/MenuPanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -105,110 +65,275 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="paint" type="Button" parent="GUI/BrushPanel/GridContainer"]
-custom_minimum_size = Vector2(35, 35)
+[node name="file" type="MenuButton" parent="GUI/MenuPanel/HBoxContainer"]
 layout_mode = 2
-tooltip_text = "Paint Mode"
-icon = ExtResource("2_5nvg0")
-expand_icon = true
+text = "Archivo"
 
-[node name="height" type="Button" parent="GUI/BrushPanel/GridContainer"]
-custom_minimum_size = Vector2(35, 35)
+[node name="edit" type="MenuButton" parent="GUI/MenuPanel/HBoxContainer"]
 layout_mode = 2
-tooltip_text = "Height mode
+text = "Editar"
+
+[node name="object" type="MenuButton" parent="GUI/MenuPanel/HBoxContainer"]
+layout_mode = 2
+text = "Objetos"
+
+[node name="triggers" type="MenuButton" parent="GUI/MenuPanel/HBoxContainer"]
+layout_mode = 2
+text = "Desencadenadores"
+
+[node name="players" type="MenuButton" parent="GUI/MenuPanel/HBoxContainer"]
+layout_mode = 2
+text = "Juagadores"
+
+[node name="data_editor" type="MenuButton" parent="GUI/MenuPanel/HBoxContainer"]
+layout_mode = 2
+text = "Editor de Datos"
+
+[node name="2" type="HBoxContainer" parent="GUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.0509259
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="MapPanel" type="Panel" parent="GUI/2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TabContainer" type="TabContainer" parent="GUI/2/MapPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Mapa" type="Control" parent="GUI/2/MapPanel/TabContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GUI/2/MapPanel/TabContainer/Mapa"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="map_name" type="LineEdit" parent="GUI/2/MapPanel/TabContainer/Mapa/VBoxContainer"]
+layout_mode = 2
+placeholder_text = "Nombre del Mapa..."
+alignment = 1
+
+[node name="map_description" type="TextEdit" parent="GUI/2/MapPanel/TabContainer/Mapa/VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+placeholder_text = "Descripcion del mapa"
+
+[node name="map_preview_path" type="LineEdit" parent="GUI/2/MapPanel/TabContainer/Mapa/VBoxContainer"]
+layout_mode = 2
+placeholder_text = "preview_path"
+alignment = 1
+
+[node name="Label" type="Label" parent="GUI/2/MapPanel/TabContainer/Mapa/VBoxContainer"]
+layout_mode = 2
+text = "Tamaño del Mapa"
+horizontal_alignment = 1
+
+[node name="map_size" type="SpinBox" parent="GUI/2/MapPanel/TabContainer/Mapa/VBoxContainer"]
+layout_mode = 2
+min_value = 225.0
+max_value = 4024.0
+value = 225.0
+alignment = 1
+
+[node name="Label_2" type="Label" parent="GUI/2/MapPanel/TabContainer/Mapa/VBoxContainer"]
+layout_mode = 2
+text = "Numero de Jugadores"
+horizontal_alignment = 1
+
+[node name="players" type="SpinBox" parent="GUI/2/MapPanel/TabContainer/Mapa/VBoxContainer"]
+layout_mode = 2
+min_value = 2.0
+max_value = 8.0
+value = 2.0
+alignment = 1
+
+[node name="create" type="Button" parent="GUI/2/MapPanel/TabContainer/Mapa/VBoxContainer"]
+layout_mode = 2
+text = "Crear
 "
-icon = ExtResource("3_wyocv")
-expand_icon = true
 
-[node name="flat" type="Button" parent="GUI/BrushPanel/GridContainer"]
-custom_minimum_size = Vector2(35, 35)
-layout_mode = 2
-tooltip_text = "Flat mode"
-icon = ExtResource("4_7wrsi")
-expand_icon = true
-
-[node name="smooth" type="Button" parent="GUI/BrushPanel/GridContainer"]
-custom_minimum_size = Vector2(35, 35)
-layout_mode = 2
-tooltip_text = "Smooth mode"
-icon = ExtResource("5_dbqat")
-expand_icon = true
-
-[node name="object" type="Button" parent="GUI/BrushPanel/GridContainer"]
-custom_minimum_size = Vector2(35, 35)
-layout_mode = 2
-tooltip_text = "Object mode"
-icon = ExtResource("6_0aalf")
-expand_icon = true
-
-[node name="player" type="Button" parent="GUI/BrushPanel/GridContainer"]
-custom_minimum_size = Vector2(35, 35)
-layout_mode = 2
-tooltip_text = "Player mode"
-icon = ExtResource("7_ffl03")
-expand_icon = true
-
-[node name="map" type="Button" parent="GUI/BrushPanel/GridContainer"]
-custom_minimum_size = Vector2(35, 35)
-layout_mode = 2
-tooltip_text = "Map data"
-icon = ExtResource("8_40t5j")
-expand_icon = true
-
-[node name="ObjectPanel" type="Panel" parent="GUI"]
+[node name="Objetos" type="Control" parent="GUI/2/MapPanel/TabContainer"]
 visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.0217014
-anchor_top = 0.140432
-anchor_right = 0.231771
-anchor_bottom = 0.762346
-metadata/_edit_use_anchors_ = true
+layout_mode = 2
 
-[node name="objects_list" type="Tree" parent="GUI/ObjectPanel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="GUI/2/MapPanel/TabContainer/Objetos"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-columns = 6
 
-[node name="ColorPicker" type="ColorPicker" parent="GUI"]
+[node name="OptionButton" type="OptionButton" parent="GUI/2/MapPanel/TabContainer/Objetos/VBoxContainer"]
+layout_mode = 2
+item_count = 3
+selected = 0
+popup/item_0/text = "Build-In Objects"
+popup/item_0/id = 0
+popup/item_1/text = "User Made Objects"
+popup/item_1/id = 1
+popup/item_2/text = "Mod Objects"
+popup/item_2/id = 2
+
+[node name="Tree" type="Tree" parent="GUI/2/MapPanel/TabContainer/Objetos/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Panel" type="Panel" parent="GUI/2/MapPanel/TabContainer/Objetos/VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="Ambiente" type="VBoxContainer" parent="GUI/2/MapPanel/TabContainer"]
 visible = false
-layout_mode = 0
-offset_left = 80.0
-offset_top = 40.0
-offset_right = 338.0
-offset_bottom = 608.0
+layout_mode = 2
 
-[node name="brush_size" type="HSlider" parent="GUI"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.015625
-anchor_top = 0.947531
-anchor_right = 0.333333
-anchor_bottom = 0.972222
+[node name="VBoxContainer" type="VBoxContainer" parent="GUI/2/MapPanel/TabContainer/Ambiente"]
+layout_mode = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="save" type="Button" parent="GUI"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.611979
-anchor_top = 0.885802
-anchor_right = 0.678819
-anchor_bottom = 0.938272
-text = "Save"
-metadata/_edit_use_anchors_ = true
+[node name="Label" type="Label" parent="GUI/2/MapPanel/TabContainer/Ambiente/VBoxContainer"]
+layout_mode = 2
+text = "Agua Altura
+"
+horizontal_alignment = 1
 
-[connection signal="pressed" from="GUI/BrushPanel/GridContainer/paint" to="." method="_on_paint_pressed"]
-[connection signal="pressed" from="GUI/BrushPanel/GridContainer/height" to="." method="_on_height_pressed"]
-[connection signal="pressed" from="GUI/BrushPanel/GridContainer/flat" to="." method="_on_flat_pressed"]
-[connection signal="pressed" from="GUI/BrushPanel/GridContainer/smooth" to="." method="_on_smooth_pressed"]
-[connection signal="pressed" from="GUI/BrushPanel/GridContainer/object" to="." method="_on_object_pressed"]
-[connection signal="pressed" from="GUI/BrushPanel/GridContainer/player" to="." method="_on_player_pressed"]
-[connection signal="pressed" from="GUI/BrushPanel/GridContainer/map" to="." method="_on_map_pressed"]
-[connection signal="color_changed" from="GUI/ColorPicker" to="GUI/Splatmap_layer/splatmap/painter_splatmap" method="_on_color_picker_color_changed"]
-[connection signal="value_changed" from="GUI/brush_size" to="GUI/Splatmap_layer/splatmap/painter_splatmap" method="_on_brush_size_value_changed"]
-[connection signal="pressed" from="GUI/save" to="." method="_on_save_pressed"]
+[node name="HSlider" type="HSlider" parent="GUI/2/MapPanel/TabContainer/Ambiente/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label_2" type="Label" parent="GUI/2/MapPanel/TabContainer/Ambiente/VBoxContainer"]
+layout_mode = 2
+text = "Color del Agua"
+horizontal_alignment = 1
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="GUI/2/MapPanel/TabContainer/Ambiente/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+color = Color(0.34902, 0.741176, 1, 1)
+
+[node name="VBoxContainer_2" type="VBoxContainer" parent="GUI/2/MapPanel/TabContainer/Ambiente"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GUI/2/MapPanel/TabContainer/Ambiente/VBoxContainer_2"]
+layout_mode = 2
+text = "Color del Sol"
+horizontal_alignment = 1
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="GUI/2/MapPanel/TabContainer/Ambiente/VBoxContainer_2"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+color = Color(0.992157, 0.992157, 0.992157, 1)
+
+[node name="Label_2" type="Label" parent="GUI/2/MapPanel/TabContainer/Ambiente/VBoxContainer_2"]
+layout_mode = 2
+text = "Rotacion del Sol"
+horizontal_alignment = 1
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="GUI/2/MapPanel/TabContainer/Ambiente/VBoxContainer_2"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+stretch = true
+
+[node name="SunDirection" type="SubViewport" parent="GUI/2/MapPanel/TabContainer/Ambiente/VBoxContainer_2/SubViewportContainer"]
+own_world_3d = true
+handle_input_locally = false
+size = Vector2i(0, 150)
+render_target_update_mode = 0
+
+[node name="SunDirection3D" type="Node3D" parent="GUI/2/MapPanel/TabContainer/Ambiente/VBoxContainer_2/SubViewportContainer/SunDirection"]
+
+[node name="Camera3D" type="Camera3D" parent="GUI/2/MapPanel/TabContainer/Ambiente/VBoxContainer_2/SubViewportContainer/SunDirection/SunDirection3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.70675)
+
+[node name="sphere" type="MeshInstance3D" parent="GUI/2/MapPanel/TabContainer/Ambiente/VBoxContainer_2/SubViewportContainer/SunDirection/SunDirection3D"]
+material_override = SubResource("StandardMaterial3D_gpq6u")
+mesh = SubResource("SphereMesh_jodde")
+skeleton = NodePath("../..")
+
+[node name="sun" type="DirectionalLight3D" parent="GUI/2/MapPanel/TabContainer/Ambiente/VBoxContainer_2/SubViewportContainer/SunDirection/SunDirection3D"]
+transform = Transform3D(1, 0, 0, 0, 0.50302, 0.864275, 0, -0.864275, 0.50302, 0, 0, 0)
+
+[node name="HSlider" type="HSlider" parent="GUI/2/MapPanel/TabContainer/Ambiente/VBoxContainer_2"]
+layout_mode = 2
+
+[node name="HSlider_2" type="HSlider" parent="GUI/2/MapPanel/TabContainer/Ambiente/VBoxContainer_2"]
+layout_mode = 2
+
+[node name="3DEditor" type="Control" parent="GUI/2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 4.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GUI/2/3DEditor"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="GUI/2/3DEditor/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+stretch = true
+
+[node name="MapViewport" type="SubViewport" parent="GUI/2/3DEditor/VBoxContainer/SubViewportContainer"]
+own_world_3d = true
+world_3d = SubResource("World3D_w4ko8")
+handle_input_locally = false
+use_taa = true
+use_debanding = true
+use_occlusion_culling = true
+scaling_3d_mode = 1
+vrs_mode = 2
+audio_listener_enable_3d = true
+physics_object_picking = true
+canvas_cull_mask = 4293918728
+size = Vector2i(919, 540)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="Map" type="Node3D" parent="GUI/2/3DEditor/VBoxContainer/SubViewportContainer/MapViewport"]
+
+[node name="terrain" type="MeshInstance3D" parent="GUI/2/3DEditor/VBoxContainer/SubViewportContainer/MapViewport/Map"]
+layers = 384
+mesh = SubResource("PlaneMesh_oole4")
+skeleton = NodePath("../../../../../../../..")
+
+[node name="water" type="MeshInstance3D" parent="GUI/2/3DEditor/VBoxContainer/SubViewportContainer/MapViewport/Map"]
+layers = 640
+mesh = SubResource("PlaneMesh_fi5f2")
+
+[node name="camera" type="Marker3D" parent="GUI/2/3DEditor/VBoxContainer/SubViewportContainer/MapViewport/Map"]
+script = ExtResource("2_vvet1")
+
+[node name="pivot" type="Marker3D" parent="GUI/2/3DEditor/VBoxContainer/SubViewportContainer/MapViewport/Map/camera"]
+
+[node name="camera" type="Camera3D" parent="GUI/2/3DEditor/VBoxContainer/SubViewportContainer/MapViewport/Map/camera/pivot"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0)
+cull_mask = 1047680
+current = true
+
+[node name="sun" type="DirectionalLight3D" parent="GUI/2/3DEditor/VBoxContainer/SubViewportContainer/MapViewport/Map"]
+transform = Transform3D(1, 0, 0, 0, 0.503668, 0.863897, 0, -0.863897, 0.503668, -2.08758, 0.613863, 0)
+
+[node name="SceneInfo" type="Panel" parent="GUI/2/3DEditor/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.13
+
+[connection signal="pressed" from="GUI/2/MapPanel/TabContainer/Mapa/VBoxContainer/create" to="." method="_on_create_pressed"]

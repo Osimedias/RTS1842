@@ -81,6 +81,7 @@ Config/game_version="1.0.0"
 config/name="1842 RTS"
 run/main_scene="res://main_menu.tscn"
 config/features=PackedStringArray("4.0")
+boot_splash/bg_color=Color(0, 0, 0, 1)
 config/icon="res://icon.svg"
 config/windows_native_icon="res://icon.ico"
 
@@ -94,8 +95,6 @@ Fps="*res://fps.tscn"
 
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
 window/vsync/vsync_mode=2
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
@@ -175,13 +174,21 @@ buffering/agile_event_flushing=true
 3d_render/layer_2="In-Game"
 2d_render/layer_3="Painter"
 3d_render/layer_3="Homecity"
+2d_render/layer_4="Map Editor Scene"
 3d_render/layer_4="Visible"
+2d_render/layer_5="Terrain"
 3d_render/layer_5="On Fog of War"
+2d_render/layer_6="Water"
 3d_render/layer_6="Black Zone"
 3d_render/layer_7="Painter"
+3d_render/layer_8="Map Editor Scene"
+3d_render/layer_9="Terrain"
+3d_render/layer_10="Water"
 3d_physics/layer_1="Terrain"
 3d_physics/layer_2="Entities"
 3d_physics/layer_3="Painter"
+3d_physics/layer_9="Terrain"
+3d_physics/layer_10="Water"
 
 [mono]
 
@@ -189,7 +196,6 @@ export/aot/use_interpreter=false
 
 [rendering]
 
-lights_and_shadows/use_physical_light_units=true
 lights_and_shadows/directional_shadow/soft_shadow_filter_quality=5
 lights_and_shadows/directional_shadow/soft_shadow_filter_quality.mobile=5
 lights_and_shadows/positional_shadow/soft_shadow_filter_quality=4
