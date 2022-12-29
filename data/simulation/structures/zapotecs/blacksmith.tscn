@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cf3dol2la4ikq"]
+[gd_scene load_steps=5 format=3]
 
 [ext_resource type="PackedScene" uid="uid://bv7f44q3eu547" path="res://art/meshes/structural/zapotecs/blacksmith.glb" id="1_fli3n"]
-[ext_resource type="Script" path="res://game/structures.gd" id="2_f0ylt"]
+[ext_resource type="Script" path="res://game/structure.gd" id="2_f0ylt"]
 [ext_resource type="Material" uid="uid://bc8gmmpaudwmd" path="res://art/meshes/structural/zapotecs/zapotec.material" id="2_px13x"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nu6a3"]

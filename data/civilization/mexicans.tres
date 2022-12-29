@@ -1,15 +1,25 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://du2s6mesm1na8"]
+[gd_resource type="Resource" load_steps=9 format=3 uid="uid://b44mykbpwgq2f"]
 
-[ext_resource type="Script" path="res://game/civilization.gd" id="1"]
-[ext_resource type="Texture2D" uid="uid://cmkpp3esp5f03" path="res://art/flags/mexicans.svg" id="2"]
+[ext_resource type="Texture2D" uid="uid://cmkpp3esp5f03" path="res://art/flags/mexicans.svg" id="1_2yy54"]
+[ext_resource type="Script" path="res://game/civilization.gd" id="1_v5sqd"]
+[ext_resource type="PackedScene" uid="uid://psuy5mh3vlft" path="res://data/homecity/mexicans/mexican_homecity.tscn" id="2_kssy7"]
+[ext_resource type="Script" path="res://game/personality.gd" id="3_3c35t"]
+[ext_resource type="Script" path="res://game/techtree.gd" id="5_x3soj"]
+[ext_resource type="Resource" uid="uid://b3w1t0b4oh2l5" path="res://data/simulation/structures/mexicans/town_center.tres" id="6_xtqqj"]
+
+[sub_resource type="Resource" id="Resource_ldi3y"]
+script = ExtResource("3_3c35t")
+
+[sub_resource type="Resource" id="Resource_u17kq"]
+script = ExtResource("5_x3soj")
+town_center = ExtResource("6_xtqqj")
 
 [resource]
-script = ExtResource("1")
+script = ExtResource("1_v5sqd")
 sufix = "mex"
 name = "Mexicans"
-personality = "Vicente Guerrero"
-music = []
-revolutions = PackedStringArray("Federal Republic of Central America", "Rio Grande", "Yucatan", "Republic of Sonora", "Republic of California", "Republic of Texas", "Empire of Mexico")
-bonuses = "Have Haciendas.\\nHave Cathedrals.\\nCan Revolt more easy."
-flag = ExtResource("2")
-homecity_name = "Ciudad de Mexico"
+personality = SubResource("Resource_ldi3y")
+flag = ExtResource("1_2yy54")
+homecity = ExtResource("2_kssy7")
+culture = "mediterranean"
+techtree = SubResource("Resource_u17kq")

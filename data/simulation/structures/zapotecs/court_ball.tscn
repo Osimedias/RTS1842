@@ -1,8 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://w0c8jb84t60n"]
+[gd_scene load_steps=5 format=3]
 
 [ext_resource type="PackedScene" uid="uid://dp3v3kd5uv1en" path="res://art/meshes/structural/zapotecs/court_ball.glb" id="1_tf17v"]
 [ext_resource type="Material" uid="uid://bc8gmmpaudwmd" path="res://art/meshes/structural/zapotecs/zapotec.material" id="2_3u3yj"]
-[ext_resource type="Script" path="res://game/structures.gd" id="2_oxmnn"]
+[ext_resource type="Script" path="res://game/structure.gd" id="2_oxmnn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vn8wv"]
 size = Vector3(52, 8.78504, 40)

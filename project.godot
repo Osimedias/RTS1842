@@ -15,9 +15,34 @@ _global_script_classes=[{
 "path": "res://game/resource/abilities.gd"
 }, {
 "base": "Resource",
-"class": &"Actioners",
+"class": &"Actioner",
 "language": &"GDScript",
-"path": "res://game/resource/actioners.gd"
+"path": "res://game/resource/actioner.gd"
+}, {
+"base": "Node3D",
+"class": &"Actor",
+"language": &"GDScript",
+"path": "res://game/actor.gd"
+}, {
+"base": "Actioner",
+"class": &"AddPoints",
+"language": &"GDScript",
+"path": "res://game/resource/add_points.gd"
+}, {
+"base": "Actioner",
+"class": &"AttackPoints",
+"language": &"GDScript",
+"path": "res://game/resource/attack_points.gd"
+}, {
+"base": "EntityData",
+"class": &"BuildingData",
+"language": &"GDScript",
+"path": "res://game/resource/building_data.gd"
+}, {
+"base": "Actioner",
+"class": &"ChangeAge",
+"language": &"GDScript",
+"path": "res://game/resource/change_age.gd"
 }, {
 "base": "Resource",
 "class": &"Civilization",
@@ -29,47 +54,88 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://game/resource/entity_data.gd"
 }, {
+"base": "Actioner",
+"class": &"GatherRate",
+"language": &"GDScript",
+"path": "res://game/resource/gather_rate.gd"
+}, {
+"base": "EntityData",
+"class": &"HerdableAnimal",
+"language": &"GDScript",
+"path": "res://game/resource/herdable_animal.gd"
+}, {
+"base": "EntityData",
+"class": &"HuntableAnimal",
+"language": &"GDScript",
+"path": "res://game/resource/huntable_animal.gd"
+}, {
+"base": "Resource",
+"class": &"Personality",
+"language": &"GDScript",
+"path": "res://game/personality.gd"
+}, {
 "base": "Resource",
 "class": &"PlayerData",
 "language": &"GDScript",
 "path": "res://game/resource/player_data.gd"
 }, {
-"base": "Node2D",
-"class": &"RMSBase",
+"base": "Resource",
+"class": &"ResourcePile",
 "language": &"GDScript",
-"path": "res://map/random/rmslib/rms_base.gd"
+"path": "res://game/resource/resource_pile.gd"
+}, {
+"base": "Civilization",
+"class": &"Revolution",
+"language": &"GDScript",
+"path": "res://game/revolution.gd"
+}, {
+"base": "Resource",
+"class": &"Technology",
+"language": &"GDScript",
+"path": "res://game/resource/technology.gd"
 }, {
 "base": "Label",
 "class": &"TechnologyTreeNode",
 "language": &"GDScript",
 "path": "res://game/resource/technology_tree_node.gd"
 }, {
+"base": "Resource",
+"class": &"Techtree",
+"language": &"GDScript",
+"path": "res://game/techtree.gd"
+}, {
 "base": "RefCounted",
 "class": &"TextureList",
 "language": &"GDScript",
 "path": "res://game/texture_list.gd"
 }, {
-"base": "RefCounted",
-"class": &"Utils",
+"base": "EntityData",
+"class": &"UnitData",
 "language": &"GDScript",
-"path": "res://map/random/rmslib/utils.gd"
-}, {
-"base": "RMSBase",
-"class": &"Yucatan",
-"language": &"GDScript",
-"path": "res://map/random/yucatan.gd"
+"path": "res://game/resource/unit_data.gd"
 }]
 _global_script_class_icons={
 "Abilities": "",
-"Actioners": "",
+"Actioner": "",
+"Actor": "",
+"AddPoints": "",
+"AttackPoints": "",
+"BuildingData": "",
+"ChangeAge": "",
 "Civilization": "",
 "EntityData": "",
+"GatherRate": "",
+"HerdableAnimal": "",
+"HuntableAnimal": "",
+"Personality": "",
 "PlayerData": "",
-"RMSBase": "",
+"ResourcePile": "",
+"Revolution": "",
+"Technology": "",
 "TechnologyTreeNode": "",
+"Techtree": "",
 "TextureList": "",
-"Utils": "",
-"Yucatan": ""
+"UnitData": ""
 }
 
 [Application]
@@ -96,6 +162,8 @@ Fps="*res://fps.tscn"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/window_width_override=1920
+window/size/window_height_override=1080
 window/vsync/vsync_mode=2
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
@@ -201,7 +269,6 @@ environment/ssao/quality=3
 environment/ssil/quality=3
 textures/decals/filter=5
 textures/light_projectors/filter=5
-environment/glow/use_high_quality=true
 environment/screen_space_reflection/roughness_quality=3
 environment/subsurface_scattering/subsurface_scattering_quality=3
 anti_aliasing/quality/msaa_2d=3
@@ -209,3 +276,4 @@ anti_aliasing/quality/msaa_3d=3
 anti_aliasing/quality/screen_space_aa=1
 textures/canvas_textures/default_texture_filter=3
 textures/canvas_textures/default_texture_repeat=1
+environment/glow/use_high_quality=true

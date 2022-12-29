@@ -1,8 +1,8 @@
+MeshInstance3D
 Node
 Node3D
 Panel
 Node2D
-MeshInstance3D
 AudioStreamPlayer
 DirectionalLight3D
 Camera3D

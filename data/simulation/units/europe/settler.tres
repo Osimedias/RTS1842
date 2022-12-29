@@ -1,0 +1,50 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://c17db6auplfg5"]
+
+[ext_resource type="Script" path="res://game/resource/unit_data.gd" id="1_kxl1v"]
+
+[resource]
+script = ExtResource("1_kxl1v")
+pop_cost = 1
+type = PackedStringArray("Villager")
+training_time = 25.0
+has_training_limit = true
+training_limit = 99
+resists = {
+"Melee": 20.0
+}
+speed = 4.0
+ability = PackedStringArray("BuildBuildings", "GatherResource", "ClaimTreasures")
+melee_attack = 10
+melee_multipler = {
+"Llama": 5.0
+}
+rate_of_fire = 1.5
+ranged_attack = 3
+range_radius = 12
+range_multipler = {
+"Artillery": 2.0,
+"Huntable": 4.0,
+"Pet": 2.0,
+"Villager": 0.5
+}
+range_rate_of_fire = 3
+siege_attack = 5
+siage_range = 6
+siage_multipler = {
+"Depot": 3.0,
+"Mountain Monastery": 3.0,
+"Shrine": 3.0
+}
+siege_rate_of_fire = 3.0
+civilization_code = "none"
+entity_name = "Settler"
+hit_points = 150
+los_range = 14.0
+food_cost = 100
+wood_cost = null
+coin_cost = null
+fame_cost = null
+food_bounty = 0
+wood_bounty = 0
+coin_bounty = 0
+fame_bounty = 10

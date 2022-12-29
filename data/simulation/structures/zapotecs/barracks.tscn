@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://36106y7h5n8u"]
+[gd_scene load_steps=6 format=3]
 
 [ext_resource type="PackedScene" uid="uid://dv1f6dhdplyne" path="res://art/meshes/structural/zapotecs/barracks.glb" id="1_8tlav"]
-[ext_resource type="Script" path="res://game/structures.gd" id="2_g1oxp"]
+[ext_resource type="Script" path="res://game/structure.gd" id="2_g1oxp"]
 [ext_resource type="Material" uid="uid://bc8gmmpaudwmd" path="res://art/meshes/structural/zapotecs/zapotec.material" id="2_lwuci"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_3cor6"]

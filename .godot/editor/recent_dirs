@@ -1,5 +1,13 @@
-res://game/ai
+res://data/simulation/structures/mexicans/
+res://data/simulation/structures/mexicans
+res://data/simulation/techs/
+res://data/simulation/units/europe/
 res://game
+/run/media/trinketos/Saul/GodotProjects/RTS1842/docs
+res://data/homecity/mexicans
+res://art/flags
+res://data/civilization/
+res://game/ai
 res://data/audio/interface/select/building
 res://
 res://data/simulation/flora
@@ -11,16 +19,3 @@ res://data/gameplay
 res://art/meshes/geology/OBJ/
 res://art/meshes/flora/huge tree
 res://art/meshes/flora/cactus
-res://data/simulation/units
-res://art/meshes/structural/mexicans
-res://art/textures/structures
-res://art/meshes/structural/mexicans/
-res://art/gui/wood
-res://menus
-res://data/simulation
-res://art/homecity/mexican
-res://data/homecity/mexicans
-/run/media/trinketos/Saul/builds/rts/version0
-/run/media/trinketos/Saul/GodotProjects/RTS1842/game/resource/actioners
-/run/media/trinketos/Saul/GodotProjects/dev_videos/rts_dev
-/run/media/trinketos/Saul/builds/rts

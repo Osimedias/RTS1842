@@ -1,9 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://gkm2qscic45j"]
+[gd_scene load_steps=6 format=3]
 
 [ext_resource type="PackedScene" uid="uid://bj81uyqtea00o" path="res://art/meshes/structural/zapotecs/town_center.glb" id="1_hue0g"]
-[ext_resource type="Script" path="res://game/structures.gd" id="2_4abbh"]
+[ext_resource type="Script" path="res://game/structure.gd" id="2_4abbh"]
 [ext_resource type="Material" uid="uid://bc8gmmpaudwmd" path="res://art/meshes/structural/zapotecs/zapotec.material" id="2_6qu26"]
-[ext_resource type="Resource" uid="uid://bvmu13tpg6glr" path="res://data/simulation/entity_town_center_data.tres" id="3_sq4go"]
+[ext_resource type="Resource" path="res://data/simulation/entity_town_center_data.tres" id="3_sq4go"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_83ey3"]
 size = Vector3(30.4578, 15.1521, 28.7041)

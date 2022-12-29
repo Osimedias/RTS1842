@@ -1,0 +1,270 @@
+
+
+Castle Tech:
+	Hill Castle
+	Mountain Castle
+
+Fort Tech:
+	Revetment
+	Star Fort
+
+Factory Tech:
+	Cannery
+	WaterPower
+	SteamPower
+	MassProduction
+
+TownCenter Tech:
+	Commerce Age
+	Fortress Age
+	Industrial Age
+	Imperial Age
+
+Market Tech:
+	Blunderbuss
+	GreatCoat
+	PlacerMines
+	GangSaw
+	HuntingDogs
+	Amalgamation
+	LogFlume
+	StealTraps
+	CircularSaw
+
+Arsenal Tech:
+	Infantry:
+		Breastplate
+		CounterInfatryRifling
+		SocketBayonet
+		FlintLock
+		PaperCartridge
+		MilitaryDrummers
+	Cavalry:
+		Cuirass
+		RangeCavalryCaracole
+		Pillage
+	Artillery:
+		Incendiary Grenades
+		GunnersQuadrant
+		HeatShot
+		ProfessionalGunners
+		Trunion
+
+Mill Tech:
+	Seed Drill
+	ArtificialFertilizer
+
+Farm Tech:
+	Selective Breeding
+	Great Feast
+	Herverst Ceremony
+	Large Scale Gathering
+
+Plantation Tech:
+	Bookkeeping
+	Homesteading
+	Refineries
+
+Dock Tech:
+	GillNets
+	Totora Reeds
+	Long Lines
+	Armor Plating
+	Carronade
+	Rawhide Covers
+	Percurssion Lock
+	Ship's Howitzers
+
+Trading Post Tech:
+	Stagecoach/Trade Cart
+	Iron Horse
+
+Church Tech:
+	Bastion
+	Mission Fervor
+	Town Watch
+	Gas Lighting
+	Mercantilism
+	Standing Army
+	Mass Cavalry
+
+Barracks Tech:
+	Musketeer:
+		Veteran Muskteteer
+		Guard Musketeer
+		Imperial Musketeer
+		Redcoat Musketeer
+		Imperial Redcoat
+		Guerreiro Musketeer
+		Imperial Guerreiro
+	Crossbowman:
+		Veteran Crossbowman
+	Pikeman:
+		Veteran Pikeman
+		Tercio Pikeman
+		Imperial Tercio
+	Skirmisher:
+		Guard Skirmisher
+		Imperial Skirmisher
+		Prussian Needle Gunner
+		Imperial Needle Gunner
+		Voltigeur Skirmisher
+		Imperial Voltigeur
+	Janissary:
+		Veteran Janissary
+		Guard Janissary
+		Imperial Janissary
+	Halberdier:
+		Veteran Halberdier
+		Guard Halberdier
+		Imperial Halberdier
+		Nassau Halberdier (Dutch)
+		Imperial Nassau (Dutch)
+	Ashigaru Musketeer:
+		Disciplined Ashigaru
+		Honored Ashigaru
+		Exalted Ashigaru
+	Yumi Archer:
+		Disciplined Yumi
+		Honored Yumi
+		Exalted Yumi
+	Samurai:
+		Disciplined Samurai
+		Honored Samurai
+		Exalted Samurai
+	Cassador:
+		Veteran Cassador
+		Guard Cassador
+		Imperial Cassador
+	Strelet:
+		Veteran Strelet
+		Guard Strelet
+		Imperial Strelet
+	Doppelsoldner:
+		Veteran Doppelsoldner
+		Guard Doppelsoldner
+		Imperial Doppelsoldner
+	Carolean:
+		Veteran Caroleans
+		Guard Caroleans
+		Imperial Caroleans
+	Insurgente:
+		Veteran Insurgente
+	Soldado:
+		Veteran Soldado
+		Guard Soldado
+		Imperial Soldado
+		Porfilian Soldado
+	Salteadores:
+		Veteran Salteadores
+		Vigilante
+		Imperial Vigilante
+	State Militia:
+		Veteran State Militia
+		Volunteer
+		Imperial Volunteer
+	Regular:
+		Veteran Regular
+		Guard Regular
+		Imperial Regular
+	Sharpshooters:
+		Guard Sharpshooter
+		Imperial Sharpshooter
+		
+Stable Tech:
+	Yabusame:
+		Disciplined Yabusame
+		Honored Yabusame
+		Exalted Yabusame
+	War Wagon:
+		Veteran War Wagon
+		Guard War Wagon
+		Imperial War Wagon
+	Uhlan:
+		Veteran Uhlan
+		Czapka Uhlan
+		Imperial Czapka
+	Ruyter:
+		Veteran Ruyter
+		Guard Ruyter
+		Imperial Ruyter
+	Naginata Rider:
+		Disciplined Naginata Rider
+		Honored Naginata Rider
+		Exalted Naginata Rider
+	Oprichnik:
+		Veteran Oprichnik
+		Guard Oprichnik
+		Imperial Oprichnik
+	Lancer:
+		Veteran Lancer
+		Garrochista Lancer
+		Imperial Garrochista
+	Cossack:
+		Veteran Cossack
+		Guard Cossack
+		Imperial Cossack
+	Hussar:
+		Veteran Hussar
+		Guard Hussar
+		Imperial Hussar
+		Life Guard Hussar (British)
+		Imperial Life Guard (British)
+		Gardener Hussar (Ottomans)
+		Imperial Gardener (Ottomans)
+	Dragoon:
+		Guard Dragoon
+		Imperial Dragoon
+		Jinete Dragoon (Portuguese)
+		Imperial Jinete (Portuguese)
+	Cavalry Archer:
+		Guard Cavalry Archer
+		Imperial Cavalry Archer
+		Tartar Cavalry Archer (Russians)
+		Imperial Tartar (Russians)
+	Cuirassier:
+		Gendarme Cuirassier
+		Imperial Gendarme
+	Chinaco:
+		Veteran Chinaco
+		Charro
+		Imperial Charros
+	Vaquero:
+		Veteran Vaquero
+		Rural
+		Imperial Rural
+	Carbine Cavalry:
+		Guard Carbine Cavalry
+		Imperial Carbine Cavalry
+Artillery Foundry Tech:
+	Organ Gun:
+		Rabauld
+		Imperial Rabauld
+	Horse Artillery:
+		Heavy Horse Gun
+		Imperial Horse Gun
+	Grenadier:
+		Veteran Grenadier
+		Guard Grenadier
+		Imperial Grenadier
+		Pavlov Grenadier (Russians)
+		Imperial Pavlov (Russians)
+		Baractu Grenadier (Ottomans)
+		Imperial Baractu (Ottomans)
+	Abus Gunner:
+		Veteran Abus Gunner
+		Guard Abus Gunner
+		Imperial Abus Gunner
+	Falconet:
+		Field Gun
+		Imperial Field Gun
+	Culverin:
+		Culverin Royale
+		Imperial Culverin Royale
+	Mortar:
+		Howitzer
+		Imperial Howitzer
+	Gatling Gun:
+		Heavy Gatling Gun
+		Imerial Gatling Gun
+	

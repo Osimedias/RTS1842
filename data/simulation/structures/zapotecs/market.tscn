@@ -1,8 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cthg2mb8wc834"]
+[gd_scene load_steps=5 format=3]
 
 [ext_resource type="PackedScene" uid="uid://frjk6p85vb5u" path="res://art/meshes/structural/zapotecs/market.glb" id="1_5xgos"]
 [ext_resource type="Material" uid="uid://bc8gmmpaudwmd" path="res://art/meshes/structural/zapotecs/zapotec.material" id="2_347ps"]
-[ext_resource type="Script" path="res://game/structures.gd" id="2_h10qq"]
+[ext_resource type="Script" path="res://game/structure.gd" id="2_h10qq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fwxsw"]
 size = Vector3(28.6183, 12.0557, 28.5227)

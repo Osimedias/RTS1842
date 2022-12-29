@@ -1,0 +1,33 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://ca0xfrnp7nwea"]
+
+[ext_resource type="Script" path="res://game/resource/building_data.gd" id="1_yqxmx"]
+
+[resource]
+script = ExtResource("1_yqxmx")
+techs_need = null
+add_pop = 10
+max_builders = 1
+build_time = 3.0
+build_limit = 10
+garrison_type = "NONE"
+garrison = 0
+damage_multiplier = null
+range = 0
+rate_of_fire = 0.0
+anti_ship_damage = 0
+anti_ship_multiplier = null
+anti_ship_rate_of_fire = 0.0
+units = null
+techs = null
+civilization_code = "mex"
+entity_name = "House"
+hit_points = 700
+los_range = 10.0
+food_cost = null
+wood_cost = 100
+coin_cost = null
+fame_cost = null
+food_bounty = 0
+wood_bounty = 0
+coin_bounty = 0
+fame_bounty = 10

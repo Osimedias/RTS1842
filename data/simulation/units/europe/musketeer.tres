@@ -1,0 +1,40 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://d1663pxkedfk0"]
+
+[ext_resource type="Script" path="res://game/resource/unit_data.gd" id="1_mlj3j"]
+
+[resource]
+script = ExtResource("1_mlj3j")
+pop_cost = 1
+type = PackedStringArray("Infantry", "Heavy Infantry", "Ranged Infantry", "Gunpowder Infantry", "Musket Infantry")
+training_time = 0.3
+has_training_limit = false
+training_limit = 99
+resists = {}
+speed = 4.0
+ability = null
+melee_attack = 13
+melee_multipler = {
+"Cavalry": 3.0,
+"Shock Infantry": 2.25
+}
+rate_of_fire = 1.5
+ranged_attack = 23
+range_radius = 12
+range_multipler = null
+range_rate_of_fire = 3
+siege_attack = 20
+siage_range = 6
+siage_multipler = null
+siege_rate_of_fire = 3.0
+civilization_code = "europe"
+entity_name = "Musketeer"
+hit_points = 150
+los_range = 16.0
+food_cost = 75
+wood_cost = null
+coin_cost = 25
+fame_cost = null
+food_bounty = 0
+wood_bounty = 0
+coin_bounty = 0
+fame_bounty = 10

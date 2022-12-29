@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dx3ieq7w4rtka"]
+[gd_scene load_steps=5 format=3]
 
 [ext_resource type="PackedScene" uid="uid://dup1yd56fo7b2" path="res://art/meshes/structural/zapotecs/corral.glb" id="1_3wqpy"]
-[ext_resource type="Script" path="res://game/structures.gd" id="2_0kd6i"]
+[ext_resource type="Script" path="res://game/structure.gd" id="2_0kd6i"]
 [ext_resource type="Material" uid="uid://bc8gmmpaudwmd" path="res://art/meshes/structural/zapotecs/zapotec.material" id="2_pllhf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mr3ml"]

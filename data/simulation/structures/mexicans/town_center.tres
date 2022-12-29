@@ -1,0 +1,36 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://b3w1t0b4oh2l5"]
+
+[ext_resource type="Script" path="res://game/resource/building_data.gd" id="1_v6n0f"]
+
+[resource]
+script = ExtResource("1_v6n0f")
+techs_need = []
+add_pop = 10
+max_builders = 8
+build_time = 6.0
+build_limit = 1
+garrison_type = "Villagers"
+garrison = 50
+damage_multiplier = {
+"Artillery": 0.5,
+"Villager": 2.0
+}
+range = 32
+rate_of_fire = 3.0
+anti_ship_damage = 75
+anti_ship_multiplier = null
+anti_ship_rate_of_fire = 3.0
+units = null
+techs = null
+civilization_code = "mex"
+entity_name = "Town Center"
+hit_points = 6500
+los_range = 38.0
+food_cost = null
+wood_cost = 500
+coin_cost = null
+fame_cost = null
+food_bounty = 0
+wood_bounty = 0
+coin_bounty = 0
+fame_bounty = 50
